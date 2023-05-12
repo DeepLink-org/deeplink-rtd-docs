@@ -1,0 +1,10 @@
+.header-logo {
+  background-image: url("../image/logo.png");
+  background-size: 60px 60px;
+  height: 60px;
+  width: 60px;
+}
+
+table.colwidths-auto td {
+  width: 50%
+}
