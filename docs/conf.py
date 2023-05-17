@@ -118,12 +118,12 @@ html_theme_options = {
             'children': [
                 {
                     'name': 'DIOPI',
-                    'url': 'https://github.com/DeepLink-org/DIOPI',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/DIOPI/DIOPI_index.html',
                 },
 
                 {
                     'name': 'DIPU',
-                    'url': 'https://github.com/DeepLink-org/dipu_poc',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/DIPU/DIPU_index.html',
                 },
             ],
         },
