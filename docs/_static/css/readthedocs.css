@@ -10,3 +10,29 @@
 table.colwidths-auto td {
   width: 50%
 }
+
+.doc-img{
+  width:50%;
+  margin-left:25%;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+article.pytorch-article p{
+  font-weight:350;
+}
+
+article.pytorch-article hr{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+article.pytorch-article blockquote {
+  margin: 0 auto;
+  margin-bottom: 0;
+  width: 80%;
+}
+.line{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-indent: 36px;
+}
