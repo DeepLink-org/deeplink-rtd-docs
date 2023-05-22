@@ -16,6 +16,11 @@ import pytorch_sphinx_theme
 
 sys.path.insert(0, os.path.abspath('..'))
 
+# -- Gen DIOPI doc -----------------------------------------------------------
+
+from subprocess import call 
+call(['git', 'clone', 'https://github.com/DeepLink-org/DIOPI.git'])
+call(['doxygen', 'Doxyfile'])
 
 # -- Project information -----------------------------------------------------
 
@@ -50,6 +55,7 @@ extensions = [
     'myst_parser',
     'sphinx_copybutton',
     'sphinxcontrib.mermaid',
+    'breathe',
 ]  # yapf: disable
 
 # Configuration for intersphinx
@@ -149,5 +155,13 @@ html_css_files = ['css/readthedocs.css']
 
 # -- Extension configuration -------------------------------------------------
 # Ignore >>> when copying code
-copybutton_prompt_text = r'>>> |\.\.\. '
+copybutton_prompt_text = r' |\.\.\. '
 copybutton_prompt_is_regexp = True
+
+# -- Breathe configuration -------------------------------------------------
+
+breathe_projects = {
+	"DIOPI Doxygen Breathe": "_doxygen/xml/"
+}
+breathe_default_project = "DIOPI Doxygen Breathe"
+breathe_default_members = ('members', 'undoc-members')
