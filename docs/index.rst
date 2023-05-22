@@ -52,9 +52,6 @@ DeepLink体系
 
    doc/DIOPI/Introduction
    doc/DIOPI/quick_start
-   doc/DIOPI/proto_readme
-   doc/DIOPI/impl_readme
-   doc/DIOPI/test_readme
    doc/DIOPI/API/API_index
    doc/DIOPI/FAQ
 
@@ -83,3 +80,11 @@ DeepLink体系
 
    doc/Chip_test/Introduction
 
+.. toctree::
+   :maxdepth: 1
+   :caption: 社区
+   :includehidden:
+
+   doc/Community/Contributors
+   doc/Community/PullRequest
+   doc/Community/CodingRule

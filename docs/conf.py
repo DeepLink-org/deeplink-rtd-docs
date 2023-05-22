@@ -118,12 +118,16 @@ html_theme_options = {
             'children': [
                 {
                     'name': 'DIOPI',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/DIOPI/DIOPI_index.html',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/Introduction.html',
                 },
 
                 {
                     'name': 'DIPU',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/DIPU/DIPU_index.html',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
+                },
+                {
+                    'name': '硬件测评',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
                 },
             ],
         },
