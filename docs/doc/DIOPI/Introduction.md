@@ -43,47 +43,40 @@ DIOPI-PROTO的主要组成部分包括 _运行时函数(diopirt）_ 和 _算�
 
 DIOPI-IMPL 主要用于芯片厂商基于 DIOPI-PROTO 进行标准算子实现，和基于 DIOPI-TEST 注册基础少量的运行时函数。芯片厂商需要在 DIOPI-IMPL 通过注册的形式，为后续测试提供如内存拷贝、流创建销毁等可管理设备芯片的功能，该实现部分仅供 DIOPI-TEST 测试所用。更为重要的是，芯片厂商可通过封装自身计算库或者调用 ```kernel``` 的方式来实现 DIOPI-PROTO 定义良好的标准算子接口以备后续测试调用和训练框架调用。
 
-## **实现原理**
+#### 实现原理
 
-* 实现 DIOPI-TEST 所需运行时函数:
+1. **实现 DIOPI-TEST 所需运行时函数:**
 
   ```DIOPI-TEST/include/diopi_register.h``` 中提供了运行时所需 C-API 函数声明，用户根据函数声明实现运行时所需函数，然后进行注册，以便测试套件能够在芯片上管理内存等资源。该实现部分仅供测试时使用。
 
-* 要求实现并注册的函数列表如下：
-  ```
-  typedef int32_t (*create_stream_func_t)(diopiStreamHandle_t*);
-  //其中diopiStreamHandle_t为void*类型别名;
-  typedef int32_t (*destroy_stream_func_t)(diopiStreamHandle_t);
+2. **实现 DIOPI 函数接口:**
 
-  typedef void* (*malloc_func_t)(uint64_t);
-  typedef void (*free_func_t)(void*);
+  ``DIOPI-PROTO/include/diopi/functions.h`` 根据模型训练和框架开发经验定义了一套标准算子的函数，每一个函数完成一个特定的、需要计算设备参与执行的功能。截止目前，从30个常用模型所需算子的角度出发，定义了所需的常见训练算子。该实现部分会由 DIOPI—TEST 测试后接入训练框架，用于真实模型训练。在实现的过程中，芯片厂商可根据自身特性来优化算子的性能。
 
-  typedef int32_t (*memcpy_h2d_async_func_t)(diopiStreamHandle_t stream, void* dst, const void* src, uint64_t bytes);
-  typedef int32_t (*memcpy_d2h_async_func_t)(diopiStreamHandle_t stream, void* dst, const void* src, uint64_t bytes);
-  typedef int32_t (*memcpy_d2d_async_func_t)(diopiStreamHandle_t stream, void* dst, const void* src, uint64_t bytes);
+  另外，DIOPI-PROTO 提供了如张量，标量等基础数据结构，这些基础数据结构也出现在DIOPI标准算子的参数列表中。而其中一些数据接口如张量 *Tensor*，上下文 *Context* 是不透明数据类型 ***Opaque data type***。 因此 ``DIOPI-PROTO/include/diopi/diopirt.h`` 提供了一套接口用以获取 *Tensor* 的相关信息或者从上下文 *Context* 请求资源。这套接口设计旨在连接训练框架和 DIOPI 算子库， 由训练框架提供给 DIOPI 算子库。而 DIOPI-TEST 将以仅为测试服务的原则实现这套接口。
 
-  typedef int32_t (*sync_stream_func_t)(diopiStreamHandle_t stream);
+### DIOPI-TEST
 
-  typedef const char* (*get_last_error_string_func_t)();
-  ```
-* 实现函数后进行注册：
+DIOPI-TEST是构建于设备无关算子接口（Device-Independent Operator Interface, DIOPI）之上的测试框架，它支持了没有训练框架的情况下，验证算子适配正确性的功能。DIOPI-TEST设计了一套完整的测试框架和一套算子函数测试。测试套件，可以使芯片厂商适配 DIOPI 算子时，无需训练框架即可对适配结果的正确性进行验证。
 
-  实现上述 DIOPI-TEST 所需运行时函数后，通过 DIOPI-TEST/csrc/litert.cpp 提供的注册函数在 initLibrary 中进行注册。示例如下:
+主要模块：
+1. **DIOPI-TEST 运行时：** 支持了运行时函数的接口，用以管理设备相关资源。
+2. **非算子测试：**
+    * 测试获取设备相关信息标准接口。
+    * 测试获取错误信息标准接口。
+    * 测试上下文 Context 中 Stream 的正确使用。
+3. **算子测试：**
+    * 自定义测例配置：套件提供了描述算子测例的配置文件，用户可自定义扩展测例。
+    * 生成基准数据：套件可以根据配置文件生成算子测例的基准输入和输出数据。
+    * 校验适配算子：算子适配完成后使用基准输入数据得到的结果与基准输出数据进行比较验证。
+4. **模型算子测试：**
+    * 采用算子测试相同的测例配置规则, 使用同一个测试框架生成基准数据并进行测试验证。
+    * 从30多个模型训练过程中抓取张量形状，数据类型及其他非张量参数值生成测例。
 
-  ```
-  int32_t initLibrary() {
-      // others register function...
-      diopiRegisterMemcpyD2DAsyncFunc(cuda_memcpy_d2d_async);
-      // others register function...
-      return diopiSuccess;
-  }
-  ```
 
-* 实现 DIOPI 函数接口:
-
-  DIOPI-PROTO/include/diopi/functions.h 根据模型训练和框架开发经验定义了一套标准算子的函数，每一个函数完成一个特定的、需要计算设备参与执行的功能。截止目前，从30个常用模型所需算子的角度出发，定义了所需的常见训练算子。该实现部分会由 DIOPI—TEST 测试后接入训练框架，用于真实模型训练。在实现的过程中，芯片厂商可根据自身特性来优化算子的性能。
-
-  另外，DIOPI-PROTO 提供了如张量，标量等基础数据结构，这些基础数据结构也出现在DIOPI标准算子的参数列表中。而其中一些数据接口如张量 *Tensor*，上下文 *Context* 是不透明数据类型 ***Opaque data type***。 因此 DIOPI-PROTO/include/diopi/diopirt.h 提供了一套接口用以获取 *Tensor* 的相关信息或者从上下文 *Context* 请求资源。这套接口设计旨在连接训练框架和 DIOPI 算子库， 由训练框架提供给 DIOPI 算子库。而 DIOPI-TEST 将以仅为测试服务的原则实现这套接口。
+DIOPI-TEST 测试范围：
+* 每一个 DIOPI 标准算子均有相应的测试，并且会从不同的数据类型、张量维度、非张量参数等角度对每个算子设计多个测例。保证 DIOPI 标准算子接口中每个参数功能均被测试。针对常见训练算子目前已有约 2500个测例， 其中涵盖了如 conv2d， batch_norm, adaptive_max_pool2d, relu 等经典训练算子。
+* DIOPI-TEST 提供的模型算子测试，涵盖了经典分类模型如 resnet50, vgg16, seresnet50, densenet, mobilenet_v2, efficientnet, shufflenet_v2, repvgg, swin_transformer, vit, inceptionv3 及经典检测模型如 retinanet, faster_rcnn_r50, ssd300, yolov3, atss, fcos, mask_rcnn, solo, centernet, cascade_rcnn, detr 及经典分割模型如 unet, upernet, pspnet, fcn, deeplabv3, deeplabv3plus 及其他领域深度学习模型 sar, dbnet, stgcn, crnn, hrnet, deeppose, tsn, slowfast。
 
 
 
