@@ -32,10 +32,10 @@ PEP 8 —— Python 官方代码规范
 
     “A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.” PEP 8 – Style Guide for Python Code
 
-.. note::
+
     PEP 8 的代码规范并不是绝对的，项目内的一致性要优先于 PEP 8 的规范。OpenMMLab 各个项目都在 setup.cfg 设定了一些代码规范的设置，请遵照这些设置。一个例子是在 PEP 8 中有如下一个例子：
 
-    .. code-block:: python
+
         # Correct:
         hypot2 = x*x + y*y
         # Wrong:
@@ -58,7 +58,6 @@ Google 开源项目风格指南
 
 另外需要注意的一处规范是关于包的导入，在该指南中，要求导入本地包时必须使用路径全称，且导入的每一个模块都应当单独成行，通常这是不必要的，而且也不符合目前项目的开发惯例，此处进行如下约定：
 
-.. code-block::
     # Correct
     from mmcv.cnn.bricks import (Conv2d, build_norm_layer, DropPath, MaxPool2d,
                                 Linear)
@@ -193,7 +192,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
     else:
         self.build_func = build_func
 
-1. 出自 ``mmcv/runner/checkpoint.py``，对于 bug 修复中的一些特殊处理，可以附带相关的 issue 链接，帮助其他人了解 bug 背景。
+2. 出自 ``mmcv/runner/checkpoint.py``，对于 bug 修复中的一些特殊处理，可以附带相关的 issue 链接，帮助其他人了解 bug 背景。
 
 
     def _save_ckpt(checkpoint, file):
