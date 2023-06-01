@@ -32,10 +32,10 @@ PEP 8 —— Python 官方代码规范
 
     “A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.” PEP 8 – Style Guide for Python Code
 
-
+.. note::
     PEP 8 的代码规范并不是绝对的，项目内的一致性要优先于 PEP 8 的规范。OpenMMLab 各个项目都在 setup.cfg 设定了一些代码规范的设置，请遵照这些设置。一个例子是在 PEP 8 中有如下一个例子：
 
-
+    .. code-block:: python
         # Correct:
         hypot2 = x*x + y*y
         # Wrong:
@@ -58,6 +58,7 @@ Google 开源项目风格指南
 
 另外需要注意的一处规范是关于包的导入，在该指南中，要求导入本地包时必须使用路径全称，且导入的每一个模块都应当单独成行，通常这是不必要的，而且也不符合目前项目的开发惯例，此处进行如下约定：
 
+.. code-block::
     # Correct
     from mmcv.cnn.bricks import (Conv2d, build_norm_layer, DropPath, MaxPool2d,
                                 Linear)
@@ -80,6 +81,14 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 基础命名规范
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
++--------+---------------------+------------------------+
+|   类型  |         公有        |         私有            |
++========+=====================+========================+
+|   类型  |         公有        |         私有            |
++--------+---------------------+------------------------+
+
+test
 
 +--------+---------------------+------------------------+
 |   类型  |         公有        |         私有            |
@@ -110,7 +119,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 * 长短适中
 * 前后统一
 
-::
+.. code-block:: python
     # Wrong
     class Masks(metaclass=ABCMeta):  # 命名无法表现基类；Instance or Semantic？
         pass
@@ -149,7 +158,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 最需要写注释的是代码中那些技巧性的部分。如果你在下次代码审查的时候必须解释一下，那么你应该现在就给它写注释。对于复杂的操作，应该在其操作开始前写上若干行注释。对于不是一目了然的代码，应在其行尾添加注释。 —— Google 开源项目风格指南
 
-
+.. code-block:: python
     # We use a weighted dictionary search to find out where i is in
     # the array. We extrapolate position based on the largest num
     # in the array and the array size and then do binary search to
@@ -158,7 +167,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 为了提高可读性, 注释应该至少离开代码2个空格. 另一方面, 绝不要描述代码. 假设阅读代码的人比你更懂Python, 他只是不知道你的代码要做什么. —— Google 开源项目风格指南
 
-
+.. code-block:: python
     # Wrong:
     # Now go through the b array and make sure whenever i occurs
     # the next element is i+1
@@ -168,7 +177,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 在注释中，可以使用 Markdown 语法，因为开发人员通常熟悉 Markdown 语法，这样可以便于交流理解，如可使用单反引号表示代码和变量（注意不要和 docstring 中的 ReStructured 语法混淆）
 
-
+.. code-block:: python
     # `_reversed_padding_repeated_twice` is the padding to be passed to
     # `F.pad` if needed (e.g., for non-zero padding types that are
     # implemented as two ops: padding + conv). `F.pad` accepts paddings in
@@ -179,7 +188,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 ^^^^^^^^^^^^^^^^^^^^^^^
 1. 出自 ``mmcv/utils/registry.py``，对于较为复杂的逻辑结构，通过注释，明确了优先级关系。
 
-
+.. code-block:: python
     # self.build_func will be set with the following priority:
     # 1. build_func
     # 2. parent.build_func
@@ -192,9 +201,9 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
     else:
         self.build_func = build_func
 
-2. 出自 ``mmcv/runner/checkpoint.py``，对于 bug 修复中的一些特殊处理，可以附带相关的 issue 链接，帮助其他人了解 bug 背景。
+1. 出自 ``mmcv/runner/checkpoint.py``，对于 bug 修复中的一些特殊处理，可以附带相关的 issue 链接，帮助其他人了解 bug 背景。
 
-
+.. code-block:: python
     def _save_ckpt(checkpoint, file):
         # The 1.6 release of PyTorch switched torch.save to use a new
         # zipfile-based file format. It will cause RuntimeError when a
@@ -222,7 +231,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. 函数 / 方法类型注解，通常不对 self 和 cls 注释。
 
-.. code-block::
+.. code-block:: python
     from typing import Optional, List, Tuple
 
     # 全部位于一行
@@ -249,7 +258,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 注：类型注解中的类型可以是 Python 内置类型，也可以是自定义类，还可以使用 Python 提供的 wrapper 类对类型注解进行装饰，一些常见的注解如下：
 
-.. code-block::
+.. code-block:: python
     # 数值类型
     from numbers import Number
 
@@ -278,7 +287,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 1. 变量类型注解，一般用于难以直接推断其类型时
 
-.. code-block::
+.. code-block:: python
     # Recommend: 带类型注解的赋值
     a: Foo = SomeUndecoratedFunction()
     a: List[int]: [1, 2, 3]         # List 只支持单一类型泛型，可使用 Union
@@ -298,7 +307,7 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 上文中我们知道，typing 中提供了 list 和 dict 的泛型类型，那么我们自己是否可以定义类似的泛型呢？
 
-.. code-block::
+.. code-block:: python
     from typing import TypeVar, Generic
 
     KT = TypeVar('KT')
@@ -313,13 +322,13 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 使用上述方法，我们定义了一个拥有泛型能力的映射类，实际用法如下：
 
-.. code-block::
+.. code-block:: python
     mapping = Mapping[str, float]({'a': 0.5})
     value: float = example['a']
 
 另外，我们也可以利用 TypeVar 在函数签名中指定联动的多个类型：
 
-.. code-block::
+.. code-block:: python
     from typing import TypeVar, List
 
     T = TypeVar('T')  # Can be anything
@@ -343,7 +352,7 @@ mypy 是一个 Python 静态类型检查工具。根据你的类型注解，mypy
 
 例如如下的一个 Python 脚本文件 test.py:
 
-.. code-block::
+.. code-block:: python
     def foo(var: int) -> float:
         return float(var)
 
@@ -352,7 +361,7 @@ mypy 是一个 Python 静态类型检查工具。根据你的类型注解，mypy
 
 运行 mypy test.py 可以得到如下检查结果，分别指出了第 4 行在函数调用和返回值赋值两处类型错误。而第 5 行同样存在两个类型错误，由于使用了 type: ignore 而被忽略了，只有部分特殊情况可能需要此类忽略。
 
-.. code-block::
+.. code-block:: python
     test.py:4: error: Incompatible types in assignment (expression has type "float", variable has type "int")
     test.py:4: error: Argument 1 to "foo" has incompatible type "str"; expected "int"
     Found 2 errors in 1 file (checked 1 source file)
