@@ -87,5 +87,4 @@ DeepLink体系
 
    doc/Community/Contributors
    doc/Community/PullRequest
-   doc/Community/CodingRule
    doc/Community/CodingRule2
