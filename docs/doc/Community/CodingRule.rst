@@ -12,7 +12,7 @@ PEP 8 —— Python 官方代码规范
 
 * 尾随逗号相关的规范。当列表较长，无法一行写下而写成如下逐行列表时，推荐在末项后加逗号，从而便于追加选项、版本控制等。
 
-.. code-block:: python
+.. code:: python
     # Correct:
     FILES = ['setup.cfg', 'tox.ini']
     # Correct:
@@ -58,7 +58,7 @@ Google 开源项目风格指南
 
 另外需要注意的一处规范是关于包的导入，在该指南中，要求导入本地包时必须使用路径全称，且导入的每一个模块都应当单独成行，通常这是不必要的，而且也不符合目前项目的开发惯例，此处进行如下约定：
 
-.. code-block::
+::
     # Correct
     from mmcv.cnn.bricks import (Conv2d, build_norm_layer, DropPath, MaxPool2d,
                                 Linear)
@@ -81,6 +81,15 @@ OpenMMLab 项目使用 pre-commit 工具自动格式化代码，详情见 `贡�
 
 基础命名规范
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+=========  =============  ===============
+类型            公有     私有
+=========  =============  ===============
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=========  =============  ===============
+
 
 +--------+---------------------+------------------------+
 |   类型  |         公有        |         私有            |
