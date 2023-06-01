@@ -16,6 +16,11 @@ import pytorch_sphinx_theme
 
 sys.path.insert(0, os.path.abspath('..'))
 
+# -- Gen DIOPI doc -----------------------------------------------------------
+
+from subprocess import call 
+call(['git', 'clone', 'https://github.com/DeepLink-org/DIOPI.git'])
+call(['doxygen', 'Doxyfile'])
 
 # -- Project information -----------------------------------------------------
 
@@ -50,6 +55,7 @@ extensions = [
     'myst_parser',
     'sphinx_copybutton',
     'sphinxcontrib.mermaid',
+    'breathe',
 ]  # yapf: disable
 
 # Configuration for intersphinx
@@ -118,12 +124,16 @@ html_theme_options = {
             'children': [
                 {
                     'name': 'DIOPI',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/DIOPI/DIOPI_index.html',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/Introduction.html',
                 },
 
                 {
                     'name': 'DIPU',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/DIPU/DIPU_index.html',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
+                },
+                {
+                    'name': '硬件测评',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
                 },
             ],
         },
@@ -134,8 +144,8 @@ html_theme_options = {
         },
     ],
     # Specify the language of shared menu
-    'menu_lang':
-    'en',
+    #'menu_lang':
+    #'en',
 }
 
 html_show_sphinx = False
@@ -149,5 +159,13 @@ html_css_files = ['css/readthedocs.css']
 
 # -- Extension configuration -------------------------------------------------
 # Ignore >>> when copying code
-copybutton_prompt_text = r'>>> |\.\.\. '
+copybutton_prompt_text = r' |\.\.\. '
 copybutton_prompt_is_regexp = True
+
+# -- Breathe configuration -------------------------------------------------
+
+breathe_projects = {
+	"DIOPI Doxygen Breathe": "_doxygen/xml/"
+}
+breathe_default_project = "DIOPI Doxygen Breathe"
+breathe_default_members = ('members', 'undoc-members')

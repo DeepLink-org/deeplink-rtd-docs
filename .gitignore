@@ -68,6 +68,8 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/_doxygen/
+docs/DIOPI/
 
 # PyBuilder
 target/
