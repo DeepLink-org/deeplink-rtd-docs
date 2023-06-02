@@ -1,4 +1,4 @@
-DIOPI API
+DIOPI C API
 ------------
 
 .. toctree::

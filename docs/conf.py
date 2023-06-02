@@ -14,13 +14,15 @@ import os
 import sys
 import pytorch_sphinx_theme
 
-sys.path.insert(0, os.path.abspath('..'))
-
 # -- Gen DIOPI doc -----------------------------------------------------------
 
 from subprocess import call 
 call(['git', 'clone', 'https://github.com/DeepLink-org/DIOPI.git'])
 call(['doxygen', 'Doxyfile'])
+call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
+call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
+
+sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 
 # -- Project information -----------------------------------------------------
 
