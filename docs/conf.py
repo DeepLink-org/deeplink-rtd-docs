@@ -146,8 +146,8 @@ html_theme_options = {
         },
     ],
     # Specify the language of shared menu
-    'menu_lang':
-    'en',
+    #'menu_lang':
+    #'en',
 }
 
 html_show_sphinx = False
