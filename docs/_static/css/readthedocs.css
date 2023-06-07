@@ -36,3 +36,11 @@ article.pytorch-article blockquote {
   margin-bottom: 8px;
   text-indent: 36px;
 }
+
+.red {
+  color:red;
+}
+
+.blue {
+  color:#2980b9;
+}
