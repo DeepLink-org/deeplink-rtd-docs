@@ -81,8 +81,9 @@ DeepLink体系
 
    doc/DIPU/Introduction
    doc/DIPU/quick_start
-   doc/DIPU/API/API_index
    doc/DIPU/FAQ
+   .. doc/DIPU/API/API_index
+   
 
 .. toctree::
    :maxdepth: 1
@@ -104,5 +105,6 @@ DeepLink体系
    :includehidden:
 
    doc/Community/Contributors
-   doc/Community/PullRequest
    doc/Community/CodingRule2
+   .. doc/Community/PullRequest
+   
