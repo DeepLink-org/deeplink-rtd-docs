@@ -12,7 +12,7 @@ DIOPI-设备无关算子接口（Device-Independent Operator Interface, DIOPI）
 
 ## 结构说明
 
-![结构](img/structure2.png)
+![结构](../../_static/image/DIOPI/DIOPI_structure.png)
 
 DIOPI主要包含以下几个组件：
 
@@ -35,7 +35,7 @@ DIOPI_PROTO有如下核心功能：
  声明了标准算子的函数，每一个函数完成一个特定的、需要计算设备参与执行的功能。
 
 
-DIOPI-PROTO的主要组成部分包括 _运行时函数(diopirt）_ 和 _算子声明(functions)_。运行时函数主要为芯片厂商提供实现算子函数时需要框架提供的工具函数，主要包括一些公共类型的声明以及分配与管理张量数据等；算子声明包含了用于人工智能计算的大量函数声明，为各个算子接口的具体参数及其类型提供了标准化的定义；C-API文档生成为算子声明生成API说明文档，供算子开发与使用者查阅。更多信息可以查看[DIOPI-PROTO](https://github.com/DeepLink-org/DIOPI/tree/main/DIOPI-PROTO)。
+DIOPI-PROTO的主要组成部分包括 _运行时函数(diopirt)_ 和 _算子声明(functions)_。运行时函数主要为芯片厂商提供实现算子函数时需要框架提供的工具函数，主要包括一些公共类型的声明以及分配与管理张量数据等；算子声明包含了用于人工智能计算的大量函数声明，为各个算子接口的具体参数及其类型提供了标准化的定义；C-API文档生成为算子声明生成API说明文档，供算子开发与使用者查阅。更多信息可以查看[DIOPI-PROTO](https://github.com/DeepLink-org/DIOPI/tree/main/DIOPI-PROTO)。
 
 
 ### DIOPI-IMPL
