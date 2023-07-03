@@ -2,7 +2,7 @@
 
 ## 贡献代码
 
-欢迎加入 DIOPI 社区，我们致力于打造训练框架和人工智能芯片之间的标准算子接口，我们欢迎任何类型的贡献，包括但不限于
+欢迎加入 DeepLink 社区，我们致力于打造训练框架和人工智能芯片之间的标准算子接口，我们欢迎任何类型的贡献，包括但不限于
 
 **修复错误**
 
@@ -38,7 +38,7 @@
 （图片待修改）
 <img src="" width="1200">
 -->
-将代码克隆到本地
+将代码克隆到本地。(此处以 DIOPI 仓库为例，其他仓库可参考：[DIPU](https://github.com/DeepLink-org/DIPU/blob/main/Contributors.md))。
 
 ```shell
 git clone git@github.com:{username}/DIOPI.git
