@@ -82,9 +82,9 @@ export PYTHONPATH=/home/$USER/code/dipu:$PYTHONPATH
 python tests/test_ops/archived/test_tensor_add.py
 ```
 
-# 3. 算子库
+## 3. 算子库
 
-## 3.1 算子库接入（请参考DIOPI第三方芯片算子库）
+### 3.1 算子库接入（请参考DIOPI第三方芯片算子库）
 
 在接入DIPU之前，我们的硬件应该提供一个已经实现的算子库，并已经按照 DIOPI-PROTO 的声明进行了对应函数的实现，接入 DIOPI-IMPL。通过DIOPI-IMPL，我们可以编译出``libdiopi_impl.so``作为算子库文件
 - 细节可参考 [DIOPI仓库](https://github.com/DeepLink-org/DIOPI)
@@ -151,8 +151,8 @@ DIOPI_API diopiError_t diopiSoftmax(diopiContextHandle_t ctx, diopiTensorHandle_
 }
 ```
 
-## 3.2 算子库拓展功能
-### 3.2.1 算子fallback
+### 3.2 算子库拓展功能
+#### 3.2.1 算子fallback
 Fallback 给定算子
 ```shell
 $ export DIPU_FORCE_FALLBACK_OPS_LIST=add.out,conv2d
@@ -171,7 +171,7 @@ $ export DIPU_FORCE_FALLBACK_OPS_LIST='.*'
 $ python -c "import torch_dipu"
 ```
 
-### 3.2.2 算子精度自动对比功能介绍
+#### 3.2.2 算子精度自动对比功能介绍
 由于该功能默认不开启，使用该功能时需要打开该功能并重新编译DIPU。
 如在寒武纪设备上，可将`dipu/scripts/ci_camb_script.sh`中的`autocompare`修改为`True`，其他设备类似
 ```shell
@@ -218,7 +218,7 @@ autocompare:    add.out other: allclose
 2. 随机数生成相关的算子（`dipu/scripts/autogen_diopi_wrapper/diopi_functions.yaml`中配置了`autocompare:False`）没有做`autocompare`，因为结果总是 `not_allclose`。
 3. 对输入做检查是确保算子输入不被意外修改。
 
-### 3.2.3 抓取算子参数
+#### 3.2.3 抓取算子参数
 该功能需要打开`autogen`的`print_op_arg`和`print_func_call_info`选项，在模型调试和测试时遇到问题时可方便的拿到算子输入情况。不需要打印时也可关掉。
 
 ```shell
@@ -265,10 +265,10 @@ diopi dyload init
 
 ```
 
-# 4. 新硬件Runtime接入实现
-## 4.1 接入流程示意图
+## 4. 新硬件Runtime接入实现
+### 4.1 接入流程示意图
  ![结构图](../../_static/image/DIPU/SOP_01.png)
-## 4.2 核心代码添加
+### 4.2 核心代码添加
 - 在``dipu/torch_dipu/csrc_dipu/common.h``中定义了DIPU支持的硬件类型，我们需要在`VendorDeviceType`枚举类中添加 STPU 的硬件后端，并在这个文件中的`VendorTypeToStr`函数里添加新硬件支持。后续这个文件中可能有更多的函数会涉及到硬件类型，按需添加即可
 - `dipu/torch_dipu/csrc_dipu/vendor`文件夹中存有各个硬件后端的*runtime*接入代码，我们需要根据`dipu/torch_dipu/csrc_dipu/runtime/device/deviceapis.h`中的声明，创建`deviceimpl.cpp`去根据硬件自己底层的*runtime*接口实现对应的函数。下面是`deviceapis.h`中的`createStream`函数的在国产硬件上的实现样例：
 
@@ -284,12 +284,12 @@ void createStream(deviceStream_t* stream, bool prior) {
 - 如果有多机多卡训练的需求，需要根据`dipu/torch_dipu/csrc_dipu/runtime/device/diclapis.h`中的声明，创建`communiatorimpl.cpp`去根据硬件自己底层的*runtime*接口实现对应的函数
 - DIPU在`dipu/torch_dipu/csrc_dipu/runtime/core/DIPUGeneratorImpl.h`中声明了`DIPUGeneratorImpl`这一个基本，如果我们的硬件实现了自己的`generator`基础函数，可以在这基础上实现自己的`DeviceGeneratorImpl`，并实现基础的`generator`相关函数。国产硬件暂无这方面的实现
 
-## 4.3 增加编译脚本
+### 4.3 增加编译脚本
 - 在`dipu/CMakeList.txt`中，加入新硬件的控制代码。可以参考CUDA、CAMB等其他硬件，加入STPU选项，让打开`USE_STPU`，并使得`UsedVendor`变为STPU
 - 在`dipu/torch_dipu/csrc_dipu/vendor`中我们需要编写`CMakeList`，给出`VENDOR_INCLUDE_DIRS`、`VENDOR_LIB_DIRS`、`DIPU_VENDOR_LIB`、`VENDOR_FILES`这几个硬件后端自己的头文件、库文件和runtime接入源代码，来让上层根据这些变量进行编译
 - 对应上述CMAKE的修改，我们应该修改我们的编译脚本，在cmake相关命令中，我们的`template_build_sh`里面使用了`DCAMB=ON`，将其修改为`DSTPU=ON`
 
-## 4.4 编译与测试
+### 4.4 编译与测试
 - 根据DIPU的编译介绍，我们在编译了impl之后，使用其编译脚本编译C++ ext和Python链接部分（脚本中`builddl`和`builddp`），这里需要注意编译之后将`LIBRARY_PATH`、`LD_LIBRARY_PATH`、`PYTHONPATH`都设置好避免后续使用出现问题
 - `dipu/tests`文件夹中有许多基础功能的测试，建议首先尝试测试`python -u dipu/tests/test_ops/archived/test_tensor_add.py`，该文件测试跑通基本意味着我们的设备*runtime*接入没有问题了
 - 编译脚本参考[2.1.3](#213-编译dipu)，测试脚本可以参考[2.1.4](#214-验证dipu)
