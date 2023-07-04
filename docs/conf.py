@@ -21,8 +21,8 @@ call(['git', 'clone', '-b', 'v0.2.0', 'https://github.com/DeepLink-org/DIOPI.git
 call(['doxygen', 'Doxyfile'])
 call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
-call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
-call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 
 # -- Project information -----------------------------------------------------
