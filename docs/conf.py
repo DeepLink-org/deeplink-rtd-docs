@@ -17,7 +17,7 @@ import pytorch_sphinx_theme
 # -- Gen DIOPI doc -----------------------------------------------------------
 
 from subprocess import call 
-call(['git', 'clone', '-b', 'v0.2.0', 'https://github.com/DeepLink-org/DIOPI.git'])
+call(['git', 'clone', '-b', 'v0.1.0', 'https://github.com/DeepLink-org/DIOPI.git'])
 call(['doxygen', 'Doxyfile'])
 call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 # -- Project information -----------------------------------------------------
 
 project = 'DeepLink Doc'
-copyright = '2023, OpenComputeLab'
+copyright = '2023, DeepLink'
 author = 'DeepLink contributor'
 
 # The full version, including alpha/beta/rc tags
