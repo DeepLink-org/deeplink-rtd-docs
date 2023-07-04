@@ -13,9 +13,9 @@ DIPU 结构上分为 Python 和 CPP 两部分。
 
 ### CPP层
 #### 1. Runtime (``csrc/dipu/runtime``):
-  *Runtime* 主要有以下几个部分：
+*Runtime* 主要有以下几个部分：
 
-##### 1）*Core & Distributed*：
+##### 1）Core & Distributed：
 PyTorch 把一些基本的设备层接口放到了一个叫 ``c10`` 的目录下，不同的设备接入者需要实现该接口来接入 PyTorch。
 详见[参考文档](http://blog.ezyang.com/2019/05/pytorch-internals/) 里对于``c10`` 的介绍。
 
@@ -57,7 +57,7 @@ DIPU 的这一部分主要就是对 PyTorch 的``c10`` 和``c10d``相关接口�
   后面另有规划 DIPU 的配置化接口等能力，可以为不同的 *Vendor* 输入不同配置。以配置驱动的方式来指导 *Runtime* 和 DIOPI 算子适配流程的构建。
 
 ## 相关功能介绍:
-### Dispatch 机制与 DIOPI 算子库
+### 1. Dispatch 机制与 DIOPI 算子库
   PyTorch 的算子注册和分派有很多步骤，详见[参考文档](
   https://github.com/pytorch/pytorch/wiki/PyTorch-dispatcher-walkthrough)。
 
@@ -65,7 +65,7 @@ DIPU 的这一部分主要就是对 PyTorch 的``c10`` 和``c10d``相关接口�
 
   这里面有一定的灵活性，以``Linear``算子为例，在 PyTorch 的 ``cpu/cuda`` 设备上，它被实现为一个 ``composite`` 算子，实际的 *backend* 层算子是组合算子内部调用的 ``addmm`` 或者更底层的 ``mm``。 而在 DIPU (``privateuse1``) 设备中，目前是注册了 一个 ``Linear`` 算子 ( DIOPI 有这个算子 ) 来替代组合算子，所以分派会直接走到新的 *backend* 层算子 ``Linear`` ，而不会在调用原来的 ``addmm/mm``。但是如果对应设备的 DIOPI-Impl 算子库 没有实现 ``diopiLinear`` 而是实现了 ``mm`` 算子，也是可以正常走通 ``Linear`` 的调用流程的。
 
-### 无侵入式的 PyTorch 扩展包:
+### 2. 无侵入式的 PyTorch 扩展包:
   DIPU 没有直接修改 PyTorch 的代码，而是使用 out-of-tree 的方式接入新设备，详见[参考文档](https://pytorch.org/tutorials/advanced/extend_dispatcher.html)。
   
   PyTorch 要求 out-of-tree 的代码 必须定义一个私有的 ``Backend Key``，DIPU目前没有和 PyTorch 做官方的沟通， 因此 PyTorch 主干里没有``DIPU``这个设备，目前是暂时借用``PrivateUse1`` 这个 Key (后续考虑改为借用``XPU``设备 Key，因为这个 Key 在 PyTorch 主干代码中有更好的支持)。
@@ -75,11 +75,11 @@ DIPU 的这一部分主要就是对 PyTorch 的``c10`` 和``c10d``相关接口�
   但是 PyTorch 并不完全符合 `扩展开放，修改关闭` 的范式。很多能力不是基于`注册` 的方式来开放给扩展组件的，而是在代码里对不同的 ``Backend Key`` 做的 if-else 判断。 并且不同的组件对于 ``Backend Key`` 的支持程度也不同。 有些 Legacy 的逻辑只支持 CUDA & CPU，完全无法扩展; 还有一些仅支持固定的几个 ``Backend Key``。DIPU 目前的做法是 在 Python 层加一层代理，把用户的函数调用转换成底层可以支持的方式。这样的问题是会带来很多无谓的适配逻辑，但是鉴于 PyTorch 的现状，暂时先这样处理。后续也希望和 PyTorch 官方有所合作。
 
 
-### 算子适配能力
+### 3. 算子适配能力
   为了更好的接入 DIOPI 算子，DIPU 提供了一组 算子适配相关的辅助能力，比如灵活的算子 Fallback to CPU 的能力，算子精度自动对比的能力（对比 DIOPI 算子 和 PyTorch 原生的 CPU 算子），算子执行过程中打印算子参数的能力。基于这些能力，接入算子时可以更方便排查算子精度等问题。 相关能力的具体说明参见 [SOP 文档](https://github.com/DeepLink-org/dipu/blob/main/SOP.md)的 *算子库接入*。
 
 
-## 质量保障体系
+## 4. 质量保障体系
 在每次代码合并之前，都会在各个设备上跑测试，测试全都跑通过才能合并。
 我们的测试包括三部分：
 1. Pytorch 测例。我们充分利用了 Pytorch 的测试框架的功能，能够充分利用 Pytorch 的测例。有些情况下，Pytorch 测例过于严苛，超过了设备的支持能力时，也可以在配置文件中跳过相关测例。可以为每个设备单独设置：算子精度阈值，支持的数据类型，要跳过的测例，要跑的测例等。
