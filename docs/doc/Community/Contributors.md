@@ -36,7 +36,7 @@
 （图片待修改）
 <img src="" width="1200">
 -->
-将代码克隆到本地。(此处以 DIOPI 仓库为例，其他仓库可参考：[DIPU](https://github.com/DeepLink-org/DIPU/blob/main/Contributors.md))。
+将代码克隆到本地。(此处以 DIOPI 仓库为例，其他仓库可参考仓库中专属指南。如：[DIPU](https://github.com/DeepLink-org/DIPU/blob/main/Contributors.md))。
 
 ```shell
 git clone git@github.com:{username}/DIOPI.git
