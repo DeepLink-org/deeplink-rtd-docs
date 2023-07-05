@@ -19,6 +19,9 @@ class Dtype:
     float64 = float
     int32 = int
     int64 = int
+    int16 = int 
+    int8 = int
+    uint8 = int
     complex64 = float
     complex128 = float
 class Device:
