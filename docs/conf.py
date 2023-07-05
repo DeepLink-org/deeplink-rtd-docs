@@ -54,6 +54,7 @@ else:
 
 
 
+
 call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
 call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
