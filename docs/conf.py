@@ -53,8 +53,8 @@ else:
 #     print("python/conformance/test_import_error.py命令执行出错")
 
 
-call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
-call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
