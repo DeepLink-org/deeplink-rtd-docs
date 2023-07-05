@@ -33,8 +33,23 @@ call(['python DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
 call(['cp gqw/test_import_error.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
 
-
-
+import subprocess
+result = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
+result1 = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
+result3 = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
+# 检查执行结果
+if result == 0:
+    print("python/test_import.py命令执行成功")
+else:
+    print("python/test_import.py命令执行出错")
+if result1 == 0:
+    print("python/conformance/test_import.py命令执行成功")
+else:
+    print("python/conformance/test_import.py命令执行出错")
+if result2 == 0:
+    print("python/conformance/test_import_error.py命令执行成功")
+else:
+    print("python/conformance/test_import_error.py命令执行出错")
 
 
 
