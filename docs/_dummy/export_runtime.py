@@ -12,8 +12,16 @@ diopiRoundMode = object
 diopiError = object
 TensorP = object
 Context = object
-Device = object
 Dtype = object
+class Dtype:
+    float16 = 1
+    float32 = 1
+    Dtype.float64 = 1
+    Dtype.int32 = 1
+    Dtype.int64 = 1
+class Device:
+    Host = 1
+    AIChip = 1
 def diopi_tensor_copy_to_buffer(context, tensor, ptr):
     return 
 def get_last_error_string():
