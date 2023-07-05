@@ -21,8 +21,21 @@ call(['git', 'clone', '-b', 'v0.2.0', 'https://github.com/DeepLink-org/DIOPI.git
 call(['doxygen', 'Doxyfile'])
 call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
-call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
-call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
+
+# call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
+# call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
+
+## for宫岐伟 test
+
+#只生成中文的
+call(['cp -f gqw/index.rst DIOPI/DIOPI-TEST/python/docs/source/'], shell=True)
+#替代函数
+call(['cp -f gqw/diopi_functions.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
+#替代文档生成文件
+call(['cp -f gqw/__init__.py DIOPI/DIOPI-TEST/python/docs/CN_doc/'], shell=True)
+
+## for宫岐伟 test
+
 sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 
 # -- Project information -----------------------------------------------------
