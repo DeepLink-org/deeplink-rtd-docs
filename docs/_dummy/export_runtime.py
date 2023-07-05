@@ -14,11 +14,11 @@ TensorP = object
 Context = object
 Dtype = object
 class Dtype:
-    float16 = 1
-    float32 = 1
-    Dtype.float64 = 1
-    Dtype.int32 = 1
-    Dtype.int64 = 1
+    float16 = ifloat
+    float32 = float
+    float64 = float
+    int32 = int
+    int64 = int
 class Device:
     Host = 1
     AIChip = 1
