@@ -33,7 +33,7 @@ call(['cp -f gqw/index.rst DIOPI/DIOPI-TEST/python/docs/source/'], shell=True)
 call(['cp -f gqw/diopi_functions.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 #替代文档生成文件
 call(['cp -f gqw/__init__.py DIOPI/DIOPI-TEST/python/docs/CN_doc/'], shell=True)
-
+call(['cp -f gqw/__init__.py DIOPI/DIOPI-TEST/python/docs/EN_doc/'], shell=True)
 ## for宫岐伟 test
 
 sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
