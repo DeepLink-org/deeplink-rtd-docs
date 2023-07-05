@@ -23,8 +23,8 @@ call(['doxygen', 'Doxyfile'])
 # call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 
 
-call(['cp gqw/export_functions.py DIOPI/DIOPI-TEST/python'], shell=True)
-call(['cp gqw/export_functions.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
+call(['cp _dummy/export_functions.py DIOPI/DIOPI-TEST/python'], shell=True)
+call(['cp _dummy/export_functions.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
 call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
 call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 
