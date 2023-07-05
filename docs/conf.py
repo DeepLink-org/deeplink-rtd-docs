@@ -28,14 +28,6 @@ call(['cp _dummy/export_functions.py DIOPI/DIOPI-TEST/python/conformance'], shel
 call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
 call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 
-
-
-# import subprocess
-# result = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
-# result1 = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
-# result3 = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
-# # 检查执行结果
-
 sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 
 # -- Project information -----------------------------------------------------

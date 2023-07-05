@@ -7,6 +7,7 @@ diopiError = object
 TensorP = object
 Context = object
 Dtype = object
+
 class Dtype:
     float16 = float
     float32 = float
@@ -28,6 +29,7 @@ class Dtype:
 class Device:
     Host = 1
     AIChip = 1
+    
 def diopi_tensor_copy_to_buffer(context, tensor, ptr):
     return 
 def get_last_error_string():
