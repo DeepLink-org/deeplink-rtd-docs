@@ -28,6 +28,16 @@ call(['cp gqw/test_import.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
 call(['cp gqw/test_import.py DIOPI/DIOPI-TEST/python'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
+
+
+call(['cp gqw/test_import_error.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
+call(['python DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
+
+
+
+
+
+
 # call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
 # call(['cp _dummy/lib/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 
