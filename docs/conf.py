@@ -19,8 +19,8 @@ import pytorch_sphinx_theme
 from subprocess import call 
 call(['git', 'clone', '-b', 'v0.2.0', 'https://github.com/DeepLink-org/DIOPI.git'])
 call(['doxygen', 'Doxyfile'])
-call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
-call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
+# call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
+# call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 
 call(['cp -r _dummy/lib/* DIOPI/DIOPI-TEST/python/'], shell=True)
 call(['cp -r _dummy/lib/* DIOPI/DIOPI-TEST/python/conformance'], shell=True)
