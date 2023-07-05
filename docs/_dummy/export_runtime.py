@@ -19,6 +19,8 @@ class Dtype:
     float64 = float
     int32 = int
     int64 = int
+    complex64 = float
+    complex128 = float
 class Device:
     Host = 1
     AIChip = 1
