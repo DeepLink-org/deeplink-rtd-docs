@@ -33,6 +33,9 @@ call(['python DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
 call(['cp gqw/test_import_error.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
 call(['python DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
 
+
+call(['cp gqw/export_functions.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
+
 # import subprocess
 # result = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
 # result1 = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
