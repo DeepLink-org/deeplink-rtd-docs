@@ -17,12 +17,12 @@
 
 1. 在设备相关目录下提供相应的编译文件，通过脚本进行编译：
     ```
-    cd DIOPI-IMPL && sh scripts/build_impl.sh torch
+    cd impl && sh scripts/build_impl.sh torch
     ```
 
-    或者参考以下命令示例编译 DIOPI-IMPL：
+    或者参考以下命令示例编译 impl：
     ```
-    cd DIOPI-IMPL && mkdir build && cd build && cmake .. -DIMPL_OPT=cuda && make -j32
+    cd impl && mkdir build && cd build && cmake .. -DIMPL_OPT=cuda && make -j32
     ```
 
 
@@ -55,7 +55,7 @@
     ```
     python main.py --mode run_test --filter_dtype float64 int64 --nhwc
     ```
-    可以查看[DIOPI-TEST Readme](https://github.com/DeepLink-org/DIOPI/tree/main/DIOPI-TEST#readme) 了解更详细的设置。
+    可以查看[diopi-test Readme](https://github.com/DeepLink-org/DIOPI/tree/main/diopi-test#readme) 了解更详细的设置。
 
 
 
