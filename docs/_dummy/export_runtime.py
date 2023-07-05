@@ -16,7 +16,7 @@ Device = object
 Dtype = object
 def diopi_tensor_copy_to_buffer(context, tensor, ptr):
     return 
-def diopiGetLastErrorString():
+def get_last_error_string():
     return
 def finalize_library():
     return
