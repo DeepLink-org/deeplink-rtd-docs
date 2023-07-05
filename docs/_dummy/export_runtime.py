@@ -24,6 +24,7 @@ class Dtype:
     uint8 = int
     complex64 = float
     complex128 = float
+    bool = bool
 class Device:
     Host = 1
     AIChip = 1
