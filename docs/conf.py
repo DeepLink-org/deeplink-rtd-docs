@@ -22,56 +22,19 @@ call(['doxygen', 'Doxyfile'])
 # call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 # call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 
-call(['cp -r _dummy/lib/* DIOPI/DIOPI-TEST/python/'], shell=True)
-call(['cp -r _dummy/lib/* DIOPI/DIOPI-TEST/python/conformance'], shell=True)
-call(['cp gqw/test_import.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
-call(['cp gqw/test_import.py DIOPI/DIOPI-TEST/python'], shell=True)
-call(['python DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
-call(['python DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
-
-
-call(['cp gqw/test_import_error.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
-call(['python DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
 
 call(['cp gqw/export_functions.py DIOPI/DIOPI-TEST/python'], shell=True)
 call(['cp gqw/export_functions.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
+
+
 
 # import subprocess
 # result = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
 # result1 = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
 # result3 = subprocess.call(['python', 'DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
 # # 检查执行结果
-result = 0
-if result == 0:
-    print("python/test_import.py命令执行成功")
-else:
-    print("python/test_import.py命令执行出错")
-# if result1 == 0:
-#     print("python/conformance/test_import.py命令执行成功")
-# else:
-#     print("python/conformance/test_import.py命令执行出错")
-# if result2 == 0:
-#     print("python/conformance/test_import_error.py命令执行成功")
-# else:
-#     print("python/conformance/test_import_error.py命令执行出错")
-
-
-call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
-call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
-call(['python DIOPI/DIOPI-TEST/python/conformance/test_import.py'], shell=True)
-call(['python DIOPI/DIOPI-TEST/python/test_import.py'], shell=True)
-call(['python DIOPI/DIOPI-TEST/python/conformance/test_import_error.py'], shell=True)
-
-## for宫岐伟 test
-
-#只生成中文的
-# call(['cp -f gqw/index.rst DIOPI/DIOPI-TEST/python/docs/source/'], shell=True)
-#替代函数
-# call(['cp -f gqw/diopi_functions.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
-#替代文档生成文件
-# call(['cp -f gqw/__init__.py DIOPI/DIOPI-TEST/python/docs/CN_doc/'], shell=True)
-# call(['cp -f gqw/__init__.py DIOPI/DIOPI-TEST/python/docs/EN_doc/'], shell=True)
-## for宫岐伟 test
 
 sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 
