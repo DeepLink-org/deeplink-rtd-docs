@@ -14,7 +14,7 @@ TensorP = object
 Context = object
 Dtype = object
 class Dtype:
-    float16 = ifloat
+    float16 = float
     float32 = float
     float64 = float
     int32 = int
