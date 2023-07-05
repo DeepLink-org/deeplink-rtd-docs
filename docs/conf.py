@@ -24,9 +24,7 @@ call(['doxygen', 'Doxyfile'])
 
 
 call(['cp _dummy/export_functions.py DIOPI/DIOPI-TEST/python'], shell=True)
-# call(['cp _dummy/export_functions.py DIOPI/DIOPI-TEST/python/conformance'], shell=True)
 call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
-# call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/conformance/'], shell=True)
 
 sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 
