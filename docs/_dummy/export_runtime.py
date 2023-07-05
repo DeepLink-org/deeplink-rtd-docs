@@ -22,10 +22,15 @@ class Dtype:
     int16 = int 
     int8 = int
     uint8 = int
+    uint16 = int 
+    uint32 = int 
+    uint64 = int
+    bfloat16 = float
+    tfloat32 = float
     complex64 = float
     complex128 = float
     bool = bool
-    uint16 = int 
+
 class Device:
     Host = 1
     AIChip = 1
