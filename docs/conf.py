@@ -176,4 +176,4 @@ breathe_projects = {
 	"DIOPI Doxygen Breathe": "_doxygen/xml/"
 }
 breathe_default_project = "DIOPI Doxygen Breathe"
-breathe_default_members = ('members', 'undoc-members')
+breathe_default_members = ('members', 'undoc-members') 
