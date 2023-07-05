@@ -17,10 +17,14 @@ import pytorch_sphinx_theme
 # -- Gen DIOPI doc -----------------------------------------------------------
 
 from subprocess import call 
-call(['git', 'clone', '-b', 'v0.1.0', 'https://github.com/DeepLink-org/DIOPI.git'])
+call(['git', 'clone', '-b', 'v0.2.0', 'https://github.com/DeepLink-org/DIOPI.git'])
 call(['doxygen', 'Doxyfile'])
-call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
-call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
+# call(['rm -f DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
+# call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
+
+
+call(['cp _dummy/export_functions.py DIOPI/DIOPI-TEST/python'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
 
 sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
 
@@ -170,4 +174,4 @@ breathe_projects = {
 	"DIOPI Doxygen Breathe": "_doxygen/xml/"
 }
 breathe_default_project = "DIOPI Doxygen Breathe"
-breathe_default_members = ('members', 'undoc-members')
+breathe_default_members = ('members', 'undoc-members') 
