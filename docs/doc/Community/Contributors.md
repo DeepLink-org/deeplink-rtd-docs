@@ -31,12 +31,12 @@
 
 #### 1. 复刻仓库
 
-当你第一次提交拉取请求时，先复刻仓库原代码库，这里以 DIOPI-IMPL 为例。点击 GitHub 页面右上角的 **Fork** 按钮，复刻后的代码库将会出现在你的 GitHub 个人主页下。
+当你第一次提交拉取请求时，先复刻仓库原代码库。点击 GitHub 页面右上角的 **Fork** 按钮，复刻后的代码库将会出现在你的 GitHub 个人主页下。(此处以 DIOPI 仓库为例，其他仓库可参考仓库中专属指南。如：[DIPU](https://github.com/DeepLink-org/DIPU/blob/main/Contributors.md))。
 <!--
 （图片待修改）
 <img src="" width="1200">
 -->
-将代码克隆到本地。(此处以 DIOPI 仓库为例，其他仓库可参考仓库中专属指南。如：[DIPU](https://github.com/DeepLink-org/DIPU/blob/main/Contributors.md))。
+将代码克隆到本地。。
 
 ```shell
 git clone git@github.com:{username}/DIOPI.git
@@ -76,7 +76,7 @@ git pull upstream master
 
 
 #### 3. 提交代码并在本地通过一致性测试
-提交的代码需要通过一致性测试套件以保证实现的正确性，具体可以参考一致性测试套件的[README](https://github.com/OpenComputeLab/DIOPI/DIOPI-TEST)。
+提交的代码需要通过一致性测试套件以保证实现的正确性，具体可以参考一致性测试套件的[README](https://github.com/OpenComputeLab/DIOPI/diopi_test)。
 
 
 #### 4. 推送代码到远程
@@ -128,7 +128,7 @@ git push -u origin {branch_name}
 -->
 所有 reviewer 同意合入 PR 后，我们会尽快将 PR 合并到主分支。
 
-(5) 当前只有DIOPI-IMPL文件夹支持开发者贡献代码，DIOPI-PROTO与DIOPI-TEST后续会逐步开放。
+(5) 当前只有impl文件夹支持开发者贡献代码，proto与diopi_test后续会逐步开放。
 
 #### 6. 解决冲突
 
