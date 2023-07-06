@@ -8,14 +8,14 @@
 - 生成基准数据：执行基准数据生成命令，生成测试时需要的基准数据。
 - 算子测试：执行算子测试命令，将自己实现的算子计算结果和基准数据进行对比。
 
-#### 2. 如何搭建DIOPI-impl开发环境？如果在自己的PC中开发，需要安装哪些包，cmakelist中include、lib路径需要修改哪些？
+#### 2. 如何搭建IMPL开发环境？如果在自己的PC中开发，需要安装哪些包，cmakelist中include、lib路径需要修改哪些？
 
 首先机器上要有芯片厂商的软件栈，配好环境变量后CMakelist中的include和lib路径第不用修改的，source完环境后可以直接编译。我们推荐使用conda管理python环境，具体安装的包可以在运行报错时，根据提示安装。
 
 #### 3. 代码的目录结构是怎样的？编译的命令是什么？编译的结果在哪里？
 
 （1）代码目录结构
-* DIOPI-Test主要包含impl(算子实现)，diopi运行时文件和一致性测试的代码
+* DIOPI_Test主要包含impl(算子实现)，diopi运行时文件和一致性测试的代码
 * impl中将不同厂商的的算子实现存放在不同的路径下，例如camb对应寒武纪的算子实现
 
 （2）编译指令
@@ -27,7 +27,7 @@ sh scripts/build_impl.sh camb
 
 （3）编译结果位置
 ```
-/DIOPI-IMPL/lib下 
+/impl/lib下 
 ```
     
 #### 4. 生成baseline有哪些环境要求？如何生成baseline并进行测试？生成的数据在哪里？如何查看数据的详细内容？
@@ -62,12 +62,12 @@ python main.py --mode run_test --fname all_ops
 
 (3) 生成的数据在哪里？
 
-在```DIOPI-Test/python/data```中，以pickle形式存储
+在```diopi_test/python/data```中，以pickle形式存储
 
 (4)如何查看数据的详细内容？
 有两种方式可以查看数据的详细内容
 - ```pickle.load()``` 将测试object读取进内存再进行自定义的可视化和操作，pickle相关使用可以参考[页面](https://docs.python.org/3/library/pickle.html)
-- 将```DIOPI-Test/python/conformance/utils.py```中```log_level```设置为```DEBUG```
+- 将```diopi_test/python/conformance/utils.py```中```log_level```设置为```DEBUG```
 这样在测试中，如果发现异常（如值不对）则会将数据信息打出
 
 #### 5. 如何测试添加的算子是否正确？测试命令是什么？测试结果如何看？如果测试结果不对如何查看更多详细内容？
@@ -81,10 +81,10 @@ python main.py --mode run_test --fname all_ops
 
 对于数据类型不支持的测例，提供两种处理方式：
 
-1. 使用DIOPI-ADAPTOR进行类型转换
-DIOPI-ADAPTOR可以通过读取设备配置，自动对一些不支持的数据类型进行转换，只需在DIOPI-IMPL/设备文件夹下添加convert_config.yaml文件，在其中配置不支持的类型及转换规则，编译时即会自动生成转换代码。详细的配置规则参考DIOPI-IMPL的README。
+1. 使用ADAPTOR进行类型转换
+ADAPTOR可以通过读取设备配置，自动对一些不支持的数据类型进行转换，只需在 impl/ 设备文件夹下添加convert_config.yaml文件，在其中配置不支持的类型及转换规则，编译时即会自动生成转换代码。详细的配置规则参考IMPL的README。
 
-2. 添加设备测试的device_config.py文件（建议放到DIOPI-IMPL/设备）文件夹下，在其中配置需要跳过的测例以及不支持的数据类型等，使用如下命令运行测试，则会跳过数据类型不支持的测例。device_config.py的详细配置方法参考DIOPI-TEST的README。
+2. 添加设备测试的device_config.py文件（建议放到 impl/ 设备）文件夹下，在其中配置需要跳过的测例以及不支持的数据类型等，使用如下命令运行测试，则会跳过数据类型不支持的测例。device_config.py的详细配置方法参考DIOPI_TEST的README。
 
 ```
 python main.py --mode run_test --impl_folder device_config.py文件路径。
