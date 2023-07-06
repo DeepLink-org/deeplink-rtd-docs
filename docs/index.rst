@@ -70,7 +70,7 @@ DeepLink体系
    doc/DIOPI/Introduction
    doc/DIOPI/quick_start
    doc/DIOPI/API/API_index
-   DIOPI/DIOPI-TEST/python/docs/source/cn_ref
+   DIOPI/diopi_test/python/docs/source/cn_ref
    doc/DIOPI/FAQ
 
 

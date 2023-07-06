@@ -55,7 +55,7 @@
     ```
     python main.py --mode run_test --filter_dtype float64 int64 --nhwc
     ```
-    可以查看[diopi-test Readme](https://github.com/DeepLink-org/DIOPI/tree/main/diopi-test#readme) 了解更详细的设置。
+    可以查看[diopi_test Readme](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test#readme) 了解更详细的设置。
 
 
 

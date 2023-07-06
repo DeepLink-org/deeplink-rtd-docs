@@ -18,7 +18,7 @@ DIOPI主要包含以下几个组件：
 
 - [**PROTO**](https://github.com/DeepLink-org/DIOPI/tree/main/proto)：声明了一套运行时函数接口(diopirt)和标准算子接口(function)。
 - [**IMPL**](https://github.com/DeepLink-org/DIOPI/tree/main/impl)：对接硬件芯片。硬件厂商可在其中使用硬件软件栈提供的计算接口，实现算子功能。其使用 ```proto/include/diopi/diopirt.h``` 提供的接口实现 ```proto/include/diopi/functions.h``` 声明的标准算子, 并编译为 ```libdiopi_impl.so``` 动态库。在测试阶段，impl 还需实现并注册 ```diopi_test/include/diopi_register.h``` 声明的硬件芯片管理相关的函数。
-- [**DIOPI-TEST**](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)：用于保证算子功能正确性。实现 ```proto/include/diopi/diopirt.h``` 声明基础运行时函数，并调用 ```libdiopi_impl.so``` 进行测试验证。
+- [**DIOPI_TEST**](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)：用于保证算子功能正确性。实现 ```proto/include/diopi/diopirt.h``` 声明基础运行时函数，并调用 ```libdiopi_impl.so``` 进行测试验证。
 - [**ADAPTER**](https://github.com/DeepLink-org/DIOPI/tree/main/adaptor)：用于提供辅助功能函数。目前提供的功能包括自动类型转换、内存分布转换等。
 
 
@@ -45,12 +45,12 @@ IMPL 主要用于芯片厂商基于 PROTO 进行标准算子实现，和基于 T
 其价值体现在以实现统一接口计算库的形式，来对接不同训练框架。无需考虑不同训练框架特性，可更专注于提升每个功能性算子的性能。更多信息可以查看[IMPL](https://github.com/DeepLink-org/DIOPI/tree/main/impl)。
 
 
-### DIOPI-TEST
+### DIOPI_TEST
 
-DIOPI-TEST是构建于设备无关算子接口（Device-Independent Operator Interface, DIOPI）之上的测试框架，它支持了没有训练框架的情况下，验证算子适配正确性的功能。DIOPI-TEST设计了一套完整的测试框架和一套算子函数测试。测试套件，可以使芯片厂商适配 DIOPI 算子时，无需训练框架即可对适配结果的正确性进行验证。
+DIOPI_TEST是构建于设备无关算子接口（Device-Independent Operator Interface, DIOPI）之上的测试框架，它支持了没有训练框架的情况下，验证算子适配正确性的功能。DIOPI_TEST设计了一套完整的测试框架和一套算子函数测试。测试套件，可以使芯片厂商适配 DIOPI 算子时，无需训练框架即可对适配结果的正确性进行验证。
 
 主要模块：
-* diopi-test 运行时：支持了运行时函数的接口，用以管理设备相关资源。
+* diopi_test 运行时：支持了运行时函数的接口，用以管理设备相关资源。
 * 非算子测试：
     * 测试获取设备相关信息标准接口。
     * 测试获取错误信息标准接口。
@@ -63,28 +63,9 @@ DIOPI-TEST是构建于设备无关算子接口（Device-Independent Operator Int
     * 采用算子测试相同的测例配置规则, 使用同一个测试框架生成基准数据并进行测试验证。
     * 从30多个模型训练过程中抓取张量形状，数据类型及其他非张量参数值生成测例。
 
-更多信息可以查看[DIOPI-TEST](https://github.com/DeepLink-org/DIOPI/tree/main/diopi-test)。
+更多信息可以查看[DIOPI_TEST](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)。
 
 ### ADAPTER
 
 ADAPTER 是 DIOPI 提供的辅助工具箱，目前提供的功能包括自动类型转换、内存分布转换等，使用时在 IMPL 设备文件夹下添加配置问题，具体配置方法见[IMPL Readme](https://github.com/DeepLink-org/DIOPI/tree/main/impl#readme)。
 
-
-
-
-<!--
-## Learn More
-
-组件介绍
-* [DIOPI-PROTO Readme](https://github.com/DeepLink-org/DIOPI/tree/main/DIOPI-PROTO#readme)
-* [DIOPI-IMPL Readme](https://github.com/DeepLink-org/DIOPI/tree/main/DIOPI-IMPL#readme)
-* [DIOPI-TEST Readme](https://github.com/DeepLink-org/DIOPI/tree/main/DIOPI-TEST#readme)
-<!--* [DIPU-Adapter Readme](DIPU-Adapter.md)-->
-<!--
-其他文档
-<!--* [API文档]{} -->
-<!--* [常见问题](https://deeplink-org.github.io/OpenComputeLab.github.io/5%20FAQ.html)
-* [Release Note](https://github.com/DeepLink-org/DIOPI/releases)
-* [开发者指南](https://github.com/DeepLink-org/DIOPI/blob/main/Contributors.md)
-
--->
