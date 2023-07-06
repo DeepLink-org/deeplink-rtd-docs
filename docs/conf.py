@@ -23,10 +23,10 @@ call(['doxygen', 'Doxyfile'])
 # call(['cp _dummy/diopi_runtime.py DIOPI/DIOPI-TEST/python/conformance/diopi_runtime.py'], shell=True)
 
 
-call(['cp _dummy/export_functions.py DIOPI/DIOPI-TEST/python'], shell=True)
-call(['cp _dummy/export_runtime.py DIOPI/DIOPI-TEST/python/'], shell=True)
+call(['cp _dummy/export_functions.py DIOPI/diopi_test/python'], shell=True)
+call(['cp _dummy/export_runtime.py DIOPI/diopi_test/python/'], shell=True)
 
-sys.path.insert(0, os.path.abspath('./DIOPI/DIOPI-TEST/python'))
+sys.path.insert(0, os.path.abspath('./DIOPI/diopi_test/python'))
 
 # -- Project information -----------------------------------------------------
 
