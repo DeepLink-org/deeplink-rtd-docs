@@ -146,7 +146,7 @@ html_theme_options = {
 
         {
             'name': 'DeepLink',
-            'url': 'https://opencomputelab.org.cn/home',
+            'url': 'https://deeplink.org.cn/home',
         },
     ],
     # Specify the language of shared menu
