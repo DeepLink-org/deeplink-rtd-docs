@@ -1,4 +1,3 @@
-
 # Quick Start
 
 ## 仓库下载
@@ -10,22 +9,22 @@
     git clone https://github.com/DeepLink-org/DIOPI.git
     ```
 
-    如遇到权限问题，可以参考[FAQ-权限问题]()
+    如遇到权限问题，可以参考[FAQ-权限问题](https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/FAQ.html)
 
 
 ## 算子编译
 
-1. 在 DIOPI-IMPL 中新建目录实现 ```DIOPI-PROTO/include/diopi/functions.h``` 声明的标准算子的函数。
 
-    在设备相关目录下提供相应的编译文件，通过以下参考命令进行编译：
+1. 在设备相关目录下提供相应的编译文件，通过脚本进行编译：
     ```
-    cd DIOPI-IMPL && sh scripts/diopi_impl.sh torch
+    cd impl && sh scripts/build_impl.sh torch
     ```
 
-2. 编译 DIOPI-IMPL 提供编译文件的编译计算库。以下示例仅供参考：
+    或者参考以下命令示例编译 impl：
     ```
-    mkdir build && cd build && cmake .. -DIMPL_OPT=cuda && make -j32
+    cd impl && mkdir build && cd build && cmake .. -DIMPL_OPT=cuda && make -j32
     ```
+
 
 ## 更新基准数据
 
@@ -41,7 +40,10 @@
     ```
     python main.py --get_model_list
     ```
-2. 将数据拷贝到芯片机器上，执行以下命令验证算子：
+
+
+## 校验算子
+1. 将数据拷贝到芯片机器上，执行以下命令验证算子：
     ```
     python main.py --mode run_test
     ```
@@ -53,13 +55,9 @@
     ```
     python main.py --mode run_test --filter_dtype float64 int64 --nhwc
     ```
+    可以查看[diopi_test Readme](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test#readme) 了解更详细的设置。
 
 
-## 校验算子
-1. 将数据拷贝到芯片机器上，执行以下命令验证算子：
-    ```
-    python main.py --mode run_test
-    ```
 
 2. 验证结果分析
 
@@ -79,12 +77,14 @@
     ---------------------------------
     Test skipped or op not implemented:
     ```
-#### 测例通过
+
+
+### 测例通过
 测例通过的输出形式如下：
   ```
   2022-09-29 16:40:40,550 - DIOPI-Test - INFO - Run diopi_functions.relu succeed
   ```
-#### 测例失败
+### 测例失败
 
 失败的测例会额外存储测例输入参数的张量信息在 error_report.csv 中以供调试所需。
   ```
@@ -95,4 +95,3 @@
   ---------------------------------
   Test skipped or op not implemented:
   ```
-

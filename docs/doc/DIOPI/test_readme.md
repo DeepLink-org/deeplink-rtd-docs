@@ -25,9 +25,9 @@ DIOPI-TEST 测试范围：
 ## **使用教学**
 
 ### 基础安装及使用
-1. 需下载 [DIOPI-Test仓库](https://github.com/OpenComputeLab/DIOPI-Test)，可使用命令：
+1. 需下载 [DIOPI-Test仓库](https://github.com/DeepLink-org/DIOPI-Test)，可使用命令：
     ```
-    git clone https://github.com/OpenComputeLab/DIOPI-Test.git
+    git clone https://github.com/DeepLink-org/DIOPI-Test.git
     ```
 2. 编译 DIOPI-IMPL 提供编译文件的编译计算库。以下示例仅供参考：
     ```

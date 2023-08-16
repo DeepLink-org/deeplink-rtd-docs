@@ -57,7 +57,7 @@
 
 1. 下载DIOPI-Test测验仓库：
     ```
-    git clone https://github.com/OpenComputeLab/DIOPI-TEST.git
+    git clone https://github.com/DeepLink-org/DIOPI-TEST.git
     ```
 2. 使用 DIOPI-IMPL 提供编译文件的编译计算库。以下示例仅供参考：
     ```
@@ -70,4 +70,4 @@
 
     确保基准测试数据保存在路径 DIOPI-TEST/python/data下。
 
-2. 算子验证请参考 [DIOPI-Test 使用教学](https://github.com/OpenComputeLab/DIOPI-TEST/blob/main/README.md)
+2. 算子验证请参考 [DIOPI-Test 使用教学](https://github.com/DeepLink-org/DIOPI-TEST/blob/main/README.md)

@@ -1,8 +1,6 @@
-# 贡献者指南
+# 贡献代码
 
-## 贡献代码
-
-欢迎加入 DIOPI 社区，我们致力于打造训练框架和人工智能芯片之间的标准算子接口，我们欢迎任何类型的贡献，包括但不限于
+欢迎加入 DeepLink 社区，我们致力于打造训练框架和人工智能芯片之间的标准算子接口，我们欢迎任何类型的贡献，包括但不限于
 
 **修复错误**
 
@@ -33,12 +31,12 @@
 
 #### 1. 复刻仓库
 
-当你第一次提交拉取请求时，先复刻仓库原代码库，这里以 DIOPI-IMPL 为例。点击 GitHub 页面右上角的 **Fork** 按钮，复刻后的代码库将会出现在你的 GitHub 个人主页下。
+当你第一次提交拉取请求时，先复刻仓库原代码库。点击 GitHub 页面右上角的 **Fork** 按钮，复刻后的代码库将会出现在你的 GitHub 个人主页下。(此处以 DIOPI 仓库为例，其他仓库可参考仓库中专属指南。如：[DIPU](https://github.com/DeepLink-org/DIPU/blob/main/Contributors.md))。
 <!--
 （图片待修改）
 <img src="" width="1200">
 -->
-将代码克隆到本地
+将代码克隆到本地。。
 
 ```shell
 git clone git@github.com:{username}/DIOPI.git
@@ -47,7 +45,7 @@ git clone git@github.com:{username}/DIOPI.git
 添加原代码库为上游代码库
 
 ```bash
-git remote add upstream git@github.com:OpenComputeLab/DIOPI
+git remote add upstream git@github.com:DeepLink-org/DIOPI
 ```
 
 检查 remote 是否添加成功，在终端输入 `git remote -v`
@@ -55,8 +53,8 @@ git remote add upstream git@github.com:OpenComputeLab/DIOPI
 ```bash
 origin	git@github.com:{username}/DIOPI.git (fetch)
 origin	git@github.com:{username}/DIOPI.git (push)
-upstream	git@github.com:OpenComputeLab/DIOPI (fetch)
-upstream	git@github.com:OpenComputeLab/DIOPI (push)
+upstream	git@github.com:DeepLink-org/DIOPI (fetch)
+upstream	git@github.com:DeepLink-org/DIOPI (push)
 ```
 
 > 这里对 origin 和 upstream 进行一个简单的介绍，当我们使用 git clone 来克隆代码时，会默认创建一个 origin 的 remote，它指向我们克隆的代码库地址，而 upstream 则是我们自己添加的，用来指向原始代码库地址。当然如果你不喜欢他叫 upstream，也可以自己修改，比如叫 diopi。我们通常向 origin 提交代码（即 fork 下来的远程仓库），然后向 upstream 提交一个 pull request。如果提交的代码和最新的代码发生冲突，再从 upstream 拉取最新的代码，和本地分支解决冲突，再提交到 origin。
@@ -78,7 +76,7 @@ git pull upstream master
 
 
 #### 3. 提交代码并在本地通过一致性测试
-提交的代码需要通过一致性测试套件以保证实现的正确性，具体可以参考一致性测试套件的[README](https://github.com/OpenComputeLab/DIOPI/DIOPI-TEST)。
+提交的代码需要通过一致性测试套件以保证实现的正确性，具体可以参考一致性测试套件的[README](https://github.com/DeepLink-org/DIOPI/diopi_test)。
 
 
 #### 4. 推送代码到远程
@@ -130,7 +128,7 @@ git push -u origin {branch_name}
 -->
 所有 reviewer 同意合入 PR 后，我们会尽快将 PR 合并到主分支。
 
-(5) 当前只有DIOPI-IMPL文件夹支持开发者贡献代码，DIOPI-PROTO与DIOPI-TEST后续会逐步开放。
+(5) 当前只有impl文件夹支持开发者贡献代码，proto与diopi_test后续会逐步开放。
 
 #### 6. 解决冲突
 

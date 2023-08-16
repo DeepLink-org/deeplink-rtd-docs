@@ -18,9 +18,9 @@ AI底层技术通常分为芯片、计算、框架三个层次，在目前的国
 
 硬件测评工作进度和规划：
 
-![时间线](../../_static/image/CT_milestone.png)
+![时间线](../../_static/image/Chip_test/CT_milestone.png)
 
 
 ### 联系我们
 
-如果您所代表的芯片厂商，也期望能够参与硬件测评，可联系社区：opencomputelab@pjlab.org.cn
+如果您所代表的芯片厂商，也期望能够参与硬件测评，可联系社区：deeplink@pjlab.org.cn
