@@ -13,7 +13,7 @@
 
 
 ## 2. 分类方法学
-本文提出的分类方法基于以下4个分类原则，总计22种算子分类：
+本文提出的分类方法基于以下4个分类原则：
 1. 首先深度学习算子种类尽可能与约定俗成的类型名称保持一致，具体包括：
 ```
     1. Convolution类
@@ -95,8 +95,7 @@
 | BLAS  | mm | 18|
 | Linalg  | lu_solve | 34 |
 | Permute  | concat、chunck、flip | 13 |
-| Reshape  | squeeze | 12 |
-| Indexing  | select | 6 |
+| View/Copy  | squeeze | 18 |
 | Advanced Indexing  | index_select | 14 |
 | Distribution  | seed | 23 |
 | Sort  | topk | 5 |
