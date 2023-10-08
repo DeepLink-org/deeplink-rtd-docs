@@ -175,3 +175,6 @@ breathe_projects = {
 }
 breathe_default_project = "DIOPI Doxygen Breathe"
 breathe_default_members = ('members', 'undoc-members') 
+
+# -- MyST configuration -------------------------------------------------
+myst_enable_extensions = ["dollarmath", "amsmath"]
