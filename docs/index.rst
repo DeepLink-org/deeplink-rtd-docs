@@ -94,6 +94,13 @@ DeepLink体系
 
 .. toctree::
    :maxdepth: 1
+   :caption: 算子图谱
+   :includehidden:
+
+   doc/Operators/op_classification
+
+.. toctree::
+   :maxdepth: 1
    :caption: 社区
    :includehidden:
 
