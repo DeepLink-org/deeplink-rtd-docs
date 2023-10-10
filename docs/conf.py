@@ -162,7 +162,7 @@ html_show_sphinx = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 html_css_files = ['css/readthedocs.css']
-html_js_files = ['custom.js']
+html_js_files = ['custom.js', "https://code.jquery.com/jquery-3.6.0.min.js"]
 
 
 

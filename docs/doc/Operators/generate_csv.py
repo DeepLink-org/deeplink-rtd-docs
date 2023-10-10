@@ -2,7 +2,7 @@ import pandas as pd
 
 # 原始的xlsx文件不能直接用于展示，需要进行处理后保存为csv文件进行展示
 
-src_path = "./download_op.xlsx"
+src_path = "./operators.xlsx"
 save_csv_path = "./processed_op.csv"
 df = pd.read_excel(src_path)
 
