@@ -98,6 +98,7 @@ DeepLink体系
    :includehidden:
 
    doc/Operators/op_classification
+   doc/Operators/op_download
 
 .. toctree::
    :maxdepth: 1
