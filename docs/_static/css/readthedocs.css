@@ -73,7 +73,7 @@ article.pytorch-article blockquote {
 
 table {
   border-collapse: collapse;
-  table-layout: auto;
+  table-layout: fixed;
   width: 100%;
   margin: 20px 0;
 }
@@ -83,16 +83,24 @@ table {
   text-align: center;
   border: 1px solid #ddd;
   line-height: 1.4; 
+  white-space: nowrap; /* 防止内容换行 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  text-overflow: ellipsis; /* 使用省略号表示溢出内容 */
 }
-
-.th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}  
-
 
 .tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+table td:last-child, table th:last-child {
+  width: 100%; /* 设置最后一列的初始宽度为一个较小的值 */
+  white-space: normal; /* 允许最后一列的内容换行 */
+}
+
+table td:last-child div, table th:last-child div {
+  white-space: normal; /* 允许div元素内部的内容换行 */
+  overflow: visible; /* 显示溢出内容 */
+  text-overflow: clip; /* 隐藏溢出内容 */
 }
 
 .button {

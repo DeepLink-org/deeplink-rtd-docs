@@ -17,7 +17,7 @@ Loss,cross_entropy,P0,torch.nn.functional,<https://pytorch.org/docs/stable/gener
 Loss,mse_loss,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.mse_loss.html?highlight=mse_loss#torch.nn.functional.mse_loss>
 Loss,ctc_loss,P0,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.ctc_loss.html?highlight=ctc_loss#torch.nn.functional.ctc_loss>
 Loss,nll_loss,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.NLLLoss.html#torch.nn.NLLLoss>
-Loss,smooth_l1_loss,P0,torch.nn.functional,<torch.nn.functional.smooth_l1_loss — PyTorch 1.11.0 documentation>
+Loss,smooth_l1_loss,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.smooth_l1_loss.html#torch.nn.functional.smooth_l1_loss>
 Loss,l1_loss,P1,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.l1_loss.html?highlight=l1_loss>
 Loss,kl_div,P1,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.kl_div.html?highlight=kl_div>
 Loss,margin_ranking_loss,P1,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.margin_ranking_loss.html?highlight=margin_ranking_loss#torch.nn.functional.margin_ranking_loss>
@@ -34,25 +34,25 @@ Norm,layer_norm,P0,"torch, torch.nn.functional",<https://pytorch.org/docs/stable
 Norm,group_norm,P1,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.group_norm.html?highlight=group_norm#torch.nn.functional.group_norm>
 Norm,instance_norm,P1,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.instance_norm.html?highlight=instance_norm>
 Norm,local_response_norm,P2,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.local_response_norm.html?highlight=local_response_norm#torch.nn.functional.local_response_norm>
-Activation,relu,P0,torch.nn.functional,<torch.nn.functional.relu — PyTorch 1.11.0 documentation>
+Activation,relu,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.relu.html#torch.nn.functional.relu>
 Activation,gelu,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.gelu.html?highlight=gelu#torch.nn.functional.gelu>
 Activation,leaky_relu,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.leaky_relu.html?highlight=leaky_relu#torch.nn.functional.leaky_relu>
 Activation,hardtanh,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.hardtanh.html?highlight=hardtanh#torch.nn.functional.hardtanh>
 Activation,hardshrink,P0,"torch, torch.Tensor, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.hardshrink.html?highlight=hardshrink#torch.nn.functional.hardshrink>
 Activation,glu,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.glu.html?highlight=glu#torch.nn.functional.glu>
-Activation,sigmoid,P0,"torch, torch.Tensor, torch.nn.functional",<torch.nn.functional.sigmoid — PyTorch 1.11.0 documentation>
-Activation,softmax,P0,"torch, torch.Tensor, torch.nn.functional",<torch.nn.functional.softmax — PyTorch 1.11.0 documentation>
+Activation,sigmoid,P0,"torch, torch.Tensor, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.sigmoid.html#torch.nn.functional.sigmoid>
+Activation,softmax,P0,"torch, torch.Tensor, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.softmax.html#torch.nn.functional.softmax>
 Activation,log_softmax,P0,"torch, torch.Tensor, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.log_softmax.html?highlight=log_softmax#torch.nn.functional.log_softmax>
 Activation,elu,P1,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.ELU.html#torch.nn.ELU>
 Activation,glu,P1,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.glu.html?highlight=glu#torch.nn.functional.glu>
-Activation,softplus,P1,torch.nn.functional,<torch.nn.functional.softplus — PyTorch 1.11.0 documentation>
+Activation,softplus,P1,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.softplus.html#torch.nn.functional.softplus>
 Activation,prelu,P1,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.prelu.html?highlight=prelu#torch.nn.functional.prelu>
 Activation,silu,P1,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.silu.html?highlight=silu#torch.nn.functional.silu>
 Activation,celu,P2,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.CELU.html#torch.nn.CELU>
-Activation,rrelu,P2,torch.nn.functional,<torch.nn.functional.rrelu — PyTorch 1.11.0 documentation>
-Activation,selu,P2,torch.nn.functional,<torch.nn.functional.selu — PyTorch 1.11.0 documentation>
+Activation,rrelu,P2,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.rrelu.html#torch.nn.functional.rrelu>
+Activation,selu,P2,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.selu.html#torch.nn.functional.selu>
 Activation,hardshrink,P2,"torch, torch.Tensor, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.hardshrink.html?highlight=hardshrink#torch.nn.functional.hardshrink>
-Activation,softshrink,P2,torch.nn.functional,<torch.nn.functional.softshrink — PyTorch 1.11.0 documentation>
+Activation,softshrink,P2,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.softshrink.html#torch.nn.functional.softshrink>
 Dropout,dropout,P0,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.Dropout.html?highlight=dropout#torch.nn.Dropout>
 Dropout,feature_dropout,P0,torch,
 Dropout,alpha_dropout,P2,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.alpha_dropout.html?highlight=alpha_dropout#torch.nn.functional.alpha_dropout>
@@ -91,7 +91,7 @@ Linalg,diagonal,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/genera
 Linalg,qr,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.qr.html?highlight=qr#torch.qr>
 Linalg,tril,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.tril.html#torch.tril>
 Linalg,triu,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.triu.html?highlight=triu#torch.triu>
-Linalg,renorm,P2,"torch, torch.Tensor",<torch.renorm — PyTorch 1.11.0 documentation>
+Linalg,renorm,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.renorm.html#torch.renorm>
 Linalg,vector_norm,P2,torch.linalg,<https://pytorch.org/docs/stable/generated/torch.linalg.vector_norm.html?highlight=matrix_norm>
 Linalg,matrix_norm,P2,torch.linalg,<https://pytorch.org/docs/stable/generated/torch.linalg.matrix_norm.html?highlight=matrix_norm#torch.linalg.matrix_norm>
 Linalg,cumprod,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.cumprod.html?highlight=cumprod#torch.cumprod>
@@ -113,7 +113,7 @@ Linalg,symeig,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generate
 Linalg,orgqr,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.orgqr.html?highlight=orgqr#torch.orgqr>
 Linalg,ormqr,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.ormqr.html?highlight=ormqr#torch.ormqr>
 Linalg,geqrf,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.geqrf.html?highlight=geqrf#torch.geqrf>
-Linalg,slogdet,P2,"torch, torch.Tensor",<torch.linalg.slogdet — PyTorch 1.11.0 documentation>
+Linalg,slogdet,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.linalg.slogdet.html#torch.linalg.slogdet>
 Linalg,cholesky_inverse,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.cholesky_inverse.html?highlight=cholesky_inverse#torch.cholesky_inverse>
 Linalg,cholesky_solve,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.cholesky_solve.html?highlight=cholesky_solve#torch.cholesky_solve>
 Linalg,lu,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.lu.html#torch.lu>
@@ -126,14 +126,14 @@ Linalg,pdist,P2,"torch, torch.nn.functional",<https://pytorch.org/docs/1.11/gene
 Permute,transpose,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.transpose.html#torch.transpose>
 Permute,stack,P0,torch,<https://pytorch.org/docs/stable/generated/torch.stack.html?highlight=stack#torch.stack>
 Permute,cat,P0,torch,<https://pytorch.org/docs/stable/generated/torch.cat.html?highlight=cat>
-Permute,roll,P1,"torch, torch.Tensor",<torch.roll — PyTorch 1.11.0 documentation>
+Permute,roll,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.roll.html#torch.roll>
 Permute,pixel_shuffle,P1,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.pixel_shuffle.html?highlight=pixel_shuffle#torch.nn.functional.pixel_shuffle>
 Permute,flip,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.flip.html?highlight=flip#torch.flip>
-Permute,rot90,P2,"torch, torch.Tensor",<torch.rot90 — PyTorch 1.11.0 documentation>
+Permute,rot90,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.rot90.html#torch.rot90>
 View,view,P0,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Tensor.view.html?highlight=view#torch.Tensor.view>
 View,resize,P0,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Tensor.resize_.html?highlight=resize>
 View,narrow,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.narrow.html?highlight=narrow#torch.narrow>
-View,reshape,P0,"torch, torch.Tensor",<torch.reshape — PyTorch 1.11.0 documentation>
+View,reshape,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.reshape.html#torch.reshape>
 View,flatten,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.flatten.html?highlight=flatten#torch.flatten>
 View,squeeze,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.squeeze.html?highlight=squeeze#torch.squeeze>
 View,unsqueeze,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.unsqueeze.html#torch.unsqueeze>
@@ -141,29 +141,29 @@ View,chunk,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/t
 View,split,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.split.html?highlight=split#torch.split>
 View,unbind,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.unbind.html?highlight=bind#torch.unbind>
 View,expand,P0,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Tensor.expand.html?highlight=expand#torch.Tensor.expand>
-View,select,P0,"torch, torch.Tensor",<torch.select — PyTorch 1.11.0 documentation>
+View,select,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.select.html#torch.select>
 View,take,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.take.html?highlight=take#torch.take>
 View,tensor_split,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.tensor_split.html#torch.tensor_split>
 Advanced Indexing,gather,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.gather.html?highlight=gather#torch.gather>
-Advanced Indexing,scatter,P0,"torch, torch.Tensor",<torch.Tensor.scatter_ — PyTorch 1.11.0 documentation>
+Advanced Indexing,scatter,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.scatter_.html#torch.Tensor.scatter_>
 Advanced Indexing,index_put,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.index_put.html?highlight=index_put>
 Advanced Indexing,index_select,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.index_select.html?highlight=index_select>
 Advanced Indexing,masked_fill,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.masked_fill.html?highlight=masked_fill#torch.Tensor.masked_fill>
 Advanced Indexing,masked_select,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.masked_select.html?highlight=masked_select#torch.masked_select>
 Advanced Indexing,index_add ,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.index_add.html?highlight=index_add#torch.Tensor.index_add>
-Advanced Indexing,scatter_add,P2,"torch, torch.Tensor",<torch.Tensor.scatter_add_ — PyTorch 1.11.0 documentation>
+Advanced Indexing,scatter_add,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.scatter_add_.html#torch.Tensor.scatter_add_>
 Advanced Indexing,slice_scatter,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.slice_scatter.html?highlight=slice_scatter#torch.slice_scatter>
 Advanced Indexing,index_copy,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.index_copy.html?highlight=index_copy#torch.Tensor.index_copy>
 Advanced Indexing,index_fill,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.index_fill.html?highlight=index_fill>
 Advanced Indexing,masked_scatter,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.Tensor.masked_scatter.html?highlight=masked_scatter#torch.Tensor.masked_scatter>
-Distribution,randperm,P0,torch,<torch.randperm — PyTorch 1.11.0 documentation>
+Distribution,randperm,P0,torch,<https://pytorch.org/docs/stable/generated/torch.randperm.html#torch.randperm>
 Distribution,bernoulli,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.bernoulli.html?highlight=bernoulli#torch.bernoulli>
 Distribution,one_hot,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.one_hot.html?highlight=one_hot#torch.nn.functional.one_hot>
-Distribution,rand,P1,torch,<torch.rand — PyTorch 1.11.0 documentation>
-Distribution,randn,P1,torch,<torch.randn — PyTorch 1.11.0 documentation>
+Distribution,rand,P1,torch,<https://pytorch.org/docs/stable/generated/torch.rand.html#torch.rand>
+Distribution,randn,P1,torch,<https://pytorch.org/docs/stable/generated/torch.randn.html#torch.randn>
 Distribution,multinomial,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.multinomial.html?highlight=multinomial#torch.multinomial>
-Distribution,randint,P1,torch,<torch.randint — PyTorch 1.11.0 documentation>
-Distribution,randint,P2,torch,<torch.randint — PyTorch 1.11.0 documentation>
+Distribution,randint,P1,torch,<https://pytorch.org/docs/stable/generated/torch.randint.html#torch.randint>
+Distribution,randint,P2,torch,<https://pytorch.org/docs/stable/generated/torch.randint.html#torch.randint>
 Distribution,normal,P2,torch,<https://pytorch.org/docs/stable/generated/torch.normal.html?highlight=normal#torch.normal>
 Distribution,poisson,P2,torch,<https://pytorch.org/docs/stable/generated/torch.poisson.html?highlight=poisson#torch.poisson>
 Distribution,cauchy,P2,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Tensor.cauchy_.html?highlight=cauchy#torch.Tensor.cauchy_>
@@ -190,7 +190,7 @@ Element-wise,reciprocal,P0,"torch, torch.Tensor",
 Element-wise,sqrt,P0,"torch, torch.Tensor",
 Element-wise,tanh,P0,"torch, torch.Tensor, torch.nn.functional",
 Element-wise,neg,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.neg.html?highlight=neg#torch.neg>
-Element-wise,sign,P0,"torch, torch.Tensor",<torch.sign — PyTorch 1.11.0 documentation>
+Element-wise,sign,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.sign.html#torch.sign>
 Element-wise,isinf,P0,torch,<https://pytorch.org/docs/stable/generated/torch.isinf.html?highlight=isinf#torch.isinf>
 Element-wise,isnan,P0,torch,<https://pytorch.org/docs/stable/generated/torch.isnan.html?highlight=isnan#torch.isnan>
 Element-wise,threshold,P0,torch.nn.functional,<https://pytorch.org/docs/stable/generated/torch.nn.functional.threshold.html#torch.nn.functional.threshold>
@@ -208,7 +208,7 @@ Element-wise,add,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/gener
 Element-wise,div,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.div.html?highlight=div#torch.div>
 Element-wise,mul,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.mul.html?highlight=mul>
 Element-wise,sub,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.sub.html?highlight=sub#torch.sub>
-Element-wise,remainder,P0,"torch, torch.Tensor",<torch.remainder — PyTorch 1.11.0 documentation>
+Element-wise,remainder,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.remainder.html#torch.remainder>
 Element-wise,addcdiv,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.addcdiv.html#torch.addcdiv>
 Element-wise,addcmul,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.addcmul.html#torch.addcmul>
 Element-wise,cos,P1,"torch, torch.Tensor",
@@ -257,8 +257,8 @@ Broadcast,repeat,P0,torch.Tensor,<https://pytorch.org/docs/stable/generated/torc
 Broadcast,broadcast_tensors,P0,torch,<https://pytorch.org/docs/stable/generated/torch.broadcast_tensors.html?highlight=broadcast_tensors>
 Broadcast,linspace,P1,torch,<https://pytorch.org/docs/stable/generated/torch.linspace.html?highlight=linspace>
 Broadcast,eye,P1,torch,<https://pytorch.org/docs/stable/generated/torch.eye.html?highlight=eye#torch.eye>
-Broadcast,repeat_interleave,P1,"torch, torch.Tensor",<torch.repeat_interleave — PyTorch 1.11.0 documentation>
-Broadcast,range,P2,torch,<torch.range — PyTorch 1.11.0 documentation>
+Broadcast,repeat_interleave,P1,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.repeat_interleave.html#torch.repeat_interleave>
+Broadcast,range,P2,torch,<https://pytorch.org/docs/stable/generated/torch.range.html#torch.range>
 Broadcast,logspace,P2,torch,<https://pytorch.org/docs/stable/generated/torch.logspace.html?highlight=logspace#torch.logspace>
 Reduce,all,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.all.html?highlight=all#torch.all>
 Reduce,any,P0,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/torch.any.html?highlight=any#torch.any>
