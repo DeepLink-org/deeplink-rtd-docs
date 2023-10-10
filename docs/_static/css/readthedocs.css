@@ -45,3 +45,28 @@ article.pytorch-article blockquote {
   color:#2980b9;
   font-weight:bold;
 }
+
+.pagination {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #333;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #f5f5f5;
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}

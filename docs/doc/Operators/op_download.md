@@ -2,6 +2,9 @@
 
 <a href="../../../../doc/Operators/download_op.xlsx" target="_blank">导出数据</a>
 
+<script type="text/javascript" src="../../_static/custom.js"></script>
+
+
 ```{csv-table}
 :header-rows: 1
 :widths: 20, 20, 40, 20, 20
