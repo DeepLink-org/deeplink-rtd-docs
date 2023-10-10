@@ -53,3 +53,24 @@ table.parentNode.insertBefore(pagination, table.nextSibling);
 
 // 默认显示第一页
 pagination.getElementsByTagName('a')[0].click();
+
+
+function showConfirmation(event) {
+    event.preventDefault();
+    if (confirm("确定要下载文件吗？")) {
+      var url = event.target.href;
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.responseType = 'blob';
+      xhr.onload = function() {
+        if (this.status === 200) {
+          var blob = new Blob([this.response], {type: 'application/octet-stream'});
+          var link = document.createElement('a');
+          link.href = window.URL.createObjectURL(blob);
+          link.download = url.substring(url.lastIndexOf('/')+1);
+          link.click();
+        }
+      };
+      xhr.send();
+    }
+  }

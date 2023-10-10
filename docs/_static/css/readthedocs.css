@@ -70,3 +70,40 @@ article.pytorch-article blockquote {
   color: #fff;
   border-color: #007bff;
 }
+
+table {
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.th, td {
+  padding: 6px;
+  text-align: center;
+  border: 1px solid #ddd;
+  line-height: 1.4; 
+}
+
+.th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}  
+
+
+.tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.button {
+  display: inline-block;
+  padding: 6px 12px; /* 调整按钮的内边距 */
+  font-size: 14px; /* 调整按钮的字体大小 */
+  background-color: #f2f2f2;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

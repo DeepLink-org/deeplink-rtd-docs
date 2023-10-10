@@ -1,13 +1,12 @@
 ## 算子图谱下载
 
-<a href="../../../../doc/Operators/download_op.xlsx" target="_blank">导出数据</a>
-
 <script type="text/javascript" src="../../_static/custom.js"></script>
+<a href="../../../../doc/Operators/download_op.xlsx" target="_blank" class="button" onclick="showConfirmation(event)">
+  导出数据<span class="icon">&#x2B07;</span> 
+</a>
 
 
 ```{csv-table}
-:header-rows: 1
-:widths: 20, 20, 40, 20, 20
-:align: center
+:header-rows: 0
 :file: "./processed_op.csv"
 ```
