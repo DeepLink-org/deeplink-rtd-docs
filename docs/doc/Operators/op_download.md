@@ -1,20 +1,10 @@
 ## 算子图谱下载
 
-<script type="text/javascript" src="../../_static/custom.js"></script>
 
-
-<style>
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-</style>
-
-<div>
-  <label for="field1-select">标准分类：</label>
+<a>
+  <label for="field1-select">标准分类:</label>
   <select id="field1-select">
-    <option value="">全部</option>
+    <option value="">请选择</option>
     <option value="Convolution">Convolution</option>
     <option value="Linear">Linear</option>
     <option value="Pooling">Pooling</option>
@@ -37,29 +27,87 @@
     <option value="Composite">Composite</option>
     <option value="Misc">Misc</option>
   </select>
-</div>
+</a>
 
-<div>
-  <label for="field2-select">算子分级：</label>
+<a>
+  <label for="field2-select">算子分级:</label>
   <select id="field2-select">
-    <option value="">全部</option>
+    <option value="">请选择</option>
     <option value="P0">P0</option>
     <option value="P1">P1</option>
     <option value="P2">P2</option>
   </select>
-</div>
+</a>
 
 
 <a>
-<button id="filter-button">筛选</button>
+<button id="filter-button">筛选数据</button>
 </a>
 
 <a href="../../../../doc/Operators/operators.xlsx" target="_blank" class="button" onclick="showConfirmation(event)">
-  导出数据<span class="icon">&#x2B07;</span> 
+  导出数据
 </a>
+
+<style>
+  #field2-select {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+  #field1-select {
+  margin-right: 20px;
+}
+
+
+#filter-button {
+  margin-right: 250px;
+
+/* 设置下拉菜单和筛选按钮的外观 */
+  #field2-select {
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  #field1-select {
+    margin-right: 20px;
+  }
+
+  #filter-button {
+    margin-right: 250px;
+  }
+  }
+</style>
 
 
 ```{csv-table}
-:header-rows: 0
+:header-rows: 1
 :file: "./processed_op.csv"
 ```
+
+<style>
+table {
+  table-layout: auto;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+}
+
+/* 设置表头单元格的最小宽度 */
+th {
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+/* 设置表格内容单元格的最小宽度 */
+td {
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+
+
+
+</style>
