@@ -137,10 +137,10 @@ html_theme_options = {
                     'name': 'DIPU',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
                 },
-                {
-                    'name': '硬件测评',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
-                },
+                # {
+                #     'name': '硬件测评',
+                #     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
+                # },
             ],
         },
 
@@ -175,3 +175,6 @@ breathe_projects = {
 }
 breathe_default_project = "DIOPI Doxygen Breathe"
 breathe_default_members = ('members', 'undoc-members') 
+
+# -- MyST configuration -------------------------------------------------
+myst_enable_extensions = ["dollarmath", "amsmath"]

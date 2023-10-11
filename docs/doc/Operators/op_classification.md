@@ -51,15 +51,6 @@
     0&0&0&1
     \end{Bmatrix} $$
 
-                      
-    \[ \begin{Bmatrix}
-    1&0&0&0\\
-    0&1&0&0\\
-    0&0&1&0\\
-    0&0&0&1
-    \end{Bmatrix} \]
-
-
    2. `Broadcast类`，它的依赖矩阵为竖线：
 
     $$\begin{Bmatrix}
