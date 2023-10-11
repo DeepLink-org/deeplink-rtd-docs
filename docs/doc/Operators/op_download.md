@@ -99,6 +99,9 @@ td {
 th {
   white-space: nowrap;
   min-width: 150px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  vertical-align: middle; /* 文字垂直居中 */
 }
 
 /* 设置表格内容单元格的最小宽度 */
@@ -106,8 +109,4 @@ td {
   white-space: nowrap;
   min-width: 150px;
 }
-
-
-
-
 </style>
