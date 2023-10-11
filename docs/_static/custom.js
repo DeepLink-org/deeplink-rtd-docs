@@ -7,7 +7,7 @@ if (window.location.pathname.includes("op_download.html")) {
   var rows = table.getElementsByTagName('tr');
 
   // 计算表格总行数和总页数
-  var rowCount = rows.length - 1; // 减去表头行
+  var rowCount = rows.length;
   var pageCount = Math.ceil((rowCount-1) / 15); // 每页显示15行
 
   // 创建页码链接
