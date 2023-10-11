@@ -23,8 +23,8 @@ if (window.location.pathname.includes("op_download.html")) {
       var currentPage = parseInt(this.innerHTML);
 
       // 计算当前页的起始行和结束行
-      var startRow = (currentPage - 1) * 20 + 1; // 加上表头行
-      var endRow = Math.min(currentPage * 20, rowCount) + 1; // 加上表头行
+      var startRow = (currentPage - 1) * 15 + 1; // 加上表头行
+      var endRow = Math.min(currentPage * 15, rowCount) + 1; // 加上表头行
 
       // 隐藏所有行
       for (var j = 1; j < rows.length; j++) {
@@ -115,7 +115,7 @@ if (window.location.pathname.includes("op_download.html")) {
           } else {
             $(row).hide();
           }
-          
+
           // 显示表头行
           var tableHeaderRow = $("table.docutils").find("tr:first");
           tableHeaderRow.show();
@@ -136,8 +136,8 @@ if (window.location.pathname.includes("op_download.html")) {
             var currentPage = parseInt(this.innerHTML);
 
             // 计算当前页的起始行和结束行
-            var startRow = (currentPage - 1) * 20 + 1; // 加上表头行
-            var endRow = Math.min(currentPage * 20, filteredRowCount) + 1; // 加上表头行
+            var startRow = (currentPage - 1) * 15 + 1; // 加上表头行
+            var endRow = Math.min(currentPage * 15, filteredRowCount) + 1; // 加上表头行
 
             // 隐藏所有行
             for (var j = 1; j < filteredRows.length; j++) {
