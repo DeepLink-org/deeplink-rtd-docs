@@ -23,8 +23,8 @@ if (window.location.pathname.includes("op_download.html")) {
       var currentPage = parseInt(this.innerHTML);
 
       // 计算当前页的起始行和结束行
-      var startRow = (currentPage - 1) * 15 + 1; // 加上表头行
-      var endRow = Math.min(currentPage * 15, rowCount) + 1; // 加上表头行
+      var startRow = (currentPage - 1) * 15 + 1; 
+      var endRow = Math.min(currentPage * 15, rowCount) + 1; 
 
       // 隐藏所有行
       for (var j = 1; j < rows.length; j++) {

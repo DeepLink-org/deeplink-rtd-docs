@@ -62,7 +62,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinxcontrib.mermaid',
     'breathe',
-    'sphinxcontrib.httpdomain',
+    # 'sphinxcontrib.httpdomain',
 ]  # yapf: disable
 
 # Configuration for intersphinx
