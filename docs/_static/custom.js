@@ -8,7 +8,7 @@ if (window.location.pathname.includes("op_download.html")) {
 
   // 计算表格总行数和总页数
   var rowCount = rows.length;
-  var pageCount = Math.ceil((rowCount-1) / 15); // 每页显示15行
+  var pageCount = Math.ceil((rowCount-1) / 20); // 每页显示20行
 
   // 创建页码链接
   var pagination = document.createElement('div');
@@ -23,9 +23,9 @@ if (window.location.pathname.includes("op_download.html")) {
       var currentPage = parseInt(this.innerHTML);
 
       // 计算当前页的起始行和结束行
-      var startRow = (currentPage - 1) * 15;
-      var endRow = Math.min(currentPage * 15, rowCount) - 1;
-      if (currentPage === pageCount && rowCount % 15 !== 0) {
+      var startRow = (currentPage - 1) * 20;
+      var endRow = Math.min(currentPage * 20, rowCount) - 1;
+      if (currentPage === pageCount && rowCount % 20 !== 0) {
         endRow = rowCount - 1;
       }
 
@@ -127,7 +127,7 @@ if (window.location.pathname.includes("op_download.html")) {
 
       // 计算新的总行数和总页数
       var filteredRowCount = filteredRows.length;
-      var filteredPageCount = Math.ceil(filteredRowCount / 15);
+      var filteredPageCount = Math.ceil(filteredRowCount / 20);
 
       // 清空页码链接的内容
       pagination.innerHTML = "";
@@ -140,8 +140,8 @@ if (window.location.pathname.includes("op_download.html")) {
           var currentPage = parseInt(this.innerHTML);
 
           // 计算当前页的起始行和结束行
-          var startRow = (currentPage - 1) * 15 + 1; // 加上表头行
-          var endRow = Math.min(currentPage * 15, filteredRowCount); // 加上表头行
+          var startRow = (currentPage - 1) * 20 + 1; // 加上表头行
+          var endRow = Math.min(currentPage * 20, filteredRowCount); // 加上表头行
 
           // 隐藏所有行
           for (var j = 0; j < filteredRows.length; j++) {
