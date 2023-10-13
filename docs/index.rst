@@ -64,6 +64,14 @@ DeepLink体系
 
 .. toctree::
    :maxdepth: 1
+   :caption: 算子图谱
+   :includehidden:
+
+   doc/Operators/op_classification
+   doc/Operators/op_download
+   
+.. toctree::
+   :maxdepth: 1
    :caption: DIOPI
    :includehidden:
 
@@ -91,14 +99,6 @@ DeepLink体系
    :includehidden:
 
    doc/DICP/Introduction
-
-.. toctree::
-   :maxdepth: 1
-   :caption: 算子图谱
-   :includehidden:
-
-   doc/Operators/op_classification
-   doc/Operators/op_download
 
 .. toctree::
    :maxdepth: 1
