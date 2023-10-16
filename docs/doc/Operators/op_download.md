@@ -41,7 +41,7 @@
 
 
 <a>
-<button id="filter-button" >筛选数据</button>
+<button id="filter-button" class="button">筛选数据</button>
 </a>
 
 <a href="../../../../doc/Operators/operators.xlsx" target="_blank" class="button" onclick="showConfirmation(event)">
