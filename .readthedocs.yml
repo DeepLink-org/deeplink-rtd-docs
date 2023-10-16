@@ -2,7 +2,12 @@ version: 2
 
 formats: all
 
-python:
-  version: 3.7
-  install:
-    - requirements: requirements/docs.txt
+Type: string
+Options: ubuntu-20.04, ubuntu-22.04
+Required: true
+build: 
+  os: ubuntu-22.04
+  tools:
+    python: 3.7
+      install:
+        - requirements: requirements/docs.txt
