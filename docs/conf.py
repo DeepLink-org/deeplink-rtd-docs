@@ -130,6 +130,11 @@ html_theme_options = {
             'name': 'Doc',
             'children': [
                 {
+                    'name': '算子图谱',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Operators/op_classification.html',
+                },
+                
+                {
                     'name': 'DIOPI',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/Introduction.html',
                 },
@@ -143,10 +148,6 @@ html_theme_options = {
                 #     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
                 # },
                 
-                {
-                    'name': '算子图谱',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Operators/op_classification.html',
-                },
             ],
         },
 
