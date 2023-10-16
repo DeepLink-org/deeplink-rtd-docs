@@ -62,8 +62,15 @@
 }
 
 #filter-button {
+   -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s; 
+  
   margin-right: 250px;
   border: none;
+}
+#filter-button:hover {
+  background-color: #2980b9;
+  color: white;
 }
 
 .button {
