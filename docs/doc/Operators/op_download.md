@@ -2,7 +2,7 @@
 
 
 <a>
-  <label for="field1-select">标准分类:</label>
+  <label for="field1-select">标准分类</label>
   <select id="field1-select">
     <option value="">请选择</option>
     <option value="Convolution">Convolution</option>
@@ -30,7 +30,7 @@
 </a>
 
 <a>
-  <label for="field2-select">算子分级:</label>
+  <label for="field2-select">算子分级</label>
   <select id="field2-select">
     <option value="">请选择</option>
     <option value="P0">P0</option>
@@ -49,12 +49,12 @@
 </a>
 
 <style>
-  #field2-select {
+#field2-select {
   margin-right: 20px;
   margin-bottom: 20px;
 }
 
-  #field1-select {
+#field1-select {
   margin-right: 20px;
 }
 
@@ -75,7 +75,26 @@
   #filter-button {
     margin-right: 250px;
   }
-  }
+}
+
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+ 
+.button:hover {
+    background-color: #008CBA; /* Green */
+    color: white;
+}
+#button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+ 
+#button:hover {
+    background-color: #008CBA; /* Green */
+    color: white;
+}
 </style>
 
 
