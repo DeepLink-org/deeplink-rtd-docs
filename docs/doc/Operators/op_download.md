@@ -61,14 +61,15 @@
 
 #filter-button {
   margin-right: 250px;
+  border: none;
 }
 
 .button {
-    /* -webkit-transition-duration: 0.4s; /* Safari 
-    transition-duration: 0.4s; */
-  background-color: #2980b9;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s; 
+  /* background-color: #2980b9;
+  color: white; */
   border: none;
-  color: white;
   padding: 5px 20px;
   text-align: center;
   text-decoration: none;
@@ -77,6 +78,11 @@
   margin: 2px 0px;
   cursor: pointer;
 }
+.button:hover{
+  background-color: #2980b9;
+  color: white;
+}
+
  
 
 
