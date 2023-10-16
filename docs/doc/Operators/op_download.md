@@ -97,7 +97,7 @@ a.button {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  margin: 2px 0px ;
+  margin: 2px 5% 0px 15%;
   cursor: pointer;
 }
 a.button:hover{
