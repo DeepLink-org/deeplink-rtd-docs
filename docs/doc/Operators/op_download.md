@@ -1,6 +1,7 @@
 # 算子图谱下载
 
 
+<a>
   <label for="field1-select" class="label">标准分类</label>
   <select id="field1-select">
     <option value="">请选择</option>
@@ -26,8 +27,9 @@
     <option value="Composite">Composite</option>
     <option value="Misc">Misc</option>
   </select>
+</a>
 
-
+<a>
   <label for="field2-select" class="label">算子分级</label>
   <select id="field2-select">
     <option value="">请选择</option>
@@ -35,12 +37,12 @@
     <option value="P1">P1</option>
     <option value="P2">P2</option>
   </select>
+</a>
 
 
-
-
+<a>
 <button id="filter-button" class="button">筛选数据</button>
-
+</a>
 
 <a href="../../../../doc/Operators/operators.xlsx" target="_blank" class="button" onclick="showConfirmation(event)">
   导出数据
@@ -60,7 +62,7 @@
 #filter-button {
   background-color: #2980b9;
   color: white;
-   -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s; /* Safari */ 
   transition-duration: 0.4s;  
 
   margin-right: 250px;
@@ -74,13 +76,12 @@
 .label{
   border: none;
 }
-.button {
+a.button {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s; 
 
   background-color: #2980b9;
   color: white;
-
   border: none;
   padding: 5px 20px;
   text-align: center;
@@ -90,7 +91,7 @@
   margin: 2px 0px;
   cursor: pointer;
 }
-.button:hover{
+a.button:hover{
   background-color: #f2f2f2; /*#2980b9; */
   color: #2980b9; 
 }
