@@ -99,8 +99,6 @@ a.button {
   font-size: 14px;
   margin: 2px 0px ;
   cursor: pointer;
-
-  margin-right:300px;
 }
 a.button:hover{
   background-color: #f2f2f2; /*#2980b9; */
