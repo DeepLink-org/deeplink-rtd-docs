@@ -65,6 +65,7 @@
   -webkit-transition-duration: 0.4s; /* Safari */ 
   transition-duration: 0.4s;  
 
+  margin-right: 250px;
   border: none;
   padding: 5px 20px;
   text-align: center;
