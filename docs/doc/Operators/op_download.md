@@ -53,18 +53,16 @@
 #field2-select {
   margin-right: 20px;
   margin-bottom: 20px;
-  border: none;
 }
 
 #field1-select {
   margin-right: 20px;
-  border: none;
 }
 
 #filter-button {
    -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s; 
-  
+
   margin-right: 250px;
   border: none;
 }
@@ -72,7 +70,9 @@
   background-color: #2980b9;
   color: white;
 }
-
+label{
+  border: none;
+}
 .button {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s; 
