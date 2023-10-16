@@ -2,7 +2,7 @@
 
 
 <a>
-  <label for="field1-select" class="label">标准分类</label>
+  <label for="field1-select" class="label">标准分类:</label>
   <select id="field1-select">
     <option value="">请选择</option>
     <option value="Convolution">Convolution</option>
@@ -30,7 +30,7 @@
 </a>
 
 <a>
-  <label for="field2-select" class="label">算子分级</label>
+  <label for="field2-select" class="label">算子分级:</label>
   <select id="field2-select">
     <option value="">请选择</option>
     <option value="P0">P0</option>
@@ -81,7 +81,7 @@
 }
 
 label.label{
-  background-color:none;
+  background-color:white;
   color:black;
   border: none;
 }
