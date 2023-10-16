@@ -2,9 +2,6 @@ version: 2
 
 formats: all
 
-Type: string
-Options: ubuntu-20.04, ubuntu-22.04
-Required: true
 build: 
   os: ubuntu-22.04
   tools:
