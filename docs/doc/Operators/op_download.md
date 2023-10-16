@@ -64,14 +64,25 @@
 }
 
 .button {
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    /* -webkit-transition-duration: 0.4s; /* Safari 
+    transition-duration: 0.4s; */
+  background-color: #2980b9;
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 0px;
+  cursor: pointer;
 }
  
 .button:hover {
     background-color: #008CBA; /* Green */
     color: white;
 }
+
 
 </style>
 
