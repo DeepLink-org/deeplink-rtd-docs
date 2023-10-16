@@ -49,6 +49,7 @@
 </a>
 
 <style>
+/* 设置下拉菜单和筛选按钮的外观 */
 #field2-select {
   margin-right: 20px;
   margin-bottom: 20px;
@@ -58,23 +59,8 @@
   margin-right: 20px;
 }
 
-
 #filter-button {
   margin-right: 250px;
-
-/* 设置下拉菜单和筛选按钮的外观 */
-  #field2-select {
-    margin-right: 20px;
-    margin-bottom: 20px;
-  }
-
-  #field1-select {
-    margin-right: 20px;
-  }
-
-  #filter-button {
-    margin-right: 250px;
-  }
 }
 
 .button {
