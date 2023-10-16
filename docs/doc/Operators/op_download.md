@@ -78,10 +78,6 @@
   cursor: pointer;
 }
  
-.button:hover {
-    background-color: #008CBA; /* Green */
-    color: white;
-}
 
 
 </style>
