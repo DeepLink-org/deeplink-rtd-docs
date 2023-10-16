@@ -65,8 +65,14 @@
   -webkit-transition-duration: 0.4s; /* Safari */ 
   transition-duration: 0.4s;  
 
-  margin-right: 250px;
   border: none;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 0px;
+  cursor: pointer;
 }
 #filter-button:hover {
   background-color: #f2f2f2; /*#2980b9; */
