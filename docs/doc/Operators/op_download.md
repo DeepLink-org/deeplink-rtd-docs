@@ -41,7 +41,7 @@
 
 
 <a>
-<button id="filter-button" class="button">筛选数据</button>
+<button id="filter-button" >筛选数据</button>
 </a>
 
 <a href="../../../../doc/Operators/operators.xlsx" target="_blank" class="button" onclick="showConfirmation(event)">
@@ -97,8 +97,10 @@ a.button {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  margin: 2px 0px;
+  margin: 2px 0px ;
   cursor: pointer;
+
+  margin-right:300px;
 }
 a.button:hover{
   background-color: #f2f2f2; /*#2980b9; */
