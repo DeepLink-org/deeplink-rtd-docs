@@ -86,15 +86,7 @@
     background-color: #008CBA; /* Green */
     color: white;
 }
-#button {
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
- 
-#button:hover {
-    background-color: #008CBA; /* Green */
-    color: white;
-}
+
 </style>
 
 
