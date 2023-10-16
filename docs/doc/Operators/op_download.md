@@ -53,10 +53,12 @@
 #field2-select {
   margin-right: 20px;
   margin-bottom: 20px;
+  border: none;
 }
 
 #field1-select {
   margin-right: 20px;
+  border: none;
 }
 
 #filter-button {
