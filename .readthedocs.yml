@@ -2,9 +2,12 @@ version: 2
 
 formats: all
 
+python: 
+  version: 3.7
+  install:
+    - requirements: requirements/docs.txt
+
 build: 
   os: ubuntu-22.04
   tools:
-    python: 3.7
-      install:
-        - requirements: requirements/docs.txt
+    python: "3.7"
