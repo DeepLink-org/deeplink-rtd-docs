@@ -73,7 +73,9 @@
   color: #2980b9; 
 }
 
-.label{
+label.label{
+  background-color:none;
+  color:black;
   border: none;
 }
 a.button {
