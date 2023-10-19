@@ -76,6 +76,7 @@
 |  ----  | ----  | ----  |
 | Convolution  | Convolution | 9 |
 | Pooling  | max_pooling | 23 |
+| Pad  | pad | 2 |
 | Loss  | binary_cross_entropy | 18 |
 | Norm  | batch_norm | 12 |
 | Activation  | relu | 20 |
