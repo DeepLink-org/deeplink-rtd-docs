@@ -104,6 +104,11 @@ html_theme_options = {
             'children': [
                 # A vanilla dropdown item
                 {
+                    'name': 'AIChipBenchmark',
+                    'url': 'https://github.com/DeepLink-org/AIChipBenchmark',
+                    # 'description': 'description'
+                },
+                {
                     'name': 'DIOPI',
                     'url': 'https://github.com/DeepLink-org/DIOPI',
                     # 'description': 'description'
