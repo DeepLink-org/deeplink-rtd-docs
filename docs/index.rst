@@ -46,6 +46,12 @@ DeepLink体系
 | 基于以上标准算子接口与编译协议，提供了一套硬件无关的上层框架衔接通道，兼容主流的训练框架与算法生态。此外，DeepLink还包含验证一致性的测例库和工具：一套完整的测试框架和一套算子函数测试，它含有一个一定规模的算子测例集合，可以在没有训练框架的情况下，确保厂商适配的算子功能正确，使得芯片厂商无需训练框架即可对适配结果的正确性进行验证，减少了训练框架带来的复杂性。
 
 
+评测体系
+====================================
+
+
+
+
 面向群体
 ====================
 
@@ -99,6 +105,15 @@ DeepLink体系
    :includehidden:
 
    doc/DICP/Introduction
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 测评体系
+   :includehidden:
+
+   doc/Chip_test/Introduction.md
+   doc/Chip_test/basicmodel.md
+   doc/Chip_test/largemodel.md
 
 .. toctree::
    :maxdepth: 1
