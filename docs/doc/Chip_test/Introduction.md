@@ -42,6 +42,6 @@ DeepLink将以季度为单位对测评标准进行迭代，并定期开展芯片
 * **测评方案**：[测评标准&实施方案](https://aicarrier.feishu.cn/wiki/WOMuwRlF6ilBf5kug8DcbpZwnqb?from=from_copylink)
 * **测评仓库**：[AIChipBenchmark](https://github.com/DeepLink-org/AIChipBenchmark)
 
-### 联系我们
+## 联系我们
 
 如果您所代表的芯片厂商，也期望能够参与硬件测评，可联系社区：deeplink@pjlab.org.cn
