@@ -132,7 +132,12 @@ html_theme_options = {
         },
         
         {
-            'name': 'Doc',
+            'name': 'DeepLink',
+            'url': 'https://deeplink.org.cn/home',
+        },
+        
+        {
+            'name': '适配体系',
             'children': [
                 {
                     'name': '算子图谱',
@@ -148,18 +153,20 @@ html_theme_options = {
                     'name': 'DIPU',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
                 },
+                
+                
+            ],
+        },
+        {
+            'name': '测评体系',
+            'children':[
                 {
                     'name': '硬件测评',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
                 },
-                
             ],
         },
 
-        {
-            'name': 'DeepLink',
-            'url': 'https://deeplink.org.cn/home',
-        },
     ],
     # Specify the language of shared menu
     #'menu_lang':
