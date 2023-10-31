@@ -75,36 +75,41 @@ DeepLink体系
 
    doc/Operators/op_classification
    doc/Operators/op_download
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 适配体系
+   :includehidden:
    
-.. toctree::
-   :maxdepth: 1
-   :caption: DIOPI
-   :includehidden:
+   .. toctree::
+      :maxdepth: 1
+      :caption: DIOPI
+      :includehidden:
 
-   doc/DIOPI/Introduction
-   doc/DIOPI/quick_start
-   doc/DIOPI/API/API_index
-   DIOPI/diopi_test/python/docs/source/cn_ref
-   doc/DIOPI/FAQ
+      doc/DIOPI/Introduction
+      doc/DIOPI/quick_start
+      doc/DIOPI/API/API_index
+      DIOPI/diopi_test/python/docs/source/cn_ref
+      doc/DIOPI/FAQ
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: DIPU
-   :includehidden:
+   .. toctree::
+      :maxdepth: 1
+      :caption: DIPU
+      :includehidden:
 
-   doc/DIPU/Introduction
-   doc/DIPU/quick_start
-   doc/DIPU/FAQ
-   .. doc/DIPU/API/API_index
-   
+      doc/DIPU/Introduction
+      doc/DIPU/quick_start
+      doc/DIPU/FAQ
+      .. doc/DIPU/API/API_index
+      
 
-.. toctree::
-   :maxdepth: 1
-   :caption: DICP
-   :includehidden:
+   .. toctree::
+      :maxdepth: 1
+      :caption: DICP
+      :includehidden:
 
-   doc/DICP/Introduction
+      doc/DICP/Introduction
 
 .. toctree::
    :maxdepth: 1
