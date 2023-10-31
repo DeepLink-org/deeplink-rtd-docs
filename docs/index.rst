@@ -75,15 +75,6 @@ DeepLink体系
 
    doc/Operators/op_classification
    doc/Operators/op_download
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 适配体系
-   :includehidden:
-   :numbered:
-   
-   doc/DIOPI/Introduction
-   doc/DIOPI/quick_start
    
 .. toctree::
    :maxdepth: 1
