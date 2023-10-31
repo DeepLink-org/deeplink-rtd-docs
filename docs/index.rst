@@ -83,9 +83,12 @@ DeepLink体系
 
    doc/DIOPI/quick_start
 
-      :caption: 适配体系2
-   
-      doc/DIOPI/Introduction
+      .. toctree::
+         :maxdepth: 2
+         :caption: 适配体系2
+         :includehidden:
+      
+         doc/DIOPI/Introduction
    
    
 .. toctree::
