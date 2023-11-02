@@ -31,16 +31,25 @@ DeepLink将以季度为单位对测评标准进行迭代，并定期开展芯片
   <img src="../../_static/image/Chip_test/pipeline.png" />
 </div>
 
-如果您所代表的硬件厂商，
+
+1. 季度测评开始前，联系硬件测评工作人员(或邮件联系\"deeplink_benchmark@pjlab.org.cn\")，确认参与本季度测评。
+2. 季度测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总。
+3. 相关链接可见：
+    * 汇总表模版详见实施方案：[基础测评实施方案](https://aicarrier.feishu.cn/wiki/WOMuwRlF6ilBf5kug8DcbpZwnqb)和[大模型测评实施方案](https://aicarrier.feishu.cn/wiki/C2NYwAJEqidHUbkfNPgcO6EsnOd)；
+    * [评测仓库&数据下载](https://github.com/DeepLink-org/AIChipBenchmark)。
+4. 厂商提交数据和验证材料，实验室会进行结果核验。
+5. 实验室完成单芯片评测报告整理，点对点发放。 
+6. 厂商可对评测数据进行反馈。
+
+<!-- 
 1. 季度测评开始前，联系硬件测评工作人员(或邮件联系\"deeplink_benchmark@pjlab.org.cn\")，确认参与本季度测评
 2. 季度测评开始，参与测评的芯片请阅读“[测评标准&实施方案](https://aicarrier.feishu.cn/wiki/WOMuwRlF6ilBf5kug8DcbpZwnqb?from=from_copylink)”，基于实施方案对自家芯片进行测试； 
 3. 厂商提交数据和验证材料，实验室会进行结果核验； 
-4. 实验室完成单芯片评测报告整理（可参考：[报告模版](https://aicarrier.feishu.cn/wiki/R970wOBEhihaoakWkuMco9ognu7)），点对点发放。 
-
+4. 实验室完成单芯片评测报告整理（可参考：[报告模版](https://aicarrier.feishu.cn/wiki/R970wOBEhihaoakWkuMco9ognu7)），点对点发放。  -->
+<!-- 
 ### 相关链接
-* **测评数据下载**：[]()
 * **测评方案**：[测评标准&实施方案](https://aicarrier.feishu.cn/wiki/WOMuwRlF6ilBf5kug8DcbpZwnqb?from=from_copylink)
-* **测评仓库**：[AIChipBenchmark](https://github.com/DeepLink-org/AIChipBenchmark)
+* **测评仓库**：[AIChipBenchmark](https://github.com/DeepLink-org/AIChipBenchmark) -->
 
 ## 联系我们
 
