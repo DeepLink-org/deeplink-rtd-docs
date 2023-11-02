@@ -40,7 +40,7 @@
     </tr>
     <tr>
         <td rowspan="2">功能测试</td>
-        <td><a href=="https://github.com/DeepLink-org/AIChipBenchmark/tree/main/operators/accuracy_test">算子功能 </a></td>
+        <td><a href="https://github.com/DeepLink-org/AIChipBenchmark/tree/main/operators/accuracy_test">算子功能 </a></td>
         <td>考察芯片对算子的支持程度</td>
     </tr>
     <tr>
