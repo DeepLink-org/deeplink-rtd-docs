@@ -75,21 +75,6 @@ DeepLink体系
 
    doc/Operators/op_classification
    doc/Operators/op_download
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 适配体系
-   :includehidden:
-
-   doc/DIOPI/quick_start
-
-      .. toctree::
-         :maxdepth: 2
-         :caption: 适配体系2
-         :includehidden:
-      
-         doc/DIOPI/Introduction
-   
    
 .. toctree::
    :maxdepth: 1
@@ -123,7 +108,7 @@ DeepLink体系
 
 .. toctree::
    :maxdepth: 1
-   :caption: 测评体系
+   :caption: 硬件测评
    :includehidden:
 
    doc/Chip_test/Introduction.md
