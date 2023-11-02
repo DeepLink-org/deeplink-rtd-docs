@@ -53,4 +53,4 @@ DeepLink将以季度为单位对测评标准进行迭代，并定期开展芯片
 
 ## 联系我们
 
-如果您所代表的芯片厂商，也期望能够参与硬件测评，可联系社区：deeplink@pjlab.org.cn
+如果您所代表的芯片厂商，也期望能够参与硬件测评，可联系社区：deeplink_benchmark@pjlab.org.cn。
