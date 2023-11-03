@@ -62,6 +62,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinxcontrib.mermaid',
     'breathe',
+    # 'sphinxcontrib.httpdomain',
 ]  # yapf: disable
 
 # Configuration for intersphinx
@@ -103,6 +104,11 @@ html_theme_options = {
             'children': [
                 # A vanilla dropdown item
                 {
+                    'name': 'AIChipBenchmark',
+                    'url': 'https://github.com/DeepLink-org/AIChipBenchmark',
+                    # 'description': 'description'
+                },
+                {
                     'name': 'DIOPI',
                     'url': 'https://github.com/DeepLink-org/DIOPI',
                     # 'description': 'description'
@@ -126,8 +132,18 @@ html_theme_options = {
         },
         
         {
-            'name': 'Doc',
+            'name': 'DeepLink',
+            'url': 'https://deeplink.org.cn/home',
+        },
+        
+        {
+            'name': '适配体系',
             'children': [
+                {
+                    'name': '算子图谱',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Operators/op_classification.html',
+                },
+                
                 {
                     'name': 'DIOPI',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/Introduction.html',
@@ -137,17 +153,20 @@ html_theme_options = {
                     'name': 'DIPU',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
                 },
-                # {
-                #     'name': '硬件测评',
-                #     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
-                # },
+                
+                
+            ],
+        },
+        {
+            'name': '测评体系',
+            'children':[
+                {
+                    'name': '硬件测评',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
+                },
             ],
         },
 
-        {
-            'name': 'DeepLink',
-            'url': 'https://deeplink.org.cn/home',
-        },
     ],
     # Specify the language of shared menu
     #'menu_lang':
@@ -161,6 +180,8 @@ html_show_sphinx = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 html_css_files = ['css/readthedocs.css']
+html_js_files = ['custom.js', "https://code.jquery.com/jquery-3.6.0.min.js"]
+
 
 
 # -- Extension configuration -------------------------------------------------
@@ -175,3 +196,6 @@ breathe_projects = {
 }
 breathe_default_project = "DIOPI Doxygen Breathe"
 breathe_default_members = ('members', 'undoc-members') 
+
+# -- MyST configuration -------------------------------------------------
+myst_enable_extensions = ["dollarmath", "amsmath"]

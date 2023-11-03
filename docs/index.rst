@@ -29,7 +29,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 .. | DeepLink的标准化定义包含算子接口（DIOPI）和编译接口（DICP）两个部分。并提供200+标准算子接口，支持5000+个算子测例，覆盖CV类常见问题以及NLP等多场景模型，具备语言类大模型支持能力：
 .. | DeepLink已包含 :red:`200+标准算子接口`，支持 :red:`5000+个算子测例`，覆盖CV类常见问题以及NLP等多场景模型，具备 :red:`语言类大模型支持能力`.
 
-DeepLink体系
+适配体系
 ====================================
 
 .. image:: _static/image/Deeplink01.png
@@ -44,6 +44,12 @@ DeepLink体系
 | 标准算子接口与编译协议分别支撑起了目前深度学习框架的两大模式：Eager模式（命令行交互模式）与Graph模式（图模式）。标准算子接口支持的Eager模式是主攻易用性，使得算法工程师能在短时间内进行多种尝试；编译协议支持的Graph模式是主攻高性能，能大幅提升训练效率，最大限度的释放芯片能力。
 
 | 基于以上标准算子接口与编译协议，提供了一套硬件无关的上层框架衔接通道，兼容主流的训练框架与算法生态。此外，DeepLink还包含验证一致性的测例库和工具：一套完整的测试框架和一套算子函数测试，它含有一个一定规模的算子测例集合，可以在没有训练框架的情况下，确保厂商适配的算子功能正确，使得芯片厂商无需训练框架即可对适配结果的正确性进行验证，减少了训练框架带来的复杂性。
+
+
+评测体系
+====================================
+
+硬件测评是面向国产深度学习加速卡进行的多维度评测工作。硬件测评提供一套标准的行业测试方法，提供技术规格、软件生态、功能测试、性能测试等多视角，并周期性产出标准测评结果。硬件测评结果可用作各类国产加速卡在不同维度表现的参考。
 
 
 面向群体
@@ -62,6 +68,14 @@ DeepLink体系
 索引
 ====================
 
+.. toctree::
+   :maxdepth: 1
+   :caption: 算子图谱
+   :includehidden:
+
+   doc/Operators/op_classification
+   doc/Operators/op_download
+   
 .. toctree::
    :maxdepth: 1
    :caption: DIOPI
@@ -91,6 +105,15 @@ DeepLink体系
    :includehidden:
 
    doc/DICP/Introduction
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 硬件测评
+   :includehidden:
+
+   doc/Chip_test/Introduction.md
+   doc/Chip_test/basicmodel.md
+   doc/Chip_test/largemodel.md
 
 .. toctree::
    :maxdepth: 1
