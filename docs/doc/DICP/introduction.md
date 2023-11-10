@@ -2,7 +2,7 @@
 <img src="https://deeplink.readthedocs.io/zh-cn/latest/_static/image/logo.png">
 </div>
 
-# DICP
+# DICP Introduction
 
 标准编译协议（Device-Independent Compile Protocol,DICP）定义了统一的计算描述（中间表示），通过计算图获取深度学习模型中的计算任务表达为上述中间表示，然后通过计算图优化技术自动生成人工智能芯片设备代码，从而提高研发效率和计算的执行性能。中间表示是介于源语言和目标语言之间的程序表示，能够极大程度地提高编译流程的可拓展性，同时也能降低优化流程对前端和后端的破坏。多层次中间表示包含从应用到芯片端的多种表示层次，不同层次旨在解决不同尺度的问题。
 
@@ -14,7 +14,7 @@ DICP主要的核心功能如下：
 下图描述了DICP在编译链路中的位置：
 
 <div align=center>
-<img src="https://deeplink.readthedocs.io/zh-cn/latest/_images/dicp_flow.png">
+<img src="../../_static/image/DICP/dicp_flow.png">
 <p>*DICP在编译链路中的位置</p>
 
 </div>
