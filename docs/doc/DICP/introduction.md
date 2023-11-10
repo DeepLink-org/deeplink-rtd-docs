@@ -1,6 +1,6 @@
-<div align=center>
+<!-- <div align=center>
 <img src="https://deeplink.readthedocs.io/zh-cn/latest/_static/image/logo.png">
-</div>
+</div> -->
 
 # DICP Introduction
 
