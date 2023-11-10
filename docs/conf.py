@@ -115,7 +115,11 @@ html_theme_options = {
                 },
                 {
                     'name': 'DIPU',
-                    'url': 'https://github.com/DeepLink-org/dipu_poc',
+                    'url': 'https://github.com/DeepLink-org/DIPU/tree/main/dipu',
+                },
+                {
+                    'name': 'DICP',
+                    'url': 'https://github.com/DeepLink-org/DIPU/tree/main/dicp',
                 },
                 {
                     'name': 'DLOP-Bench',
@@ -134,6 +138,7 @@ html_theme_options = {
         {
             'name': 'DeepLink',
             'url': 'https://deeplink.org.cn/home',
+            # https://deeplink.readthedocs.io/zh-cn/latest/index.html
         },
         
         {
@@ -154,6 +159,10 @@ html_theme_options = {
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
                 },
                 
+                {
+                    'name': 'DICP',
+                    'url': 'https://deeplink.readthedocs.io/zh-cn/latest/doc/DICP/introduction.html',
+                },
                 
             ],
         },
