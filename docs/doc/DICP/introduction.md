@@ -50,12 +50,12 @@ DICP的运行逻辑如下图所示:
 4. **数据格式调整**： 是根据后端芯片与其图编译器的特性，针对特定的算子调整其输入输出的数据格式，使得最大程度的发挥芯片性能。
 
 ### 目录结构
-* dicp/dynamo_bridge： 多后端通用的接入代码，包含了
+* `dicp/dynamo_bridge`： 多后端通用的接入代码，包含了
   1. 接收从AOTAutograd下发而来的FX Graph
   2. 启动各个厂商的IR转换与优化
   3. 启动CodeGen以及JIT缓存的逻辑。
-* dicp/vender: 主要包含了各个厂商IR的定义，AtenIR到厂商IR的转换，厂商IR上的优化以及最后的代码生成模块。
-* test: 包含了model测试与op测试
+* `dicp/vender`: 主要包含了各个厂商IR的定义，AtenIR到厂商IR的转换，厂商IR上的优化以及最后的代码生成模块。
+* `test`: 包含了model测试与op测试
 
 
 ### Demo
