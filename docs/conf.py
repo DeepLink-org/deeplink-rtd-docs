@@ -137,7 +137,17 @@ html_theme_options = {
         
         {
             'name': 'DeepLink',
-            'url': 'https://deeplink.org.cn/home',
+            'children': [
+                {
+                    'name': 'DeepLink官网',
+                    'url': 'https://deeplink.org.cn/home',
+                },
+                
+                {
+                    'name': '官方文档',
+                    'url': 'https://deeplink.readthedocs.io/zh-cn/latest/index.html',
+                },
+             ],
             # https://deeplink.readthedocs.io/zh-cn/latest/index.html
         },
         
