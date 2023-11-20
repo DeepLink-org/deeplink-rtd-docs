@@ -30,7 +30,10 @@
 </a>
 
 <a>
-  <label for="field2-select" class="label">算子分级:</label>
+  <label for="field2-select" class="label" title="指OpenMMLab中，常用模型列表的模型所使用的算子。
+  P0：高频算子；
+  P1：基本算子；
+  P2：低频算子。">算子分级:</label>
   <select id="field2-select">
     <option value="">请选择</option>
     <option value="P0">P0</option>
@@ -47,6 +50,7 @@
 <a href="../../../../doc/Operators/operators.xlsx" target="_blank" class="button" onclick="showConfirmation(event)">
   导出数据
 </a>
+
 
 <style>
 /* 设置下拉菜单和筛选按钮的外观 */
