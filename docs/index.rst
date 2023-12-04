@@ -94,6 +94,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    :includehidden:
 
    doc/DIPU/Introduction
+   doc/DIPU/profiler_intro
    doc/DIPU/quick_start
    doc/DIPU/FAQ
    .. doc/DIPU/API/API_index
