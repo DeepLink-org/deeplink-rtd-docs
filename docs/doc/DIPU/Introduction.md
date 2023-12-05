@@ -86,7 +86,7 @@ PyTorch 要求 out-of-tree 的代码必须定义一个私有的 *Backend Key*，
 2. 简单开发的手工测例。这部分测例更注重算子能否跑通，对算子要求较低。
 3. 模型测试。我们开发了 `one_iter` 精度对比工具，会先在精度正确性没问题的设备（如 CPU 和 CUDA）上训练模型，保存每一层的算子输入、输出、权重、梯度数据，再在待测试设备上训练模型，逐层对比训练精度。
 
-> 更多信息请参考 [dipu/tests](https://github.com/DeepLink-org/DIPU/tree/main/dipu/tests) 目录。
+*更多信息请参考 [dipu/tests](https://github.com/DeepLink-org/DIPU/tree/main/dipu/tests) 目录。
 
 ## Learn More
 
