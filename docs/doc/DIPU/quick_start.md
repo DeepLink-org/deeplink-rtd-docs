@@ -38,10 +38,11 @@ export PATH=$PWD:$PATH
 #### 安装 PyTorch
 
 使用 gcc 7.5 编译 PyTorch：
+```note
+PyTorch 2.0 推荐使用 commit id 为 `c263bd43e8e8502d4726643bc6fd046f0130ac0e` 的版本。
+```
 
-> PyTorch 2.0 推荐使用 commit id 为 `c263bd43e8e8502d4726643bc6fd046f0130ac0e` 的版本。
-
-``` bash
+```bash
 cd /home/$USER/code
 git clone git@github.com:pytorch/pytorch.git
 cd pytorch
@@ -318,4 +319,4 @@ void createStream(deviceStream_t* stream, bool prior) {
 
 - 根据 DIPU 的编译介绍，我们在编译了 DIPU 之后，需要注意将 `LIBRARY_PATH`、`LD_LIBRARY_PATH`、`PYTHONPATH` 都设置好避免后续使用出现问题。
 - `dipu/tests` 文件夹中有许多基础功能的测试，建议首先尝试测试 `python -u dipu/tests/python/unittests/test_add.py`，该文件测试跑通基本意味着我们的设备 *runtime* 接入没有问题了。
-- 编译脚本参考 [编译 DIPU](#编译-dipu)，测试脚本可以参考 [验证 DIPU](#验证-dipu)。
+- 编译脚本参考 **[编译 DIPU](#编译-dipu)**，测试脚本可以参考 **[验证 DIPU](#验证-dipu)**ss。
