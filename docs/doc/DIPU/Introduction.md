@@ -8,7 +8,7 @@ DIPU (device independent process unit) 是由 **一组抽象设备 Runtime 接�
 
 DIPU 结构上分为 Python 和 CPP 两部分：
 
-![project structure](https://deeplink.readthedocs.io/zh_CN/latest/_images/structure1.png)
+![project structure](../../_static/image/DIPU/structure.png)
 
 ### CPP 层
 
