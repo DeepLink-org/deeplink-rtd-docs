@@ -278,7 +278,9 @@ diopi dyload init
 
 接入流程示意图：
 
-![结构图](https://deeplink.readthedocs.io/zh_CN/latest/_images/SOP_01.png)
+<div align=center>
+<img src="../../_static/image/DIPU/SOP_01.png">
+</div>
 
 ### 核心代码添加
 
