@@ -115,6 +115,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    doc/Chip_test/Introduction.md
    doc/Chip_test/basicmodel.md
    doc/Chip_test/largemodel.md
+   doc/Chip_test/FAQ
 
 .. toctree::
    :maxdepth: 1
