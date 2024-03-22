@@ -13,6 +13,7 @@
 import os
 import sys
 import pytorch_sphinx_theme
+import datetime
 
 # -- Gen DIOPI doc -----------------------------------------------------------
 
@@ -31,7 +32,7 @@ sys.path.insert(0, os.path.abspath('./DIOPI/diopi_test/python'))
 # -- Project information -----------------------------------------------------
 
 project = 'DeepLink Doc'
-copyright = '2024, DeepLink'
+copyright = datetime.datetime.today.year()+', DeepLink'
 author = 'DeepLink contributor'
 
 # The full version, including alpha/beta/rc tags
