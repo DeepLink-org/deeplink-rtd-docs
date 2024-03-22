@@ -107,6 +107,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 
    doc/DICP/introduction
    doc/DICP/quick_start
+   doc/DICP/tutor_adapt
 
 .. toctree::
    :maxdepth: 1
