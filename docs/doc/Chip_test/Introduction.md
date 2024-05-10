@@ -43,7 +43,8 @@ DeepLink将以季度为单位对测评标准进行迭代，并定期开展芯片
 2. 季度测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总。
 3. 相关链接可见：
   * 实施方案：[AI芯片评测实施方案](https://aicarrier.feishu.cn/wiki/Te5BwnxgTiu7vYkny7PcFdLanZf)和[基于大模型的AI芯片评测实施方案](https://aicarrier.feishu.cn/wiki/QDXLwoHmbiX2RdkHCqQcExTjnTd)（数据汇总模版见方案开头）；
-  * [评测仓库&数据下载](https://github.com/DeepLink-org/AIChipBenchmark)。
+  * [评测仓库&数据下载](https://github.com/DeepLink-org/AIChipBenchmark)；
+  * [基准值log](https://pjlab-my.sharepoint.cn/personal/zoutong_pjlab_org_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fzoutong%5Fpjlab%5Forg%5Fcn%2FDocuments%2F%E7%A1%AC%E4%BB%B6%E8%AF%84%E6%B5%8B%2F2024%2DQ1%2F%E5%9F%BA%E5%87%86%E5%80%BC%2F%E5%9F%BA%E5%87%86%E5%80%BClog%E6%97%A5%E5%BF%97&ga=1)。
 4. 厂商提交数据汇总表和相关验证材料至指定位置，实验室进行结果核验。
 5. 实验室完成单芯片评测报告整理，点对点发放。
 6. 厂商可对评测结果和方案和理性进行意见反馈。
