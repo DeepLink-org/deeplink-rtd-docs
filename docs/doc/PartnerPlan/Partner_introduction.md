@@ -24,7 +24,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 
 <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表.docx</a>
 
-<table border="2px">
+<table border="10px">
     <tr>
         <th>序号</th>
         <th>文件</th>
