@@ -73,7 +73,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    :caption: 合作伙伴生态计划
    :includehidden:
 
-   doc/PartnerPlan/Partner_ntroduction.md
+   doc/PartnerPlan/Partner_introduction.md
 
 .. toctree::
    :maxdepth: 1
