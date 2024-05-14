@@ -48,7 +48,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
     <tr>
         <td >4</td>
         <td>历史评测报告</td>
-        <td><a href="../../_static/image/PartnerPlan/report.png" >基于大模型的AI芯片评测报告（0.2.1）（样例）</a></td>
+        <td><a href="../../_static/image/PartnerPlan/report.pdf" >基于大模型的AI芯片评测报告（0.2.1）（样例）</a></td>
     </tr> 
  	<tr>
         <td >5</td>
