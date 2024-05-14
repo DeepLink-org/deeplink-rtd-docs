@@ -18,11 +18,11 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 * 第四步：等待实验室审核（约30个工作日）；
 * 第五步：认证完成，获得官方认证登记通知、证书发放；
 
-<a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" target="_blank" class="button" onclick="showConfirmation2(event)">
+<!-- <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" target="_blank" class="button" onclick="showConfirmation2(event)">
   导出数据
 </a>
 
-<a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表.docx</a>
+<a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表.docx</a> -->
 
 <table border="10px">
     <tr>
