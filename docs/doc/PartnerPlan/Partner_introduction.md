@@ -24,7 +24,44 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 
 <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表.docx</a>
 
-
+<table border="2px">
+    <tr>
+        <th>序号</th>
+        <th>文件</th>
+        <th>文件样例</th>
+    </tr>
+    <tr>
+       <td >1*</td>  <!-- rowspan="4" -->
+        <td><a href="../../_static/image/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表（word、pdf）</a></td>
+        <td>填写样例</td>
+    </tr>
+    <tr>
+        <td >2*</td>  <!-- rowspan="4" -->
+        <td>企业资质证明材料（pdf、jpg）</td>
+        <td><a href="../../_static/image/PartnerPlan/company.png" >营业执照</a></td>
+    </tr>
+    <tr>
+        <td >3*</td>
+        <td>企业Logo（png、jpg、ai等图片格式）</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td >4</td>
+        <td>历史评测报告</td>
+        <td><a href="../../_static/image/PartnerPlan/report.png" >基于大模型的AI芯片评测报告（0.2.1）（样例）</a></td>
+    </tr> 
+ 	<tr>
+        <td >5</td>
+        <td>市场合作材料</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td >6*</td>
+        <td>产品介绍（word\ppt\pdf）</td>
+        <td>-</td>
+    </tr>
+    
+</table>
 
 <style>
 /* 设置下拉菜单和筛选按钮的外观 */
