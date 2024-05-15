@@ -24,6 +24,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 </a>
 
 <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表.docx</a> -->
+（带“ * ”为必须材料，如遗漏可能影响审核进展。）
 |  序号  | 文件  | 文件样例 |
 |  ----  | ----  | ----  |
 |  1*  | <a href="../../_static/image/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表（pdf）</a>  | 填写样例 |
@@ -31,9 +32,9 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 |  3*  | 企业Logo（png/jpg/ai等图片格式） | - |
 |  4  | 历史评测报告  | <a href="../../_static/image/PartnerPlan/report.pdf" target="_blank">基于大模型的AI芯片评测报告（0.2.1）（样例）</a> |
 |  5  | 市场合作材料  | - |
-|  6*  | 产品介绍（word/ppt/pdf）  | - |
+|  6*  | 产品介绍（word/ppt/pdf） | - |
 
-带“ * ”为必须材料，如遗漏可能影响审核进展。
+
 <!-- 
 <table border="2">
     <tr>
