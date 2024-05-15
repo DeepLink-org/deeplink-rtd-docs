@@ -65,7 +65,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 </table>
 带“ * ”为必须材料，如遗漏可能影响审核进展。
 
-<style>
+<!-- <style>
 /* 设置下拉菜单和筛选按钮的外观 */
 #field2-select {
   margin-right: 20px;
@@ -153,4 +153,4 @@ td {
   white-space: nowrap;
   min-width: 150px;
 }
-</style>
+</style> -->
