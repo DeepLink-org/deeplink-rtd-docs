@@ -39,7 +39,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
     <tr>
         <td >2*</td>  <!-- rowspan="4" -->
         <td>企业资质证明材料（pdf、jpg）</td>
-        <td><a href="../../_static/image/PartnerPlan/company.png" >营业执照</a></td>
+        <td><a href="../../_static/image/PartnerPlan/company.png" target="_blank">营业执照</a></td>
     </tr>
     <tr>
         <td >3*</td>
@@ -49,7 +49,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
     <tr>
         <td >4</td>
         <td>历史评测报告</td>
-        <td><a href="../../_static/image/PartnerPlan/report.pdf" >基于大模型的AI芯片评测报告（0.2.1）（样例）</a></td>
+        <td><a href="../../_static/image/PartnerPlan/report.pdf" target="_blank">基于大模型的AI芯片评测报告（0.2.1）（样例）</a></td>
     </tr> 
  	<tr>
         <td >5</td>
