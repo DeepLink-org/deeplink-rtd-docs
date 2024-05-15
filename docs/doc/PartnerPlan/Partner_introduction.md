@@ -6,7 +6,7 @@ DeepLink以硬件评测交流会的顺利举办为抓手，深度挖掘硬件企
 
 DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业单位与DeepLink团队联系，并参与合作伙伴生态！
 
-<div align="center">
+<div align="center" width="80%">
   <img src="../../_static/image/PartnerPlan/partnerplan_structure.png" />
 </div>
 
@@ -25,7 +25,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 
 <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表.docx</a> -->
 
-<table border="10px">
+<table border="2">
     <tr>
         <th>序号</th>
         <th>文件</th>
