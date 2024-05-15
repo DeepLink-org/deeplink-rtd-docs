@@ -4,18 +4,19 @@ DeepLink以硬件评测交流会的顺利举办为抓手，深度挖掘硬件企
 
 合作伙伴生态预期构建合作伙伴间的深度交流渠道，搭建算力提供方、智算中心建设方以及算力使用需求方的交流平台，帮助合作伙伴进行落地和推广。同时沉淀和转化行业、企业等多层次的需求，使DeepLink围绕合作伙伴更好地助力国产算力提升易用性，共建国产生态。
 
+DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业单位与DeepLink团队联系，并参与合作伙伴生态！
+
 <div align="center">
   <img src="../../_static/image/PartnerPlan/partnerplan_structure.png" />
 </div>
 
-DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业单位与DeepLink团队联系，并参与合作伙伴生态！
 
 ## DeepLink合作伙伴申请流程
 
-* 第一步：请填写申请表（DeepLink合作伙伴申请表.docx）；
-* 第二步：整理相关电子版材料（包含申请表、企业资质证明材料、补充材料等）；
-* 第三步：邮件发送申请信息至邮箱（deeplink@pjlab.org.cn），邮件标题请以“【企业名称】参与DeepLink合作伙伴申请”；
-* 第四步：等待实验室审核（约30个工作日）；
+* 第一步：填写申请表；
+* 第二步：整理相关电子版材料。包含申请表、企业资质证明材料、补充材料等（参考下方表格），请确认包含必须材料后并进行打包；
+* 第三步：邮件发送申请信息至邮箱（deeplink@pjlab.org.cn），邮件标题请按照格式：“【企业名称】参与DeepLink合作伙伴申请”；
+* 第四步：等待实验室审核；
 * 第五步：认证完成，获得官方认证登记通知、证书发放；
 
 <!-- <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" target="_blank" class="button" onclick="showConfirmation2(event)">
@@ -62,6 +63,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
     </tr>
     
 </table>
+带“*”为必须材料，如遗漏可能影响审核进展。
 
 <style>
 /* 设置下拉菜单和筛选按钮的外观 */
@@ -125,7 +127,7 @@ a.button:hover{
 
 
 </style>
-<!-- 
+
 <style>
 table {
   table-layout: auto;
@@ -151,4 +153,4 @@ td {
   white-space: nowrap;
   min-width: 150px;
 }
-</style> -->
+</style>
