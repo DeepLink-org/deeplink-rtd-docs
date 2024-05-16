@@ -18,7 +18,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 * 第三步：邮件发送申请信息至邮箱（deeplink@pjlab.org.cn），邮件标题请按照格式：“【企业名称】参与DeepLink合作伙伴申请”；
 * 第四步：等待实验室审核；
 * 第五步：认证完成，获得官方认证登记通知、证书发放；
-（带“ * ”为必须材料，如遗漏可能影响审核进展。）
+<p>（带“ * ”为必须材料，如遗漏可能影响审核进展。）</p>
 
 
 <!-- <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" target="_blank" class="button" onclick="showConfirmation2(event)">
