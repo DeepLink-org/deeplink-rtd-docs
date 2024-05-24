@@ -109,6 +109,10 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    doc/DICP/quick_start
    doc/DICP/tutor_adapt
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .. toctree::
    :maxdepth: 1
    :caption: 硬件测评
