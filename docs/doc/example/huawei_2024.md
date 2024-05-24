@@ -11,7 +11,8 @@ DeepLink作为芯片与深度学习框架适配桥梁，前端通过deeplink.fra
 
 ## 适配过程
 ### 一、环境准备
-#### (1) docker镜像。
+<h3 id="3.1.1"> (1) docker镜像 </h3>
+
 1.  拉取docker镜像
 ``` bash
 #dipu_latest 指向最新镜像
@@ -20,7 +21,9 @@ docker pull registry.sensetime.com/parrots/dipu_ascend:dipu_latest
 docker pull registry.sensetime.com/parrots/dipu_ascend:dipu0.3.0-a0
 #版本号：dipu_latest （根据dipu的tag命名，例如：v0.3.0-a0 对应 dipu0.3.0-a0 ）
 ```
-2. 启动docker镜像
+
+<h3 id="3.1.2">2. 启动docker镜像 </h3>
+
 ``` bash
 docker run -itd \
     -e ASCEND_VISIBLE_DEVICES=6 \
@@ -28,7 +31,7 @@ docker run -itd \
     -v /mnt:/mnt \
     --name ${容器名}\
     registry.sensetime.com/parrots/dipu_ascend:dipu_latest bash
-    
+```    
 # ASCEND_VISIBLE_DEVICES npu卡号。选择空闲卡挂载
 # -p 端口映射  
 ``` 
@@ -383,7 +386,7 @@ conda activate dipu_dev_py39
 source /usr/local/Ascend/ascend-toolkit/set_env.sh
 ```
 
-然后，准备好模型训练环境，参考[deeplink.framework仓库准备](#deeplink-framework)和[DeepLinkExt仓库准备](l#deeplinkext)依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
+然后，准备好模型训练环境，参考[deeplink.framework仓库准备](#deeplink-framework)和[DeepLinkExt仓库准备](#deeplinkext)依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
 
 ```bash
 cd /root/workspace/
