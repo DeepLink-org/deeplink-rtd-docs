@@ -181,7 +181,7 @@ diopiError_t diopiBatchNorm(diopiContextHandle_t ctx,
 }
 ```
 
-算子的适配实现后，还需要设计算子测例，以保证算子功能的正确性，参考 DIOPI的算子校验章节。
+算子的适配实现后，还需要设计算子测例，以保证算子功能的正确性，参考[DIOPI算子校验](#id10)章节。
 
 #### (2) pytorch适配
 DeepLink通过DIOPI标准算子接口接入Ascend 910B后，还需通过dipu对接pytorch的Eager模式，让基于pytorch的模型脚本得以在Ascend 910B平台上进行训练。另外对Graph模式的支持由dicp完成，该部分还在研发中。
@@ -291,7 +291,7 @@ PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
 }
 ```
 
-上面flash attention的前向计算（extFlashAttentionV2）和反向计算（extFlashAttentionBackward）中调用的diopiFlashAttentionV2和diopiFlashAttentionBackward就是DIOPI中针对flash attention定义的标准算子接口，这两个接口用于适配底层Ascend 910B的算子实现。DIOPI中flash attention算子对Ascend 910B的适配过程可以参考 算子适配章节。
+上面flash attention的前向计算（extFlashAttentionV2）和反向计算（extFlashAttentionBackward）中调用的diopiFlashAttentionV2和diopiFlashAttentionBackward就是DIOPI中针对flash attention定义的标准算子接口，这两个接口用于适配底层Ascend 910B的算子实现。DIOPI中flash attention算子对Ascend 910B的适配过程可以参考[算子适配](#id5)章节。
 
 ### 四、性能问题解决过程 
 #### (1) profiler工具分析热点算子
@@ -323,7 +323,7 @@ dipu内部使用的allocator是deeplink针对pytorch现有方案的不足，对�
 #### (1) DIOPI的算子校验
 DIOPI组件中包括了算子一致性测试框架diopi_test，支持在没有训练框架的情况下，验证算子适配正确性的能力。一致性测试框架针对每一个DIOPI算子，从不同的数据类型、张量维度、非张量参数等角度设计多个测例，保确保DIOPI 标准算子接口中每个参数及功能均被测试。
 
-以 算子适配章节 中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
+以 [算子适配](#id10) 章节中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
 
 首先在[diopi_test/python/configs/diopi_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/diopi_test/python/configs/diopi_configs.py)中配置新的测试用例， 然后在[impl/ascend/device_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/impl/ascend/device_configs.py)中配置需要跳过的测例，并根据需要调整相应的精度。
 ```python
@@ -373,7 +373,7 @@ python main.py --mode run_test  #使用pytest来运行测例。
 
 最后根据测例执行结果，对适配的算子进行评估。
 
-关于diopi_test的更详细的使用，可以[参考一致性测试的说明](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)。
+关于diopi_test的更详细的使用，可以参考[一致性测试的说明](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)。
 
 #### (2) 基于torch_dipu的模型训练
 ##### 1. InternEvo
@@ -383,7 +383,7 @@ conda activate dipu_dev_py39
 source /usr/local/Ascend/ascend-toolkit/set_env.sh
 ```
 
-然后，准备好模型训练环境，参考3.2.2和3.2.3依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
+然后，准备好模型训练环境，参考[deeplink.framework仓库准备](#deeplink-framework)和[DeepLinkExt仓库准备](l#deeplinkext)依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
 
 ```bash
 cd /root/workspace/
