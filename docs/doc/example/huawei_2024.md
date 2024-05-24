@@ -299,3 +299,176 @@ DeepLink适配好Ascend 910B后，在模型训练过程中，发现性能未达�
 
 以`aten::linalg_vector_norm`算子为例，初期deeplink.framework是通过diopiNorm算子适配的，版本升级后，发现Ascend910B 已经对`aclnnLinalgVectorNorm`进行了独立的支持。DeepLink对该算子进行了快速支持，并通过profiler工具抓取了`aten::linalg_vector_norm`算子的两个版本的性能，实现了算子性能的提升。
 
+![Speed compare 2](../../_static/image/example/example_huawei2024_speed02.png)
+
+利用profiler工具分析模型训练过程中算子的性能时，还发现了在算子调用链中频繁出现的setDevice问题。理论上讲，线程启动后，会执行一次setDevice，在后续执行算子计算时，是不应该频繁调用这一接口的，否则会对计算性能造成较大影响。发现这一问题后，我们对setDevice的逻辑进行了重构，使得一个训练step的性能得到了大幅提升。
+
+![Speed compare 2](../../_static/image/example/example_huawei2024_speed03.png)
+
+#### (2) 优化allocator平滑训练抖动问题
+dipu内部使用的allocator是deeplink针对pytorch现有方案的不足，对内存占用、长时间训练时缓存内部的碎片数量和设备上物理内存的碎片数量、tensor申请和释放的耗时等各方面做了深度优化，性能优于pytorch现有方案。但是前期优化时，是基于小模型来验证。但是大模型训练时会使用多种并行策略，通信吞吐变高，在通信流上使用的内存需要等到通信完成才能使这块内存被重用。针对大模型训练时的特点，我们对缓存allocator模块做了优化，在可用内存较高时，降低通信流使用的内存块的优先级,优先分配空闲内存。
+
+#### (3) 千卡训练性能问题排查
+在基于DeepLink + pytorch 用Ascend 910B 1024卡训练llama2的过程中，既发现了DeepLink适配Ascend 910B的通讯问题，也发现了Ascend 910B千卡集群的单点故障问题。
+
+* 通讯问题：
+  
+  由于华为集合通信库hccl的限制, 在多卡训练时出现了sdma mem copy error的问题，后面我们对setDevice的行为做了限制，不在做集合通信时，在其他任何线程切换设备，避免了这个问题。这个bug后续通过软件栈升级得到了解决。在千卡训练时，遇到了一些稳定性问题。比如出现过allreduce 报传入参数非法的问题，经定位是集群交换机bug引起，后经和集群运维沟通后修复。也出现卡住问题，经定位是通讯问题导致，经优化setDevice逻辑后也得以解决。
+  
+* 单点故障：
+
+  对于集群单节点故障问题可以使用二分法筛查机器，比如1024卡训练故障（性能低、卡死、报错等），但是512卡训练正常，则可以在占用正常训练的512卡时，启动另512卡以复现问题，复现问题后，把有问题的512卡分成两个256，依次类推则可以找出问题节点。
+
+### 五、结果验证
+#### (1) DIOPI的算子校验
+DIOPI组件中包括了算子一致性测试框架diopi_test，支持在没有训练框架的情况下，验证算子适配正确性的能力。一致性测试框架针对每一个DIOPI算子，从不同的数据类型、张量维度、非张量参数等角度设计多个测例，保确保DIOPI 标准算子接口中每个参数及功能均被测试。
+
+以 算子适配章节 中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
+
+首先在[diopi_test/python/configs/diopi_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/diopi_test/python/configs/diopi_configs.py)中配置新的测试用例， 然后在[impl/ascend/device_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/impl/ascend/device_configs.py)中配置需要跳过的测例，并根据需要调整相应的精度。
+```python
+# diopi_test/python/configs/diopi_configs.py
+device_configs = {
+    ......
+    'batch_norm': dict(
+        name=["batch_norm"],
+        dtype=[np.float32, np.float16, np.float64],
+        atol=1e-3,
+        rtol=1e-4,
+        atol_half=1e-1,
+        rtol_half=1e-2,
+        para=dict(
+            # training=[False, False, True, True, False, True, True, True],
+            # momentum=[0.1, 0.15, 0.2, 0.25, 0, 1, -1, -0.3],
+            # eps=[1e-5, 1e-4, 1e-4, 1e-5, 0, 1, -1, -1e-5],
+            training=[False, False, True, True],
+            momentum=[0.1, 0.15, 0.2, 0.25],
+            eps=[1e-5, 1e-4, 1e-4, 1e-5],
+        ),
+        tensor_para=dict(
+        ......
+}
+
+# impl/ascend/device_configs.py
+device_configs = {
+    ......
+    'batch_norm': dict(
+        name=["batch_norm"],
+        atol_half=1e-1,
+        rtol_half=1e-1,
+        atol=1e-2,
+        rtol=1e-2,
+     ),
+    ......
+}
+```
+
+配置好算子的测例后，生成对应的测例输入数据和基准输出数据，然后生成可执行的测试用例脚本，执行测例，其基本步骤如下：
+
+```python
+python main.py --mode gen_data --fname batch_norm #在nvidia上生成测试input和output基准。并copy到对应的ascend 910B机器上。
+python main.py --mode gen_case --fname batch_norm # 在ascend 910B机器上生成pytest测试用例。
+python main.py --mode run_test  #使用pytest来运行测例。
+```
+
+最后根据测例执行结果，对适配的算子进行评估。
+
+关于diopi_test的更详细的使用，可以[参考一致性测试的说明](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)。
+
+#### (2) 基于torch_dipu的模型训练
+##### 1. InternEvo
+首先激活python环境。
+```bash
+conda activate dipu_dev_py39
+source /usr/local/Ascend/ascend-toolkit/set_env.sh
+```
+
+然后，准备好模型训练环境，参考3.2.2和3.2.3依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
+
+```bash
+cd /root/workspace/
+git clone git@github.com:InternLM/InternEvo.git
+```
+
+最后，选择要训练的模型配置文件，并启动模型训练任务。下面以internlm2模型7B的demo为例子，使用1024卡进行测试。
+
+```bash
+export JOB_NAME="104B_7.0.0"
+export HCCL_IF_BASE_PORT=30000
+export HCCL_CONNECT_TIMEOUT=1200
+export HCCL_INTRA_ROCE_ENABLE=1
+export HCCL_INTRA_PCIE_ENABLE=0
+
+export MKL_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+
+export INTERNLM_ACCELERATOR=dipu
+cd /root/workspace/InternEvo
+
+torchrun --nproc_per_node=16 --nnodes=64 --node_rank=0 --master_addr=127.0.0.1 --master_port=9999  train.py --config configs/104B_7.0.0.py --launcher torch --backend nccl  2>&1 | tee -a internevo_${JOB_NAME}.log
+```
+
+查看训练日志信息，以及部分日志。
+```python
+tail -f /root/workspace/InternEvo/internevo_${JOB_NAME}.log
+
+# 部分日志信息
+INFO [record_metrics.py, line 341, in record_current_batch_training_metrics] - pid=293 : tflops=142.97284001343704 step=5597 loss=2.3067 real_tgs=148.33 tgs (tokens/gpu/second)=149.24 tgs/last_tgs_1=149.24 tgs/tgs_all=144.28 tgs/tgs_avg=146.94 tgs/tgs_SMA=145.01 tgs/last_tgs_10=149.1 tgs/last_tgs_50=144.98 lr=4.1912826995234156e-05 loss_scale=2097152.0 grad_norm={'0_default': 3.812955735280569, '1_fp32': 0.0} micro_num=32 num_consumed_tokens=23479713792 inf_nan_skip_batches=0 
+```
+
+##### 2. ModelLink+ascendspeed
+通过对DeepLink的三个组件deeplink.framework、DIOPI及DeepLinkExt的适配后，就可以通过DeepLink + pytorch在Ascend 910B平台上利用ModelLink框架训练llama2模型。
+
+编译DeepLink组件并配置好相应的路径后，还需要准备ModelLink框架及其依赖的其他python组件，其主要步骤为：
+
+* 激活python环境：
+```python
+conda activate npu_dev_py39
+source /usr/local/Ascend/ascend-toolkit/set_env.sh
+```
+* 安装apex：
+```python
+git clone -b master https://gitee.com/ascend/apex.git
+cd apex/
+bash scripts/build.sh --python=3.9
+cd apex/dist/
+pip install apex-0.1_ascend-cp39-cp39-linux_x86_64.whl 
+```
+
+* 安装deepspeed：
+```python
+pip3 install deepspeed==0.9.2
+```
+
+* 安装megaton：
+```python
+git clone https://github.com/NVIDIA/Megatron-LM.git
+cd Megatron-LM
+git checkout 285068c8108e0e8e6538f54fe27c3ee86c5217a2
+#在Megatron-LM目录下执行：
+git clone https://gitee.com/ascend/Megatron-LM.git megatron_npu_adaptor
+cd megatron_npu_adaptor
+pip install -e .
+pip install -r requirements.txt
+cd ..
+pip install -e .
+```
+
+* 准备ModelLink框架：
+```python
+git clone https://github.com/DeepLink-org/ModelLink_Ascend.git -b dipu
+```
+
+准备好以上环境后，根据Ascend 910B资源和训练目标，执行相应的训练策略，执行模型训练。
+
+以Ascend 910B 1024卡训练为例，在ModelLink的配置文件[pretrain_llama2_70B_ptd.sh](https://github.com/DeepLink-org/ModelLink_Ascend/blob/dipu/examples/llama2/pretrain_llama2_70B_ptd.sh)中配置好模型参数及训练策略，然后执行训练：
+```python
+# examples/llama2/pretrain_llama2_70B_ptd.sh
+bash examples/llama2/pretrain_llama2_70B_ptd.sh
+```
+
+每个iteration 模型训练消耗的数据日志如下：
+```python
+ iteration     1665/    5000 | consumed samples:      3409920 | consumed tokens:  13967032320 | elapsed time per iteration (ms): 23205.2 | learning rate: 7.762E-05 | global batch size:  2048 | lm loss: 1.993132E+00 | loss scale: 16384.0 | grad norm: 2.486 | actual seqlen:  4096 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 88.256 | TFLOPs: 148.25 | tgs (tokens/gpu/second): 353.02 time (ms)
+ iteration     1666/    5000 | consumed samples:      3411968 | consumed tokens:  13975420928 | elapsed time per iteration (ms): 23112.3 | learning rate: 7.767E-05 | global batch size:  2048 | lm loss: 1.915679E+00 | loss scale: 16384.0 | grad norm: 2.395 | actual seqlen:  4096 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 88.611 | TFLOPs: 148.84 | tgs (tokens/gpu/second): 354.44 time (ms)
+```
