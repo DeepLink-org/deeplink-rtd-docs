@@ -11,7 +11,7 @@ DeepLink作为芯片与深度学习框架适配桥梁，前端通过deeplink.fra
 
 ## 适配过程
 ### 一、环境准备
-<h3 id="3.1.1"> (1) docker镜像 </h3>
+#### <h4 id="3.1.1"> (1) docker镜像 </h4>
 
 1.  拉取docker镜像
 ``` bash
@@ -22,7 +22,7 @@ docker pull registry.sensetime.com/parrots/dipu_ascend:dipu0.3.0-a0
 #版本号：dipu_latest （根据dipu的tag命名，例如：v0.3.0-a0 对应 dipu0.3.0-a0 ）
 ```
 
-<h3 id="3.1.2">2. 启动docker镜像 </h3>
+2. 启动docker镜像
 
 ``` bash
 docker run -itd \
@@ -31,7 +31,7 @@ docker run -itd \
     -v /mnt:/mnt \
     --name ${容器名}\
     registry.sensetime.com/parrots/dipu_ascend:dipu_latest bash
-```    
+
 # ASCEND_VISIBLE_DEVICES npu卡号。选择空闲卡挂载
 # -p 端口映射  
 ``` 
@@ -41,9 +41,10 @@ docker run -itd \
 source /root/dipu_latest
 #或 source /root/dipu0.3.0-a0
 ```
-#### (2) 物理机
-```bash
+#### <h4 id=“3.1.2”> (2) 物理机 </h4>
+
 配置Python及gcc工具：
+```bash
 # 准备 python，如 3.9 版本
 conda create --prefix=dipu python=3.9
 conda activate dipu
@@ -52,7 +53,7 @@ conda activate dipu
 sudo apt-get install gcc-7.5
 ```
 
-安装cpu版的pytorch
+安装cpu版的pytorch:
 ```bash
 pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
 ```
@@ -143,7 +144,8 @@ DIOPI_API diopiError_t diopiBatchNorm(diopiContextHandle_t ctx, diopiTensorHandl
                                       diopiTensorHandle_t running_mean, diopiTensorHandle_t running_var, bool training, double momentum, double eps);
 ```
 
-然后根据Ascend 910B 文档分析CANN软件栈中是否有对应的batch_norm的kernel实现，如果CANN软件栈提供了对应的batch_norm的kernel实现，则直接调用该kernel实现；否则，根据CANN软件栈的基本算子能力，在DIOPI中组合实现diopiBatchNorm算子。通过文档可知，cann软件栈提供了aclnnBatchNorm算子kernel，其原型如下：
+然后根据Ascend 910B 文档分析CANN软件栈中是否有对应的 `batch_norm` 的 kernel 实现，如果CANN软件栈提供了对应的 `batch_norm` 的kernel实现，则直接调用该 kernel 实现；否则，根据CANN软件栈的基本算子能力，在 DIOPI 中组合实现 `diopiBatchNorm` 算子。通过文档可知，CANN软件栈提供了 `aclnnBatchNorm` 算子kernel，其原型如下：
+
 ```c++
 aclnnStatus aclnnBatchNormGetWorkspaceSize(const aclTensor *input, 
                                            const aclTensor *weight, 
@@ -184,7 +186,7 @@ diopiError_t diopiBatchNorm(diopiContextHandle_t ctx,
 }
 ```
 
-算子的适配实现后，还需要设计算子测例，以保证算子功能的正确性，参考[DIOPI算子校验](#id10)章节。
+算子的适配实现后，还需要设计算子测例，以保证算子功能的正确性，参考[DIOPI算子校验](#3.5.1)章节。
 
 #### (2) pytorch适配
 DeepLink通过DIOPI标准算子接口接入Ascend 910B后，还需通过dipu对接pytorch的Eager模式，让基于pytorch的模型脚本得以在Ascend 910B平台上进行训练。另外对Graph模式的支持由dicp完成，该部分还在研发中。
@@ -294,7 +296,7 @@ PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
 }
 ```
 
-上面flash attention的前向计算（extFlashAttentionV2）和反向计算（extFlashAttentionBackward）中调用的diopiFlashAttentionV2和diopiFlashAttentionBackward就是DIOPI中针对flash attention定义的标准算子接口，这两个接口用于适配底层Ascend 910B的算子实现。DIOPI中flash attention算子对Ascend 910B的适配过程可以参考[算子适配](#id5)章节。
+上面flash attention的前向计算（extFlashAttentionV2）和反向计算（extFlashAttentionBackward）中调用的diopiFlashAttentionV2和diopiFlashAttentionBackward就是DIOPI中针对flash attention定义的标准算子接口，这两个接口用于适配底层Ascend 910B的算子实现。DIOPI中flash attention算子对Ascend 910B的适配过程可以参考[算子适配](#3.3.1)章节。
 
 ### 四、性能问题解决过程 
 #### (1) profiler工具分析热点算子
@@ -323,10 +325,10 @@ dipu内部使用的allocator是deeplink针对pytorch现有方案的不足，对�
   对于集群单节点故障问题可以使用二分法筛查机器，比如1024卡训练故障（性能低、卡死、报错等），但是512卡训练正常，则可以在占用正常训练的512卡时，启动另512卡以复现问题，复现问题后，把有问题的512卡分成两个256，依次类推则可以找出问题节点。
 
 ### 五、结果验证
-#### (1) DIOPI的算子校验
+#### <h4 id ="3.5.1"> (1) DIOPI的算子校验 </h4>
 DIOPI组件中包括了算子一致性测试框架diopi_test，支持在没有训练框架的情况下，验证算子适配正确性的能力。一致性测试框架针对每一个DIOPI算子，从不同的数据类型、张量维度、非张量参数等角度设计多个测例，保确保DIOPI 标准算子接口中每个参数及功能均被测试。
 
-以 [算子适配](#id10) 章节中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
+以 [算子适配](#3.3.1) 章节中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
 
 首先在[diopi_test/python/configs/diopi_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/diopi_test/python/configs/diopi_configs.py)中配置新的测试用例， 然后在[impl/ascend/device_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/impl/ascend/device_configs.py)中配置需要跳过的测例，并根据需要调整相应的精度。
 ```python
