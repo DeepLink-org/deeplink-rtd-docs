@@ -31,16 +31,17 @@ docker run -itd \
     -v /mnt:/mnt \
     --name ${容器名}\
     registry.sensetime.com/parrots/dipu_ascend:dipu_latest bash
-
-# ASCEND_VISIBLE_DEVICES npu卡号。选择空闲卡挂载
-# -p 端口映射  
+ # ASCEND_VISIBLE_DEVICES npu卡号。选择空闲卡挂载
+ # -p 端口映射  
 ``` 
 
 3. 激活DeepLink所需的环境
+
 ```bash
 source /root/dipu_latest
 #或 source /root/dipu0.3.0-a0
 ```
+
 #### <h4 id=“3.1.2”> (2) 物理机 </h4>
 
 配置Python及gcc工具：
