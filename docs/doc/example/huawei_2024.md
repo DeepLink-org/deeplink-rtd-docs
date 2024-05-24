@@ -12,7 +12,7 @@ DeepLink作为芯片与深度学习框架适配桥梁，前端通过deeplink.fra
 ## 适配过程
 ### 一、环境准备
 
-#### docker镜像
+#### (1) docker镜像
 
 1.  拉取docker镜像
 ``` bash
@@ -43,7 +43,7 @@ source /root/dipu_latest
 #或 source /root/dipu0.3.0-a0
 ```
 
-#### 物理机 
+#### (2)物理机 
 
 配置Python及gcc工具：
 ```bash
@@ -64,7 +64,7 @@ pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
 
 DeepLink适配pytorch和910B芯片进行深度学习模型训练，主要包括deeplink.framework、DIOPI、DeepLinkExt三个组件，其中DIOPI可以独立进行面向底层软件栈的Ascend 910B的适配。
 
-#### DIOPI适配环境
+#### (1)DIOPI适配环境
 
 首先拉取DIOPI仓库：
 
@@ -87,7 +87,7 @@ cmake .. -DIMPL_OPT=ascend -DCMAKE_BUILD_TYPE=Debug -DTEST=ON
 make -j
 ```
 
-#### deeplink.framework仓库准备
+#### (2)deeplink.framework仓库准备
 
 首先拉取deeplink.framework仓库及其第三方依赖库，主要是[DIOPI](https://github.com/DeepLink-org/DIOPI.git)和[kineto](https://github.com/pytorch/kineto.git)：
 
@@ -106,7 +106,7 @@ cd deeplink.framework/dipu
 bash scripts/ci/ascend/ci_ascend_script.sh build_dipu
 ```
 
-#### DeepLinkExt仓库准备 
+#### (3)DeepLinkExt仓库准备 
 
 DeepLinkExt组件依赖deeplink.framework和DIOPI组件，需要先根据3.2.2准备好deeplink.framework的编译，才能编译DeepLinkExt组件。
 
@@ -131,7 +131,7 @@ python3 setup.py build_ext --inplace
 
 ### 三、 910B适配过程
 
-#### 算子适配 
+#### (1)算子适配 
 
 DIOPI在模型训练框架和芯片计算库之间定义了统一的[标准算子接口](https://github.com/DeepLink-org/DIOPI/tree/main/proto/include/diopi)，适配Ascend 910B时，Ascend 910的CANN软件栈已经提供了基于AscendCL的底层算子kernel实现。DIOPI适配的工作就是要分析DIOPI算子的定义，及AscendCL kernel的定义及功能，用AscendCL kernel实现DIOPI算子，DIOPI算子实现在impl目录下。
 
@@ -199,9 +199,9 @@ diopiError_t diopiBatchNorm(diopiContextHandle_t ctx,
 }
 ```
 
-算子的适配实现后，还需要设计算子测例，以保证算子功能的正确性，参考[DIOPI算子校验](#DIOPI的算子校验)章节。
+算子的适配实现后，还需要设计算子测例，以保证算子功能的正确性，参考[DIOPI算子校验](#(1)DIOPI的算子校验)章节。
 
-#### pytorch适配
+#### (2)pytorch适配
 DeepLink通过DIOPI标准算子接口接入Ascend 910B后，还需通过dipu对接pytorch的Eager模式，让基于pytorch的模型脚本得以在Ascend 910B平台上进行训练。另外对Graph模式的支持由dicp完成，该部分还在研发中。
 
 dipu结构上分Python和CPP实现两部分，如图。
@@ -215,7 +215,7 @@ dipu的runtime主要分两部分，Core & Distributed和Device。
 
 第二部分Device是定义的设备相关的接口，不同厂商的芯片对应一组实现。针对Ascend 910B的实现，可以参考[dipu/torch_dipu/csrc_dipu/vendor/ascend/deviceimpl.cpp](https://github.com/DeepLink-org/deeplink.framework/blob/main/dipu/torch_dipu/csrc_dipu/vendor/ascend/deviceimpl.cpp)，其中包含了对设备的管理和显存管理，数据搬运等接口函数的实现。
 
-#### DeepLinkExt
+#### (3)DeepLinkExt
 DeepLinkExt对下直接调用DIOPI的算子实现，对上承接了大模型训练、推理框架的算子，并提供了基于pytorch的算子组合实现。
 
 以flash attention算子为例，在ModelLink框架下适配Ascend 910B的主要过程如下。
@@ -309,10 +309,10 @@ PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
 }
 ```
 
-上面flash attention的前向计算（extFlashAttentionV2）和反向计算（extFlashAttentionBackward）中调用的diopiFlashAttentionV2和diopiFlashAttentionBackward就是DIOPI中针对flash attention定义的标准算子接口，这两个接口用于适配底层Ascend 910B的算子实现。DIOPI中flash attention算子对Ascend 910B的适配过程可以参考[算子适配](#算子适配)章节。
+上面flash attention的前向计算（extFlashAttentionV2）和反向计算（extFlashAttentionBackward）中调用的diopiFlashAttentionV2和diopiFlashAttentionBackward就是DIOPI中针对flash attention定义的标准算子接口，这两个接口用于适配底层Ascend 910B的算子实现。DIOPI中flash attention算子对Ascend 910B的适配过程可以参考[算子适配](#(1)算子适配)章节。
 
 ### 四、性能问题解决过程 
-#### profiler工具分析热点算子
+#### (1)profiler工具分析热点算子
 DeepLink适配好Ascend 910B后，在模型训练过程中，发现性能未达到预期。我们可以借助profiler工具找出热点算子及耗时显著的算子，着重进行算子的性能优化。
 
 以`aten::linalg_vector_norm`算子为例，初期deeplink.framework是通过diopiNorm算子适配的，版本升级后，发现Ascend910B 已经对`aclnnLinalgVectorNorm`进行了独立的支持。DeepLink对该算子进行了快速支持，并通过profiler工具抓取了`aten::linalg_vector_norm`算子的两个版本的性能，实现了算子性能的提升。
@@ -323,10 +323,10 @@ DeepLink适配好Ascend 910B后，在模型训练过程中，发现性能未达�
 
 ![Speed compare 2](../../_static/image/example/example_huawei2024_speed03.png)
 
-#### 优化allocator平滑训练抖动问题
+#### (2)优化allocator平滑训练抖动问题
 dipu内部使用的allocator是deeplink针对pytorch现有方案的不足，对内存占用、长时间训练时缓存内部的碎片数量和设备上物理内存的碎片数量、tensor申请和释放的耗时等各方面做了深度优化，性能优于pytorch现有方案。但是前期优化时，是基于小模型来验证。但是大模型训练时会使用多种并行策略，通信吞吐变高，在通信流上使用的内存需要等到通信完成才能使这块内存被重用。针对大模型训练时的特点，我们对缓存allocator模块做了优化，在可用内存较高时，降低通信流使用的内存块的优先级,优先分配空闲内存。
 
-#### 千卡训练性能问题排查
+#### (3)千卡训练性能问题排查
 在基于DeepLink + pytorch 用Ascend 910B 1024卡训练llama2的过程中，既发现了DeepLink适配Ascend 910B的通讯问题，也发现了Ascend 910B千卡集群的单点故障问题。
 
 * 通讯问题：
@@ -339,11 +339,11 @@ dipu内部使用的allocator是deeplink针对pytorch现有方案的不足，对�
 
 ### 五、结果验证
 
-#### DIOPI的算子校验
+#### (1)DIOPI的算子校验
 
 DIOPI组件中包括了算子一致性测试框架diopi_test，支持在没有训练框架的情况下，验证算子适配正确性的能力。一致性测试框架针对每一个DIOPI算子，从不同的数据类型、张量维度、非张量参数等角度设计多个测例，保确保DIOPI 标准算子接口中每个参数及功能均被测试。
 
-以 [算子适配](#算子适配) 章节中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
+以 [算子适配](#(1)算子适配) 章节中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
 
 首先在[diopi_test/python/configs/diopi_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/diopi_test/python/configs/diopi_configs.py)中配置新的测试用例， 然后在[impl/ascend/device_configs.py](https://github.com/DeepLink-org/DIOPI/blob/main/impl/ascend/device_configs.py)中配置需要跳过的测例，并根据需要调整相应的精度。
 ```python
@@ -395,15 +395,15 @@ python main.py --mode run_test  #使用pytest来运行测例。
 
 关于diopi_test的更详细的使用，可以参考[一致性测试的说明](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)。
 
-#### 基于torch_dipu的模型训练
-##### InternEvo
+#### (2)基于torch_dipu的模型训练
+##### 1.InternEvo
 首先激活python环境。
 ```bash
 conda activate dipu_dev_py39
 source /usr/local/Ascend/ascend-toolkit/set_env.sh
 ```
 
-然后，准备好模型训练环境，参考[deeplink.framework仓库准备](# deeplink.framework仓库准备)和[DeepLinkExt仓库准备](#DeepLinkExt仓库准备)依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
+然后，准备好模型训练环境，参考[deeplink.framework仓库准备](#(2) deeplink.framework仓库准备)和[DeepLinkExt仓库准备](#(3) DeepLinkExt仓库准备)依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
 
 ```bash
 cd /root/workspace/
