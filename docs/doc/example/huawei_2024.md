@@ -73,6 +73,7 @@ git clone https://github.com/DeepLink-org/DIOPI.git
 ```
 
 然后编译目标硬件芯片 Ascend Atlas 800T A2 的 DIOPI 算子适配库：
+
 ```bash
 cd DIOPI/impl
 sh scripts/build_impl.sh ascend

@@ -115,6 +115,13 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 >>>>>>> Stashed changes
 .. toctree::
    :maxdepth: 1
+   :caption: 合作案例
+   :includehidden:
+
+   doc/example/huawei_2024
+
+.. toctree::
+   :maxdepth: 1
    :caption: 硬件测评
    :includehidden:
 
@@ -130,5 +137,5 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 
    doc/Community/Contributors
    doc/Community/CodingRule2
-   .. doc/Community/PullRequest
+   doc/Community/PullRequest
    
