@@ -11,7 +11,7 @@ DeepLink作为芯片与深度学习框架适配桥梁，前端通过deeplink.fra
 
 ## 适配过程
 ### 一、环境准备
-#### <h4 id="3.1.1"> (1) docker镜像 </h4>
+<h4 id="3.1.1"> (1) docker镜像 </h4>
 
 1.  拉取docker镜像
 ``` bash
@@ -42,7 +42,7 @@ source /root/dipu_latest
 #或 source /root/dipu0.3.0-a0
 ```
 
-#### <h4 id=“3.1.2”> (2) 物理机 </h4>
+<h4 id='3.1.2'> (2) 物理机 </h4>
 
 配置Python及gcc工具：
 ```bash
@@ -60,10 +60,13 @@ pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cpu
 ```
 
 ### 二、仓库准备
+
 DeepLink适配pytorch和910B芯片进行深度学习模型训练，主要包括deeplink.framework、DIOPI、DeepLinkExt三个组件，其中DIOPI可以独立进行面向底层软件栈的Ascend 910B的适配。
 
-#### (1) DIOPI适配环境
+<h4 id='3.2.1'> (1) DIOPI适配环境 </h4>
+
 首先拉取DIOPI仓库：
+
 ```bash
 git clone https://github.com/DeepLink-org/DIOPI.git
 ```
@@ -83,8 +86,10 @@ cmake .. -DIMPL_OPT=ascend -DCMAKE_BUILD_TYPE=Debug -DTEST=ON
 make -j
 ```
 
-#### (2) deeplink.framework仓库准备
+<h4 id='3.2.2'> (2) deeplink.framework仓库准备 </h4>
+
 首先拉取deeplink.framework仓库及其第三方依赖库，主要是[DIOPI](https://github.com/DeepLink-org/DIOPI.git)和[kineto](https://github.com/pytorch/kineto.git)：
+
 ```bash
 git clone --recurse-submodules https://github.com/DeepLink-org/deeplink.framework.git
 ```
@@ -100,7 +105,8 @@ cd deeplink.framework/dipu
 bash scripts/ci/ascend/ci_ascend_script.sh build_dipu
 ```
 
-#### (3) DeepLinkExt仓库准备
+<h4 id='3.2.3'> (3) DeepLinkExt仓库准备 </h4>
+
 DeepLinkExt组件依赖deeplink.framework和DIOPI组件，需要先根据3.2.2准备好deeplink.framework的编译，才能编译DeepLinkExt组件。
 
 首先拉取DeepLinkExt仓库：
@@ -114,13 +120,18 @@ export DIPU_ROOT=$WORKDIR/deeplink.framework/dipu/torch_dipu
 export DIOPI_PATH=$WORKDIR/deeplink.framework/dipu/third_party/DIOPI/proto
 export VENDOR_INCLUDE_DIRS=/usr/local/Ascend/ascend-toolkit/latest/include
 ```
+
 最后编译DeepLinkExt：
+
 ```bash
 cd DeepLinkExt
 python3 setup.py build_ext --inplace
 ```
+
 ### 三、 910B适配过程
-#### (1) 算子适配
+
+<h4 id='3.3.1'> (1) 算子适配 </h4>
+
 DIOPI在模型训练框架和芯片计算库之间定义了统一的[标准算子接口](https://github.com/DeepLink-org/DIOPI/tree/main/proto/include/diopi)，适配Ascend 910B时，Ascend 910的CANN软件栈已经提供了基于AscendCL的底层算子kernel实现。DIOPI适配的工作就是要分析DIOPI算子的定义，及AscendCL kernel的定义及功能，用AscendCL kernel实现DIOPI算子，DIOPI算子实现在impl目录下。
 
 以适配DIOPI的diopiBatchNorm算子为例，首先分析proto中定义的[diopiBatchNorm](https://github.com/DeepLink-org/DIOPI/blob/9c4961ca97c53fd0c4834abe61f05710a8b46985/proto/include/diopi/functions.h#L74)算子，如下：
@@ -326,7 +337,9 @@ dipu内部使用的allocator是deeplink针对pytorch现有方案的不足，对�
   对于集群单节点故障问题可以使用二分法筛查机器，比如1024卡训练故障（性能低、卡死、报错等），但是512卡训练正常，则可以在占用正常训练的512卡时，启动另512卡以复现问题，复现问题后，把有问题的512卡分成两个256，依次类推则可以找出问题节点。
 
 ### 五、结果验证
-#### <h4 id ="3.5.1"> (1) DIOPI的算子校验 </h4>
+
+<h4 id ="3.5.1"> (1) DIOPI的算子校验 </h4>
+
 DIOPI组件中包括了算子一致性测试框架diopi_test，支持在没有训练框架的情况下，验证算子适配正确性的能力。一致性测试框架针对每一个DIOPI算子，从不同的数据类型、张量维度、非张量参数等角度设计多个测例，保确保DIOPI 标准算子接口中每个参数及功能均被测试。
 
 以 [算子适配](#3.3.1) 章节中的 `diopiBatchNorm` 算子为例，在适配好Ascend 910B的相应算子后，可以通过配置文件的方式增加测试用例，其步骤如下：
