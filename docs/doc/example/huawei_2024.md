@@ -403,7 +403,7 @@ conda activate dipu_dev_py39
 source /usr/local/Ascend/ascend-toolkit/set_env.sh
 ```
 
-然后，准备好模型训练环境，参考[deeplink.framework仓库准备](#(2) deeplink.framework仓库准备)和[DeepLinkExt仓库准备](#(3) DeepLinkExt仓库准备)依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
+然后，准备好模型训练环境，参考[deeplink.framework仓库准备](#(2) deeplink.framework仓库准备)和[DeepLinkExt仓库准备](#1.InternEvo)依次安装好deeplink.framework和DeepLinkExt，并下载[InternEvo](https://github.com/InternLM/InternEvo)代码。
 
 ```bash
 cd /root/workspace/
