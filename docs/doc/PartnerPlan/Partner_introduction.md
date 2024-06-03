@@ -4,7 +4,7 @@ DeepLink以硬件评测交流会的顺利举办为抓手，深度挖掘硬件企
 
 合作伙伴生态预期构建合作伙伴间的深度交流渠道，搭建算力提供方、智算中心建设方以及算力使用需求方的交流平台，帮助合作伙伴进行落地和推广。同时沉淀和转化行业、企业等多层次的需求，使DeepLink围绕合作伙伴更好地助力国产算力提升易用性，共建国产生态。
 
-DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业单位与DeepLink团队联系，并参与合作伙伴生态！
+DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业单位与DeepLink团队联系，并加入合作伙伴生态！
 
 <div align="center" >
   <img src="../../_static/image/PartnerPlan/partnerplan_structure.png" width="70%"/>
