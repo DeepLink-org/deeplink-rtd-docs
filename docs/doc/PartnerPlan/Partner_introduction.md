@@ -34,9 +34,10 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 | 1* | <a href="../../_static/image/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表（pdf）</a>  | 填写样例 |
 | 2* | 企业资质证明材料（pdf/jpg） | <a href="../../_static/image/PartnerPlan/company.png" target="_blank">营业执照</a> |
 | 3* | 企业Logo（png/jpg/ai等图片格式） | - |
-| 4 | 历史评测报告  | <a href="../../_static/image/PartnerPlan/report.pdf" target="_blank">基于大模型的AI芯片评测报告（0.2.1）（样例）</a> |
-| 5 | 市场合作材料  | - |
-| 6* | 产品介绍（word/ppt/pdf） | - |
+| 4 | <a href="../../_static/image/PartnerPlan/adaptability_level_application.docx" >适配等级认证申请表(pdf) </a> | 填写样例 |
+| 5 | 历史评测报告  | <a href="../../_static/image/PartnerPlan/report.pdf" target="_blank">基于大模型的AI芯片评测报告（0.2.1）（样例）</a> |
+| 6 | 市场合作材料  | - |
+| 7* | 产品介绍（word/ppt/pdf） | - |
 <p>（带“ * ”为必须材料，如遗漏可能影响审核进展。）</p>
 
 <!-- 
