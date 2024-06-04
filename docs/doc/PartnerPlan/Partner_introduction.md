@@ -17,16 +17,11 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 
 * 第一步：填写申请表；
 * 第二步：整理相关电子版材料。包含申请表、企业资质证明材料、补充材料等（参考下方表格），请确认包含必须材料后并进行打包；
-* 第三步：邮件发送申请信息至邮箱（deeplink@pjlab.org.cn），邮件标题请按照格式：“【企业名称】参与DeepLink合作伙伴申请”；
+* 第三步：邮件发送申请信息至邮箱（deeplink@pjlab.org.cn），邮件标题请按照格式：“【企业名称】加入DeepLink合作伙伴申请”；
 * 第四步：等待实验室审核；
 * 第五步：认证完成，获得官方认证登记通知、证书发放；
 
 
-<!-- <a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" target="_blank" class="button" onclick="showConfirmation2(event)">
-  导出数据
-</a>
-
-<a href="../../../../doc/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表.docx</a> -->
 ### 申请资料要求
 
 | 序号 |  文件  |  格式要求  | 文件样例 |
@@ -34,7 +29,7 @@ DeepLink合作伙伴生态目前已经正式发布，欢迎感兴趣的企事业
 | 1* | <a href="../../_static/image/PartnerPlan/DeepLink_registration_form.docx" >DeepLink合作伙伴申请表</a>  |   pdf   | <a href="../../_static/image/PartnerPlan/registration_example.pdf" target="_blank"> 填写样例 </a> |
 | 2* | 企业资质证明材料 | pdf/jpg | <a href="../../_static/image/PartnerPlan/company.png" target="_blank">营业执照</a> |
 | 3* | 企业Logo | png/jpg/ai等图片格式 | - |
-| 4 | <a href="../../_static/image/PartnerPlan/adaptability_level_application.xlsx" >适配等级认证申请表</a> | pdf | <li><a href="../../_static/image/PartnerPlan/adaptability_level_application_example.pdf" target="_blank"> 填写样例 </a></li><li><a href="../../_static/image/PartnerPlan/deeplink_capability_list.xlsx" target="_blank"> DeepLink适配能力（算子清单） </a></li> |
+| 4 | <a href="../../_static/image/PartnerPlan/adaptability_level_application.xlsx" >适配等级认证申请表</a> | pdf | <li><a href="../../_static/image/PartnerPlan/adaptability_level_application_example.pdf" target="_blank"> 填写样例 </a></li><li><a href="../../_static/image/PartnerPlan/deeplink_capability_list.xlsx" target="_blank"> DeepLink适配能力参考（不需填写） </a></li> |
 | 5 | 历史评测报告  | pdf | - |
 | 6 | 市场合作材料  | ppt/pdf/docx | - |
 | 7* | 产品介绍 | docx/ppt/pdf | - |
