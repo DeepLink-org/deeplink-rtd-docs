@@ -46,11 +46,12 @@
 
 | 序号 |  流程  |  相关文件  | 截止时间 |
 | ---- |  ------  |  ------  |  ----  |
-| 1 |  阅读评测方案，如有问题欢迎沟通。  |  <li>[基于大模型的AI芯片评测实施方案（0.4.1）](https://aicarrier.feishu.cn/wiki/JWWPwdRetiC0QMkTUL0cGowInYq?office_edit=1) </li><li>[AI芯片评测实施方案（0.6.2）](https://aicarrier.feishu.cn/wiki/M41aws2pxiTcJ0kFC66ccqFtnRc?office_edit=1)</li>  |  -  |
-| 2 |  反馈本次评测参与情况并完成《预填写表格》填写并提交至指定位置。  |  下载填写：[2024Q3-芯片评测预填写表格.xlsx](https://pjlab-my.sharepoint.cn/:x:/g/personal/hubingying_pjlab_org_cn/EfK5Z0oV8l9MpvTD5xgQGqQBG3rFMCoeYBe2hlaSoCfD0w?e=85mrnU)  |  2024.8.9  |
-| 3 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[基于大模型的AI芯片评测实施方案（0.4.1）](https://aicarrier.feishu.cn/wiki/JWWPwdRetiC0QMkTUL0cGowInYq?office_edit=1) </li><li>[AI芯片评测实施方案（0.6.2）](https://aicarrier.feishu.cn/wiki/M41aws2pxiTcJ0kFC66ccqFtnRc?office_edit=1)</li>  |  2024.9.13  |
-| 4 |  实验室进行结果核验和上机复测，完成单芯片评测报告整理，点对点发放。  | -  |  2024.10月下旬  |
-| 5 |  厂商可对评测结果和方案合理性进行意见反馈（word形式）  | -  |  评测期间  |
+| 1 |  适配参考代码  |  [AIChipBenchmark](https://github.com/DeepLink-org/AIChipBenchmark) |  -  |
+| 2 |  阅读评测方案，如有问题欢迎沟通。  |  <li>[基于大模型的AI芯片评测实施方案（0.4.1）](https://aicarrier.feishu.cn/wiki/JWWPwdRetiC0QMkTUL0cGowInYq?office_edit=1) </li><li>[AI芯片评测实施方案（0.6.2）](https://aicarrier.feishu.cn/wiki/M41aws2pxiTcJ0kFC66ccqFtnRc?office_edit=1)</li>  |  -  |
+| 3 |  反馈本次评测参与情况并完成《预填写表格》填写并提交至指定位置。  |  下载填写：[2024Q3-芯片评测预填写表格.xlsx](https://pjlab-my.sharepoint.cn/:x:/g/personal/hubingying_pjlab_org_cn/EfK5Z0oV8l9MpvTD5xgQGqQBG3rFMCoeYBe2hlaSoCfD0w?e=85mrnU)  |  2024.8.9  |
+| 4 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[基于大模型的AI芯片评测实施方案（0.4.1）](https://aicarrier.feishu.cn/wiki/JWWPwdRetiC0QMkTUL0cGowInYq?office_edit=1) </li><li>[AI芯片评测实施方案（0.6.2）](https://aicarrier.feishu.cn/wiki/M41aws2pxiTcJ0kFC66ccqFtnRc?office_edit=1)</li>  |  2024.9.13  |
+| 5 |  实验室进行结果核验和上机复测，完成单芯片评测报告整理，点对点发放。  | -  |  2024.10月下旬  |
+| 6 |  厂商可对评测结果和方案合理性进行意见反馈（word形式）  | -  |  评测期间  |
 
 
 
@@ -71,4 +72,4 @@
 
 ## 联系我们
 
-如果您所代表的芯片厂商，也期望能够参与硬件测评，可联系社区：deeplink_benchmark@pjlab.org.cn。
+如果您所代表的芯片厂商，也期望能够参与硬件测评，可联系社区：deeplink@pjlab.org.cn。
