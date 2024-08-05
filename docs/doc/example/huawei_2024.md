@@ -1,13 +1,15 @@
 # DeepLink实现华为昇腾Atlas 800T A2上的千卡大规模训练
 
-DeepLink作为芯片与深度学习框架适配桥梁，前端通过deeplink.framework的dipu组件，对接了原生的pytorch深度学习训练框架，底层通过标准化的DIOPI算子接口，适配了华为基于CANN计算框架的Atlas 800T A2训练服务器。针对大模型训练、微调及推理的场景，DeepLink通过DeepLinkExt定义了相关的大模型算子标准化接口，对上适配ModelLink、InternLM、InternEvo等大模型训练框架，对下适配标准化DIOPI定义的大模型算子，赋予Ascend Atlas 800T A2计算平台上高效训练大模型的能力。
+DeepLink 适配中间层作为连接硬件芯片与深度学习软件框架间适配的“桥梁”，在近期商汤科技大装置 SenseCore AI 云与华为联手打造国产化智算集群的合作项目中被运用，并助力其国产化能力落地。在集群软硬件适配层面，实现厂商可基于 DeepLink 一次适配即接入广泛的算法生态；结合商汤的大模型能力国产化适配技术积累，最终打造高效的的软硬件适配体系和大模型适配能力，支撑项目大模型业务落地，构建自主创新的国产化集群。
 
-当前，DeepLink针对Ascend Atlas 800T A2计算平台，已经完成对ModelLink、InternLM、InternEvo等大模型训练框架的适配，并利用这些框架，对上海人工智能实验室开源的书生大模型，商汤科技研发的日日新大模型，Meta公司开源的llama2大模型等进行了千卡的大规模训练。
+DeepLink 作为芯片与深度学习框架适配桥梁，前端通过 DeepLink.framework 的 dipu 组件，对接了原生的 Pytorch 深度学习训练框架，底层通过标准化的 DIOPI 算子接口，适配了华为基于 CANN 计算框架的 Atlas 800T A2 训练服务器。针对大模型训练、微调及推理的场景，DeepLink 通过 DeepLinkExt 定义了相关的大模型算子标准化接口，对上适配 AscendSpeed、EasyLLM、InternEvo 等大模型训练框架，对下适配标准化 DIOPI 定义的大模型算子，加成 Ascend Atlas 800T A2 计算平台上高效训练大模型的能力。
+
+当前，DeepLink 针对 Ascend Atlas 800T A2 计算平台，已经完成对 ModelLink、InternLM、InternEvo 等大模型训练框架的适配，并利用这些框架，对上海人工智能实验室开源的书生大模型等进行了千卡的大规模训练。
 
 ![Speed compare](../../_static/image/example/example_huawei2024_speed.png)
-<p align=center>图1：1024卡上基于DeepLink的torch_dipu和华为torch_npu的对比</p>
+<p align=center>图1：1024卡上基于 DeepLink 的 torch_dipu 和华为 torch_npu 的对比</p>
 
-以ModelLink+llama2千卡训练为例，当前阶段基于DeepLink + pytorch的大模型训练，相对torch_npu + pytorch，在资源利用率上，前者在host端对cpu的使用需求降低大约5%，在npu设备端，两者对加速芯片的显存使用率和芯片使用率相当。在llama2的训练上，对token的消耗DeepLink + pytorch达到约350 tgs，相对torch_npu + pytorch的345 tgs而言，DeepLink + pytorch方案已经显现出较小的性能优势。
+以 ModelLink+llama2 千卡训练为例，当前阶段基于 DeepLink + pytorch 的大模型训练，相对 torch_npu + pytorch，在资源利用率上，前者在 host 端对 cpu 的使用需求降低大约 5%，在 npu 设备端，两者对加速芯片的显存使用率和芯片使用率相当。在 llama2 的训练上，对 token 的消耗 DeepLink + pytorch 达到约 350 tgs，相对 torch_npu + pytorch 的345 tgs 而言，DeepLink + pytorch 方案已经显现出较小的性能优势。
 
 ## 适配过程
 ### 一、环境准备
