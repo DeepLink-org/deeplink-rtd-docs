@@ -5,8 +5,8 @@ ditorch 是设备无关 torch， 旨在屏蔽各硬件厂商 torch 差异，为�
 .. image:: _static/image/ditorch/ditorch.png
    :class: doc-img
 
-# **核心功能**
-## **1. 可无感切换 pytorch 至国产芯片**
+## **核心功能**
+### **1. 可无感切换 pytorch 至国产芯片**
 
 只需添加两行代码，即可在国产芯片上像官方 pytorch 一样使用。
 ```
@@ -14,7 +14,7 @@ import torch
 import ditorch
 ```
 
-## **2. 提供多个基础工具，解决训练过程的问题**
+### **2. 提供多个基础工具，解决训练过程的问题**
 
 提供模型训练过程中需要的基础工具，解决模型训练过程中出现的痛点问题 [算子工具](op_tools/README.md)。
 
@@ -26,7 +26,7 @@ import ditorch
 | 4 | [算子 Fallback](#tool4) | 可将指定、全部算子在设备上运行的操作 fallback 到 CPU 计算 |
 
 
-### **算子参数抓取工具** <a id="tool1"></a>
+#### **算子参数抓取工具** <a id="tool1"></a>
 抓取模型真实训练过程中真实的输入输出：
 ```
 # usage1
@@ -45,7 +45,7 @@ with op_tools.OpCapture():
     code_snippet_to_capture()
 ```
 
-#### **抓取前向和反向的所有输入输出**
+#####  **抓取前向和反向的所有输入输出**
 
 ```
 op_capture_result/0/2024-08-06--11-41/torch.Tensor.to/8/input.pth saved
@@ -78,7 +78,7 @@ op_capture_result/0/2024-08-06--11-41/torch.Tensor.to/8/grad_outputs.pth saved
 ...
 ```
 
-#### **只抓取sort算子的参数，忽略其他算子 OP_CAPTURE_LIST=torch.Tensor.sort**
+##### **只抓取sort算子的参数，忽略其他算子 OP_CAPTURE_LIST=torch.Tensor.sort**
 ```
 ...
 skip OpCaptureHook on torch.Tensor.mul
@@ -93,7 +93,7 @@ op_capture_result/0/2024-08-06--11-41/torch.Tensor.sort/34/grad_outputs.pth save
 ...
 ```
 
-#### **排除指定算子，抓取所有其他算子 OP_CAPTURE_DISABLE_LIST="torch.Tensor.add,torch.Tensor.sub"**
+#####  **排除指定算子，抓取所有其他算子 OP_CAPTURE_DISABLE_LIST="torch.Tensor.add,torch.Tensor.sub"**
 ```
 apply OpCaptureHook on torch.Tensor.to
 op_capture_result/0/2024-08-06--11-46/torch.Tensor.to/29/input.pth saved
@@ -114,7 +114,7 @@ op_capture_result/0/2024-08-06--11-46/torch.Tensor.sum/33/input.pth saved
 op_capture_result/0/2024-08-06--11-46/torch.Tensor.sum/33/output.pth saved
 ...
 ```
-### **精度分析工具** <a id="tool2"></a>
+#### **精度分析工具** <a id="tool2"></a>
 精度分析工具可以实现：
 1. 离线分析：用模型训练过程中真实输入输出，离线对比。
 2. 实时精度对比：模型训练时实时与cpu对比分析精度。
@@ -135,7 +135,7 @@ code_snippet_to_autocompare()
 autocompare.stop()
 ```
 
-#### **基于InternEvo + ditorch + torch_npu 在华为910B上实时精度分析输出片段**
+##### **基于InternEvo + ditorch + torch_npu 在华为910B上实时精度分析输出片段**
 
 
 ```
@@ -184,7 +184,7 @@ skip OpAutoCompareHook on npu.npu_fusion_attention
 
 ```
 
-#### **离线算子精度测试**
+##### **离线算子精度测试**
 ```
 python op_tools/run_op_from_data.py /deeplink/op_capture_result/torch.Tensor.div/2334011/5  --acc_check --run_times 1
 ditorch.framework: torch_npu:2.1.0.post3
@@ -193,7 +193,7 @@ OpAutoCompareHook: torch.Tensor.div 0th input grad                    allclose: 
 OpAutoCompareHook: torch.Tensor.div 1th input grad                    allclose: True    max_diff:          0.000000238
 ```
 
-### 速度分析工具 <a id="tool3"> </a>
+#### 速度分析工具 <a id="tool3"> </a>
 
 速度分析工具同样可以支持（1）离线分析和（2）实时分析。
 
@@ -210,7 +210,7 @@ SyncExecuteTimer: torch.Tensor.div forward  elasped 0.04935265 ms
 SyncExecuteTimer: torch.Tensor.div backward elasped 0.16641617 ms
 ```
 
-#### **只跑指定算子3遍前向**
+##### **只跑指定算子3遍前向**
 ```
 ditorch/op_tools# python run_op_from_data.py /op_capture_result/torch.Tensor.div/2278281/5  --run_times 3 --only_run_forward --sync_time_measure
 ditorch.framework: torch_npu:2.1.0.post3
@@ -220,7 +220,7 @@ SyncExecuteTimer: torch.Tensor.div forward elasped 0.24318695 ms
 SyncExecuteTimer: torch.Tensor.div forward elasped 0.07224083 ms
 ```
 
-#### **模型训练时算子耗时分析 (前向 + 反向)**
+##### **模型训练时算子耗时分析 (前向 + 反向)**
 ```
 # usage1
 import op_tools
@@ -259,7 +259,7 @@ OpTimeMeasureHook: torch.nn.init.normal_          forward elasped:  701.74193382
 
 ```
 
-### 算子 fallback <a id="tool4"> </a>
+#### 算子 fallback <a id="tool4"> </a>
 ```
 # usage 1
 with op_tools.OpFallback():
@@ -274,7 +274,7 @@ code_snippet_op_to_be_fallbacked()
 fallback.end()
 ```
 
-#### **只 fallback 指定算子 (export OP_FALLBACK_LIST="torch.nn.functional.linear")**
+##### **只 fallback 指定算子 (export OP_FALLBACK_LIST="torch.nn.functional.linear")**
 ```
 skip OpFallbackHook on torch.Tensor.float
 skip OpFallbackHook on torch.Tensor.add
@@ -295,7 +295,7 @@ skip OpFallbackHook on torch.Tensor.shape.__get__
 ...
 ```
 
-#### **fallback 指定算子以外所有算子（export OP_FALLBACK_DISABLE_LIST="torch.nn.functional.linear"）**
+##### **fallback 指定算子以外所有算子（export OP_FALLBACK_DISABLE_LIST="torch.nn.functional.linear"）**
 ```
 ...
 skip OpFallbackHook on torch.nn.functional.linear
@@ -312,7 +312,7 @@ OpFallbackHook: torch.Tensor.view                                  input: {'args
 
 ```
 
-#### **fallback 所有算子时部分输出**
+##### **fallback 所有算子时部分输出**
 ```
 ...
 OpFallbackHook: torch.nn.functional.linear                         input: {'args': ({'shape': torch.Size([1, 16384, 2048]), 'stride': (33554432, 2048, 1), 'numel': 33554432, 'dtype': 'torch.bfloat16', 'device': 'npu:0', 'requires_grad': False, 'layout': 'torch.strided', 'data': 20074851205120}, {'shape': torch.Size([2048, 2048]), 'stride': (2048, 1), 'numel': 4194304, 'dtype': 'torch.bfloat16', 'device': 'npu:0', 'requires_grad': False, 'layout': 'torch.strided', 'data': 20067599254528}, 'None')}

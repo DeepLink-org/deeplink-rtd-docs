@@ -14,7 +14,7 @@ dlinfer提供了一套将国产硬件接入大模型推理框架的解决方案�
 
 目前，我们正在全力支持LMDeploy适配国产芯片，包括华为，沐曦，寒武纪等。
 
-# 架构介绍
+## 架构介绍
 
 <!-- markdownlint-disable -->
 <div align=center>
@@ -26,7 +26,7 @@ dlinfer提供了一套将国产硬件接入大模型推理框架的解决方案�
    :class: doc-img
 
 
-## 组件介绍
+### 组件介绍
 
 - **op interface**：
 大模型推理算子接口，对齐了主流推理框架以及各个厂商的融合算子粒度。
@@ -37,17 +37,17 @@ dlinfer提供了一套将国产硬件接入大模型推理框架的解决方案�
 - **kernel adaptor**：
 吸收了大模型推理算子接口参数和硬件厂商融合算子参数间的差异。
 
-# 安装方法
+## 安装方法
 
-## pip安装
+### pip安装
 
 ```shell
 pip install dlinfer==0.3.1+ascend
 ```
 
-## 源码安装
+### 源码安装
 
-### 华为Atlas 800T A2
+#### 华为Atlas 800T A2
 
 1. 在Atlas 800T A2上依赖torch和torch_npu，运行以下命令安装torch、torch_npu及其依赖。
 
@@ -62,9 +62,9 @@ pip install dlinfer==0.3.1+ascend
    DEVICE=ascend python3 setup.py develop
    ```
 
-# 支持模型框架列表
+## 支持模型框架列表
 
-## LMDeploy
+### LMDeploy
 
 |  | 华为Atlas 800T A2 | 沐曦C500（待开源） | 寒武纪云端智能加速卡（开发中） |
 | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ pip install dlinfer==0.3.1+ascend
 | CogVLM | √ |  |  |
 | CogVLM2 |  | √ |  |
 
-### 使用LMDeploy
+#### 使用LMDeploy
 
 只需要指定pytorch engine后端为ascend，不需要其他任何修改即可。详细可参考lmdeploy文档。
 
