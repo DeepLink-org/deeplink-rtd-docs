@@ -70,13 +70,6 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 
 .. toctree::
    :maxdepth: 1
-   :caption: 合作伙伴生态计划
-   :includehidden:
-
-   doc/PartnerPlan/Partner_introduction.md
-
-.. toctree::
-   :maxdepth: 1
    :caption: 算子图谱
    :includehidden:
 
@@ -129,6 +122,13 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 
 .. toctree::
    :maxdepth: 1
+   :caption: 合作伙伴生态计划
+   :includehidden:
+
+   doc/PartnerPlan/Partner_introduction.md
+   
+.. toctree::
+   :maxdepth: 1
    :caption: 开源社区
    :includehidden:
 
@@ -136,3 +136,4 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    doc/Community/CodingRule2
    doc/Community/PullRequest
    
+
