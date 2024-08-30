@@ -68,5 +68,180 @@ DIOPI_TEST是构建于设备无关算子接口（Device-Independent Operator Int
 
 ADAPTER 是 DIOPI 提供的辅助工具箱，目前提供的功能包括自动类型转换、内存分布转换等，使用时在 IMPL 设备文件夹下添加配置问题，具体配置方法见[IMPL Readme](https://github.com/DeepLink-org/DIOPI/tree/main/impl#readme)。
 
+## Quick Start
+
+### 仓库下载
+如需在硬件芯片中进行计算接口算子实现，可进行以下步骤（具体参考 [README](https://github.com/DeepLink-org/DIOPI#readme)）。
+
+
+1. 需下载 [DIOPI仓库](https://github.com/DeepLink-org/DIOPI)，可使用命令：
+    ```
+    git clone https://github.com/DeepLink-org/DIOPI.git
+    ```
+
+    如遇到权限问题，可以参考[FAQ-权限问题](https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/FAQ.html)
+
+
+### 算子编译
+
+
+1. 在设备相关目录下提供相应的编译文件，通过脚本进行编译, 以cuda为例：
+    ```
+    cd impl && sh scripts/build_impl.sh torch
+    ```
+    或者参考以下命令示例编译 impl：
+    ```
+    cd impl && mkdir build && cd build && cmake .. -DIMPL_OPT=torch && make -j32
+    ```
+### 更新基准数据
+
+1. 进入python目录，生成基准数据(需准备 nv 机器和 pytorch2.0 环境)
+    ```
+    cd python && python main.py --mode gen_data
+    ```
+    如需指定模型：
+    ```
+    python main.py --mode gen_data --model_name xxx
+    ```
+    其中支持的模型名和对应的算子可以通过如下命令获得：
+    ```
+    python main.py --get_model_list
+    ```
+    如果想只生成某一个算子的测例可以使用如下命令, 以add系列的算子为例：
+    ```
+    python main.py --mode gen_data --fname add
+    ```
+
+
+### 校验算子
+1. 将数据拷贝到芯片机器上，执行以下命令验证算子：
+    ```
+    python main.py --mode run_test
+    ```
+    如需指定模型：
+    ```
+    python main.py --mode run_test --model_name xxx
+    ```
+    如需指定某个算子， 以add为例：
+    ```
+    python main.py --mode run_test --fname add
+    ```
+    如需过滤不支持的数据类型以及部分测试使用nhwc格式张量(如跳过float64以及int64测例)：
+    ```
+    python main.py --mode run_test --filter_dtype float64 int64 --nhwc
+    ```
+    可以查看[diopi_test Readme](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test#readme) 了解更详细的设置
+
+
+2. 验证结果分析
+
+#### 测例通过
+测例通过的输出形式如下：
+```
+2022-09-29 16:40:40,550 - DIOPI-Test - INFO - Run diopi_functions.relu succeed
+```
+
+## 常见问题
+
+
+### 1. DIOPI算子开发流程是怎样的？
+
+- 搭建环境：安装芯片厂商SDK和必要的系统工具。
+- 添加算子代码：在impl项目相应目录中添加算子c++代码。
+- 生成基准数据：执行基准数据生成命令，生成测试时需要的基准数据。
+- 算子测试：执行算子测试命令，将自己实现的算子计算结果和基准数据进行对比。
+
+### 2. 如何搭建IMPL开发环境？如果在自己的PC中开发，需要安装哪些包，cmakelist中include、lib路径需要修改哪些？
+
+首先机器上要有芯片厂商的软件栈，配好环境变量后CMakelist中的include和lib路径第不用修改的，source完环境后可以直接编译。我们推荐使用conda管理python环境，具体安装的包可以在运行报错时，根据提示安装。
+
+### 3. 代码的目录结构是怎样的？编译的命令是什么？编译的结果在哪里？
+
+（1）代码目录结构
+* diopi_test主要包含impl(算子实现)，diopi运行时文件和一致性测试的代码
+* impl中将不同厂商的的算子实现存放在不同的路径下，例如camb对应寒武纪的算子实现
+
+（2）编译指令
+    以寒武纪软件栈为例，先source对应环境, 然后使用如下指令进行编译，
+    请注意：对应的软件栈不同，则环境和编译选项也有所不同
+```
+sh scripts/build_impl.sh camb 
+```
+
+（3）编译结果位置
+```
+/impl/lib下 
+```
+    
+### 4. 生成baseline有哪些环境要求？如何生成baseline并进行测试？生成的数据在哪里？如何查看数据的详细内容？
+
+(1) 生成baseline的环境要求
+
+- ```cuda```：需要环境预装好pytorch，安装pytorch可参考[pytorch官网](https://github.com/pytorch/pytorch)
+
+(2) 如何生成baseline并进行测试？
+
+第一步生成基准输入和输出数据，第二步验证适配的算子的正确性。
+
+测试脚本运行命令（在./python目录下）：
+```
+python main.py [-h] [--mode MODE] [--fname FNAME]
+```
+选项说明：
+- ```--mode``` 可选项：```gen_data```, ```run_test```
+运行模式选项，用于选择当前函数生成基准数据还是测试算子
+- ```--fname``` 缺省：```all_ops```
+函数名字选项，如果指定函数名字（配置文件中测例的 name）则会对该算子进行基准数据生成和测试，不指定默认对所有算子生成基准数据和测试。
+
+例如：
+1.  在 Nvidia 设备上生成基准输入和输出数据
+```
+python main.py --mode gen_data --fname all_ops
+```
+2. 在接入芯片设备上运行测试
+```
+python main.py --mode run_test --fname all_ops
+```
+
+(3) 生成的数据在哪里？
+
+在```diopi_test/python/data```中，以pickle形式存储
+
+(4)如何查看数据的详细内容？
+有两种方式可以查看数据的详细内容
+- ```pickle.load()``` 将测试object读取进内存再进行自定义的可视化和操作，pickle相关使用可以参考[页面](https://docs.python.org/3/library/pickle.html)
+- 将```diopi_test/python/conformance/utils.py```中```log_level```设置为```DEBUG```
+这样在测试中，如果发现异常（如值不对）则会将数据信息打出
+
+### 5. 如何测试添加的算子是否正确？测试命令是什么？测试结果如何看？如果测试结果不对如何查看更多详细内容？
+
+在README中会有介绍算子测试方法，我们这里使用的是根据```python/conformance/diopi_configs.py```中描述的算子信息在Nvidia机器上生成算子输入以及算子的输出，并将其他芯片厂商的算子运算结果与Nvidia对比。
+
+算子添加后，CI上会进行测试，算子是否正确可看CI日志。测试命令请见README。测试结果会在终端中打印出来。如果结果不正确，可以在```python/conformance/utils.py中将default_cfg_dict[log_level] = DEBUG```。这样会在```python/error_report.csv```中显示详细的错误信息。
+
+
+### 6. 对于数据类型不支持导致的测试失败如何解决
+
+对于数据类型不支持的测例，提供两种处理方式：
+
+1. 使用ADAPTOR进行类型转换
+ADAPTOR可以通过读取设备配置，自动对一些不支持的数据类型进行转换，只需在 impl/ 设备文件夹下添加convert_config.yaml文件，在其中配置不支持的类型及转换规则，编译时即会自动生成转换代码。详细的配置规则参考IMPL的README。
+
+2. 添加设备测试的device_config.py文件（建议放到 impl/ 设备）文件夹下，在其中配置需要跳过的测例以及不支持的数据类型等，使用如下命令运行测试，则会跳过数据类型不支持的测例。device_config.py的详细配置方法参考DIOPI_TEST的README。
+
+```
+python main.py --mode run_test --impl_folder device_config.py文件路径。
+```
+
+### 7. Clone时出现权限问题？
+
+目前最新的DIOPI仓库中已经没有submodule了，后续如有需要，会在使用教程中补充clone相关步骤。
+
+
+---
+### 无法找到问题
+您可在项目中提交issue，将您遇到的问题告诉我们。
+<!-- issue回复的流程可在[开发者指南中](Contributors.md)获取。
+2. 或者您也可以加入[开发者社区]()，像我们提供反馈和建议。 -->
 
 
