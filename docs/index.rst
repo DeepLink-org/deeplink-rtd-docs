@@ -82,17 +82,9 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    :includehidden:
 
    doc/ditorch/introduction.md
-
-   doc/DIOPI/Introduction
-   doc/DIOPI/quick_start
-   doc/DIOPI/API/API_index
+   doc/DIOPI/diopi
    DIOPI/diopi_test/python/docs/source/cn_ref
-   doc/DIOPI/FAQ
-
-   doc/DIPU/Introduction
-   doc/DIPU/profiler_intro
-   doc/DIPU/quick_start
-   doc/DIPU/FAQ
+   doc/DIPU/dipu
 
    doc/dlinfer/introduction.md
 
