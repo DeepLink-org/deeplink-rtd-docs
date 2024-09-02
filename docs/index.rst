@@ -82,15 +82,12 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    :includehidden:
 
    doc/ditorch/introduction.md
+   doc/dlinfer/introduction.md
    doc/DIOPI/diopi
    DIOPI/diopi_test/python/docs/source/cn_ref
    doc/DIPU/dipu
+   doc/DICP/dicp
 
-   doc/dlinfer/introduction.md
-
-   doc/DICP/introduction
-   doc/DICP/quick_start
-   doc/DICP/tutor_adapt
 
 .. toctree::
    :maxdepth: 2
