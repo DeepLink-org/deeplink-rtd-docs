@@ -4,7 +4,7 @@ DIPU (device independent process unit) 是由 **一组抽象设备 Runtime 接�
 
 虽然 PyTorch 定义了一套基础的运行时接口 `c10`，可以基于这个接口直接抽象各个设备接口，但是 `c10` 首先是个直面框架层的接口，每个接入的设备都需要实现大量类似的逻辑来完成 `c10` 的实现，对于多设备的支持很不方便。DIPU 先把 `c10` 的运行时适配到 DIPU 自己的运行时，把通用的逻辑抽取出来，可以让厂商仅实现必要的设备接口即可工作。
 
-## 代码结构说明
+## 代码结构
 
 DIPU 结构上分为 Python 和 CPP 两部分：
 
@@ -53,9 +53,9 @@ Aten 的能力主要依赖于 PyTorch 提供的注册自定义 *backend* 的能�
 
 后面另有规划 DIPU 的配置化接口等能力，可以为不同的 *Vendor* 输入不同配置。以配置驱动的方式来指导 *Runtime* 和 DIOPI 算子适配流程的构建。
 
-## 相关功能介绍
+## 功能介绍
 
-### Dispatch 机制与 DIOPI 算子库
+#### Dispatch 机制与 DIOPI 算子库
 
 PyTorch 的算子注册和分派有很多步骤，详见 [参考文档](https://github.com/pytorch/pytorch/wiki/PyTorch-dispatcher-walkthrough)。
 
@@ -63,7 +63,7 @@ DIPU CPP 层适配的 ATen 算子对应的是分派过程中最底层（*backend
 
 这里面有一定的灵活性，以`Linear` 算子为例，在 PyTorch 的 `cpu/cuda` 设备上，它被实现为一个 `composite` 算子，实际的 *backend* 层算子是组合算子内部调用的 `addmm` 或者更底层的 `mm`。而在 DIPU (`privateuse1`) 设备中，目前是注册了一个 `Linear` 算子（DIOPI 有这个算子）来替代组合算子，所以分派会直接走到新的 *backend* 层算子 `Linear`，而不会在调用原来的 `addmm/mm`。但是如果对应设备的 DIOPI 的 IMPL 算子库 没有实现 `diopiLinear` 而是实现了 `mm` 算子，也是可以正常走通 `Linear` 的调用流程的。
 
-### 无侵入式的 PyTorch 扩展包
+#### 无侵入式的 PyTorch 扩展包
 
 DIPU 没有直接修改 PyTorch 的代码，而是使用 out-of-tree 的方式接入新设备，详见 [参考文档](https://pytorch.org/tutorials/advanced/extend_dispatcher.html)。
 
@@ -73,11 +73,11 @@ PyTorch 要求 out-of-tree 的代码必须定义一个私有的 *Backend Key*，
 
 但是 PyTorch 并不完全符合“扩展开放，修改关闭”的范式。很多能力不是基于“注册”的方式来开放给扩展组件的，而是在代码里对不同的 *Backend Key* 做的 if-else 判断。并且不同的组件对于 *Backend Key* 的支持程度也不同。有些 Legacy 逻辑只支持 CUDA & CPU，完全无法扩展；还有一些仅支持固定的几个 *Backend Key*。DIPU 目前的做法是在 Python 层加一层代理，把用户的函数调用转换成底层可以支持的方式。这样的问题是会带来很多无谓的适配逻辑，但是鉴于 PyTorch 的现状，暂时先这样处理。后续也希望和 PyTorch 官方有所合作。
 
-### 算子适配能力
+#### 算子适配能力
 
 为了更好的接入 DIOPI 算子，DIPU 提供了一组算子适配相关的辅助能力，比如灵活的算子 Fallback to CPU 的能力、算子精度自动对比的能力（对比 DIOPI 算子和 PyTorch 原生的 CPU 算子），算子执行过程中打印算子参数的能力。基于这些能力，接入算子时可以更方便排查算子精度等问题。 相关能力的具体说明参见 [Quick Start 文档](https://deeplink.readthedocs.io/zh-cn/latest/doc/DIPU/quick_start.html) 的“算子库接入”章节。
 
-## 质量保障体系
+### 质量保障体系
 
 在每次代码合并之前，都会在各个设备上测试，测试全都跑通过才能合并。
 我们的测试包括三部分：
@@ -172,9 +172,9 @@ export LD_LIBRARY_PATH=$DIPU_ROOT:$DIOPI_ROOT:$LD_LIBRARY_PATH
 sh ./tests/python/run_tests.sh
 ```
 
-## 算子库
+### 算子库
 
-### 算子库接入（请参考 DIOPI 第三方芯片算子库）
+#### 算子库接入（请参考 DIOPI 第三方芯片算子库）
 
 在接入 DIPU 之前，我们的硬件应该提供一个已经实现的算子库，并已经按照 DIOPI 的 PROTO 声明进行了对应函数的实现，接入 DIOPI 的 IMPL。通过 DIOPI 的 IMPL，我们在之前编译 DIPU 时会默认为对应设备编译出 `libdiopi_impl.so` 作为算子库文件。
 
@@ -243,9 +243,9 @@ sh ./tests/python/run_tests.sh
     }
     ```
 
-### 算子库拓展功能
+#### 算子库拓展功能
 
-#### 算子 Fallback
+##### 算子 Fallback
 
 Fallback 给定算子：
 
@@ -268,7 +268,7 @@ export DIPU_FORCE_FALLBACK_OPS_LIST='.*'
 python -c "import torch_dipu"
 ```
 
-#### 算子精度自动对比功能介绍
+##### 算子精度自动对比功能介绍
 
 由于该功能默认不开启，使用该功能时需要打开该功能并重新编译 DIPU。
 
@@ -322,7 +322,7 @@ autocompare:    add.out other: allclose
 2. 随机数生成相关的算子（`dipu/scripts/autogen_diopi_wrapper/diopi_functions.yaml` 中配置了 `autocompare:False`）没有做 `autocompare`，因为结果总是 `not_allclose`。
 3. 对输入做检查是确保算子输入不被意外修改。
 
-#### 抓取算子参数
+##### 抓取算子参数
 
 该功能需要打开 `autogen` 的 `print_op_arg` 和 `print_func_call_info` 选项，在模型调试和测试时遇到问题时可方便的拿到算子输入情况；不需要打印时也可关掉。
 
@@ -415,7 +415,7 @@ void createStream(deviceStream_t* stream, bool prior) {
 - `dipu/tests` 文件夹中有许多基础功能的测试，建议首先尝试测试 `python -u dipu/tests/python/unittests/test_add.py`，该文件测试跑通基本意味着我们的设备 *runtime* 接入没有问题了。
 - 编译脚本参考 **[编译 DIPU](#编译-dipu)**，测试脚本可以参考 **[验证 DIPU](#验证-dipu)**ss。
 
-## Profiler
+## Profiler 工具
 
 DeepLink Profiler 是一个允许在训练和推理过程中收集性能指标的工具。Profiler的上下文管理器API可用于了解哪些模型算子最耗时，并检查其输入形状和堆栈跟踪，研究设备kernel活动并可视化执行跟踪。当使用DeepLink进行模型训练时，可以使用DeepLink Profiler定位性能瓶颈，指导性能优化。
 
