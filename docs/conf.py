@@ -172,7 +172,7 @@ html_theme_options = {
             ],
         },
         {
-            'name': '技术支撑'',
+            'name': '技术支撑,
             'children': [
                 {
                     'name': 'ditorch',
