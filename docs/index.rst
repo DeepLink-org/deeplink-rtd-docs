@@ -69,7 +69,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 ====================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: 标准建设
    :includehidden:
 
@@ -77,7 +77,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    doc/Operators/op_download
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: 技术支撑
    :includehidden:
 
