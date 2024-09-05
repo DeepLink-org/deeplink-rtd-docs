@@ -4,8 +4,9 @@
 
 ditorch 是设备无关 torch， 旨在屏蔽各硬件厂商 torch 差异，为用户提供一致使用体验。通过 ditorch，开发者可以适配多个硬件算子库；此外，ditorch 提供训练过程中需要的基础工具，解决模型训练过程中出现的痛点问题。
 
-.. image:: _static/image/ditorch/ditorch.png
-   :class: doc-img
+![ditorch 结构](../../_static/image/ditorch/ditorch.png)
+<!-- .. image:: _static/image/ditorch/ditorch.png
+   :class: doc-img -->
 
 ## **核心功能**
 ### **1. 可无感切换 pytorch 至国产芯片**
@@ -358,12 +359,12 @@ dlinfer提供了一套将国产硬件接入大模型推理框架的解决方案�
 ## 架构介绍
 
 <!-- markdownlint-disable -->
-<div align=center>
+<!-- <div align=center>
 <img [dlinfer_arch] src="_static/image/dlinfer/dlinfer_arch.png" width="50%">
-</div>
+</div> -->
 <!-- markdownlint-restore -->
-
-.. image:: _static/image/dlinfer/dlinfer_arch.png
+<!-- ![结构](../../_static/image/dlinfer/dlinfer_arch.png) -->
+.. image:: ../../_static/image/dlinfer/dlinfer_arch.png
    :class: doc-img
 
 
