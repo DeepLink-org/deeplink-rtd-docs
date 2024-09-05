@@ -360,7 +360,7 @@ dlinfer提供了一套将国产硬件接入大模型推理框架的解决方案�
 
 <!-- markdownlint-disable -->
 <div align=center>
-<img [dlinfer_arch] src="./../_static/image/dlinfer/dlinfer_arch.png" width="50%">
+<img [dlinfer_arch] src="../../_static/image/dlinfer/dlinfer_arch.png" width="50%">
 </div>
 <!-- markdownlint-restore -->
 <!-- ![结构](../../_static/image/dlinfer/dlinfer_arch.png) -->
