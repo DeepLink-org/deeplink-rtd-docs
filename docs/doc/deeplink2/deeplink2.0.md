@@ -1,4 +1,4 @@
-# DeepLink 2.0
+# DeepLink 2.0：
 
 # 通用训练框架-ditorch
 
