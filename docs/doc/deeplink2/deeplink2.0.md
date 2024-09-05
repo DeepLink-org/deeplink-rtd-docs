@@ -1,6 +1,6 @@
 # DeepLink 2.0：
 
-# 通用训练框架-ditorch
+# 通用训练工具-ditorch
 
 ditorch 是设备无关 torch， 旨在屏蔽各硬件厂商 torch 差异，为用户提供一致使用体验。通过 ditorch，开发者可以适配多个硬件算子库；此外，ditorch 提供训练过程中需要的基础工具，解决模型训练过程中出现的痛点问题。
 
@@ -341,7 +341,7 @@ OpFallbackHook: torch.Tensor.mean                                  output: ({'sh
 
 
 
-# 通用推理框架-dlinfer
+# 通用推理方案-dlinfer
 
 dlinfer提供了一套将国产硬件接入大模型推理框架的解决方案。
 对上承接大模型推理框架，对下在eager模式下调用各厂商的融合算子，在graph模式下调用厂商的图引擎。
