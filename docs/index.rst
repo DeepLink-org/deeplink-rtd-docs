@@ -77,13 +77,13 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    doc/Operators/op_download
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: 技术支撑
    :includehidden:
 
    doc/deeplink2/deeplink2.0.md
    doc/deeplink1/deeplink1.md
-      DIOPI/diopi_test/python/docs/source/cn_ref
+   DIOPI/diopi_test/python/docs/source/cn_ref
    
 
 
