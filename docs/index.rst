@@ -81,6 +81,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
    :caption: 技术支撑
    :includehidden:
 
+   doc/train/deeplink2.0.md
    doc/ditorch/introduction.md
    doc/dlinfer/introduction.md
    doc/DIOPI/diopi
