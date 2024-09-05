@@ -1,6 +1,6 @@
 # DeepLink 1.0：
 
-# 标准算子接口（DIOPI）
+## 标准算子接口（DIOPI）
 
 DIOPI-设备无关算子接口（Device-Independent Operator Interface, DIOPI）在框架和芯片计算库之间定义了统一的**标准接口**。
 旨在训练框架和人工智能芯片之间定义了一套计算契约，良好的函数抽象使得上（框架）下（芯片）两层在适配工程实施时能有效地解耦。
@@ -12,7 +12,7 @@ DIOPI-设备无关算子接口（Device-Independent Operator Interface, DIOPI）
 3. **<font color="2980b9">提供标准测试套件，支持11000+个常见算子测例</font>**，为硬件芯片实现的算子库提供调试验证功能。
 
 
-## 结构说明
+### 结构说明
 
 ![结构](../../_static/image/DIOPI/DIOPI_structure.png)
 
@@ -25,7 +25,7 @@ DIOPI主要包含以下几个组件：
 
 ----
 
-### PROTO
+#### PROTO
 
 PROTO是标准算子接口的原型声明，是芯片厂商实现与框架算子调用的中间层。通过规定标准的运行时函数与算子接口的声明，对框架来说，统一了算子接口，无需考虑芯片厂商具体的算子实现；对厂商来说，可以只聚焦于算子实现与优化，无需考虑框架适配。PROTO作为DIOPI中具体算子声明的环节，起到了承上（框架）启下（芯片厂商）的作用。
 
@@ -39,14 +39,14 @@ PROTO有如下核心功能：
 PROTO的主要组成部分包括 _运行时函数(diopirt)_ 和 _算子声明(functions)_。运行时函数主要为芯片厂商提供实现算子函数时需要框架提供的工具函数，主要包括一些公共类型的声明以及分配与管理张量数据等；算子声明包含了用于人工智能计算的大量函数声明，为各个算子接口的具体参数及其类型提供了标准化的定义；C-API文档生成为算子声明生成API说明文档，供算子开发与使用者查阅更多信息可以查看[PROTO](https://github.com/DeepLink-org/DIOPI/tree/main/proto)。
 
 
-### IMPL
+#### IMPL
 
 IMPL 主要用于芯片厂商基于 PROTO 进行标准算子实现，芯片厂商可通过封装自身计算库或者调用 ``kernel`` 的方式来实现 PROTO 定义良好的标准算子接口以备后续测试调用和训练框架调用。
 
 其价值体现在以实现统一接口计算库的形式，来对接不同训练框架。无需考虑不同训练框架特性，可更专注于提升每个功能性算子的性能。更多信息可以查看[IMPL](https://github.com/DeepLink-org/DIOPI/tree/main/impl)。
 
 
-### DIOPI_TEST
+#### DIOPI_TEST
 
 DIOPI_TEST是构建于设备无关算子接口（Device-Independent Operator Interface, DIOPI）之上的测试框架，它支持了没有训练框架的情况下，验证算子适配正确性的功能。DIOPI_TEST设计了一套完整的测试框架和一套算子函数测试。测试套件，可以使芯片厂商适配 DIOPI 算子时，无需训练框架即可对适配结果的正确性进行验证。
 
@@ -66,13 +66,13 @@ DIOPI_TEST是构建于设备无关算子接口（Device-Independent Operator Int
 
 更多信息可以查看[DIOPI_TEST](https://github.com/DeepLink-org/DIOPI/tree/main/diopi_test)。
 
-### ADAPTER
+#### ADAPTER
 
 ADAPTER 是 DIOPI 提供的辅助工具箱，目前提供的功能包括自动类型转换、内存分布转换等，使用时在 IMPL 设备文件夹下添加配置问题，具体配置方法见[IMPL Readme](https://github.com/DeepLink-org/DIOPI/tree/main/impl#readme)。
 
-## Quick Start
+### Quick Start
 
-### 仓库下载
+#### 仓库下载
 如需在硬件芯片中进行计算接口算子实现，可进行以下步骤（具体参考 [README](https://github.com/DeepLink-org/DIOPI#readme)）。
 
 
@@ -84,7 +84,7 @@ ADAPTER 是 DIOPI 提供的辅助工具箱，目前提供的功能包括自动�
     如遇到权限问题，可以参考[FAQ-权限问题](https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/FAQ.html)
 
 
-### 算子编译
+#### 算子编译
 
 
 1. 在设备相关目录下提供相应的编译文件，通过脚本进行编译, 以cuda为例：
@@ -95,7 +95,7 @@ ADAPTER 是 DIOPI 提供的辅助工具箱，目前提供的功能包括自动�
     ```
     cd impl && mkdir build && cd build && cmake .. -DIMPL_OPT=torch && make -j32
     ```
-### 更新基准数据
+#### 更新基准数据
 
 1. 进入python目录，生成基准数据(需准备 nv 机器和 pytorch2.0 环境)
     ```
@@ -115,7 +115,7 @@ ADAPTER 是 DIOPI 提供的辅助工具箱，目前提供的功能包括自动�
     ```
 
 
-### 校验算子
+#### 校验算子
 1. 将数据拷贝到芯片机器上，执行以下命令验证算子：
     ```
     python main.py --mode run_test
@@ -137,27 +137,27 @@ ADAPTER 是 DIOPI 提供的辅助工具箱，目前提供的功能包括自动�
 
 2. 验证结果分析
 
-#### 测例通过
+##### 测例通过
 测例通过的输出形式如下：
 ```
 2022-09-29 16:40:40,550 - DIOPI-Test - INFO - Run diopi_functions.relu succeed
 ```
 
-## 常见问题
+### 常见问题
 
 
-### 1. DIOPI算子开发流程是怎样的？
+#### 1. DIOPI算子开发流程是怎样的？
 
 - 搭建环境：安装芯片厂商SDK和必要的系统工具。
 - 添加算子代码：在impl项目相应目录中添加算子c++代码。
 - 生成基准数据：执行基准数据生成命令，生成测试时需要的基准数据。
 - 算子测试：执行算子测试命令，将自己实现的算子计算结果和基准数据进行对比。
 
-### 2. 如何搭建IMPL开发环境？如果在自己的PC中开发，需要安装哪些包，cmakelist中include、lib路径需要修改哪些？
+#### 2. 如何搭建IMPL开发环境？如果在自己的PC中开发，需要安装哪些包，cmakelist中include、lib路径需要修改哪些？
 
 首先机器上要有芯片厂商的软件栈，配好环境变量后CMakelist中的include和lib路径第不用修改的，source完环境后可以直接编译。我们推荐使用conda管理python环境，具体安装的包可以在运行报错时，根据提示安装。
 
-### 3. 代码的目录结构是怎样的？编译的命令是什么？编译的结果在哪里？
+#### 3. 代码的目录结构是怎样的？编译的命令是什么？编译的结果在哪里？
 
 （1）代码目录结构
 * diopi_test主要包含impl(算子实现)，diopi运行时文件和一致性测试的代码
@@ -175,7 +175,7 @@ sh scripts/build_impl.sh camb
 /impl/lib下 
 ```
     
-### 4. 生成baseline有哪些环境要求？如何生成baseline并进行测试？生成的数据在哪里？如何查看数据的详细内容？
+#### 4. 生成baseline有哪些环境要求？如何生成baseline并进行测试？生成的数据在哪里？如何查看数据的详细内容？
 
 (1) 生成baseline的环境要求
 
@@ -215,14 +215,14 @@ python main.py --mode run_test --fname all_ops
 - 将```diopi_test/python/conformance/utils.py```中```log_level```设置为```DEBUG```
 这样在测试中，如果发现异常（如值不对）则会将数据信息打出
 
-### 5. 如何测试添加的算子是否正确？测试命令是什么？测试结果如何看？如果测试结果不对如何查看更多详细内容？
+#### 5. 如何测试添加的算子是否正确？测试命令是什么？测试结果如何看？如果测试结果不对如何查看更多详细内容？
 
 在README中会有介绍算子测试方法，我们这里使用的是根据```python/conformance/diopi_configs.py```中描述的算子信息在Nvidia机器上生成算子输入以及算子的输出，并将其他芯片厂商的算子运算结果与Nvidia对比。
 
 算子添加后，CI上会进行测试，算子是否正确可看CI日志。测试命令请见README。测试结果会在终端中打印出来。如果结果不正确，可以在```python/conformance/utils.py中将default_cfg_dict[log_level] = DEBUG```。这样会在```python/error_report.csv```中显示详细的错误信息。
 
 
-### 6. 对于数据类型不支持导致的测试失败如何解决
+#### 6. 对于数据类型不支持导致的测试失败如何解决
 
 对于数据类型不支持的测例，提供两种处理方式：
 
@@ -235,13 +235,13 @@ ADAPTOR可以通过读取设备配置，自动对一些不支持的数据类型�
 python main.py --mode run_test --impl_folder device_config.py文件路径。
 ```
 
-### 7. Clone时出现权限问题？
+#### 7. Clone时出现权限问题？
 
 目前最新的DIOPI仓库中已经没有submodule了，后续如有需要，会在使用教程中补充clone相关步骤。
 
 
 ---
-### 无法找到问题
+#### 无法找到问题
 您可在项目中提交issue，将您遇到的问题告诉我们。
 <!-- issue回复的流程可在[开发者指南中](Contributors.md)获取。
 2. 或者您也可以加入[开发者社区]()，像我们提供反馈和建议。 -->
@@ -251,21 +251,21 @@ python main.py --mode run_test --impl_folder device_config.py文件路径。
 
 
 
-# 非侵入Pytorch接入方案（DIPU）
+## 非侵入Pytorch接入方案（DIPU）
 
 DIPU (device independent process unit) 是由 **一组抽象设备 Runtime 接口，一组框架能力相关的运行时基类/接口，一个针对 DIOPI 标准算子的适配层** 共同组成的拓展包。用来在训练框架 PyTorch 上接入 DIOPI 算子库，实现 Eager 模式的推理和训练。其能够在编译时，决定抽象设备被影射的方式；并使用统一的运行时，减少在多硬件上适配训练框架的成本。DIPU 即可以基于统一的设备运行时来屏蔽厂商的实际设备；也可以基于统一的框架相关的运行时基类，由厂商自行实现特有的运行时逻辑。
 
 虽然 PyTorch 定义了一套基础的运行时接口 `c10`，可以基于这个接口直接抽象各个设备接口，但是 `c10` 首先是个直面框架层的接口，每个接入的设备都需要实现大量类似的逻辑来完成 `c10` 的实现，对于多设备的支持很不方便。DIPU 先把 `c10` 的运行时适配到 DIPU 自己的运行时，把通用的逻辑抽取出来，可以让厂商仅实现必要的设备接口即可工作。
 
-## 代码结构
+### 代码结构
 
 DIPU 结构上分为 Python 和 CPP 两部分：
 
 ![project structure](../../_static/image/DIPU/structure.png)
 
-### CPP 层
+#### CPP 层
 
-#### Runtime (`csrc/dipu/runtime`)
+##### Runtime (`csrc/dipu/runtime`)
 
 Runtime 主要有以下几个部分：
 
@@ -275,7 +275,7 @@ Runtime 主要有以下几个部分：
 2. *Device*
    - 包含 `deviceapis.h` 和 `diclapis.h` 两个接口文件。主要是设备 `memory/stream/event/communcation` 相关的接口函数（这部分接口后续有考虑挪到 DIOPI 中，成为 DIOPI 的 *Device* 接口，见上图）。
 
-#### Aten (`csrc/dipu/aten`)
+##### Aten (`csrc/dipu/aten`)
 
 Aten 的能力主要依赖于 PyTorch 提供的注册自定义 *backend* 的能力，DIPU 没有在 PyTorch 的源码里新增 *Backend Key*，而是使用 `PrivateUse1` 作为 key。
 
@@ -283,21 +283,21 @@ Aten 的能力主要依赖于 PyTorch 提供的注册自定义 *backend* 的能�
 
 另外，并不是所有的算子实现都代理到 DIOPI。对于 *view* 型算子和内存分配型算子，DIPU 目前是自行实现的。
 
-#### DiopiRT (`csrc/dipu/diopirt`)
+##### DiopiRT (`csrc/dipu/diopirt`)
 
 用于实现 DIOPI 要求的 *Runtime*，具体参考 [DIOPI 项目](https://github.com/DeepLink-org/DIOPI)。
 
-#### Binding to Python (`csrc/dipu/binding`)
+##### Binding to Python (`csrc/dipu/binding`)
 
 主要用于导出 DIPU *Runime* 接口到 Python，并定义一些在 CPP 层做 `monkey-patch` 的 PyTorch 原生函数（这部分后面会谨慎新增）。
 
-#### Vendor (`csrc/dipu/vendor`)
+##### Vendor (`csrc/dipu/vendor`)
 
 这里实现了“硬件设备相关的接口”和“编译选项”。
 
 一般的，除了要实现上面 *Device* 部分要求的接口函数外，*Vendor* 还需要实现一个特殊的 `vendorapi.h`，在这里导出设备 `device/stream/event/comm` 相关的数据结构定义。未来计划在设备层允许 *Vendor* 注册特化的 *Runtime* 子类，或者实现子类的构建器/工厂方法接口，实现设备特化的 *Runtime* 行为。
 
-### Python 层
+#### Python 层
 
 1. DIPU 设备层接口 (`torch_dipu/dipu`):
    - 包含 CPP 层的 *Runtime* 接口对应的 Python 层。这部分会导出部分函数给用户侧，导出的函数类比 PyTorch 的 `torch/cuda` 部分。
@@ -306,9 +306,9 @@ Aten 的能力主要依赖于 PyTorch 提供的注册自定义 *backend* 的能�
 
 后面另有规划 DIPU 的配置化接口等能力，可以为不同的 *Vendor* 输入不同配置。以配置驱动的方式来指导 *Runtime* 和 DIOPI 算子适配流程的构建。
 
-## 功能介绍
+### 功能介绍
 
-#### Dispatch 机制与 DIOPI 算子库
+##### Dispatch 机制与 DIOPI 算子库
 
 PyTorch 的算子注册和分派有很多步骤，详见 [参考文档](https://github.com/pytorch/pytorch/wiki/PyTorch-dispatcher-walkthrough)。
 
@@ -316,7 +316,7 @@ DIPU CPP 层适配的 ATen 算子对应的是分派过程中最底层（*backend
 
 这里面有一定的灵活性，以`Linear` 算子为例，在 PyTorch 的 `cpu/cuda` 设备上，它被实现为一个 `composite` 算子，实际的 *backend* 层算子是组合算子内部调用的 `addmm` 或者更底层的 `mm`。而在 DIPU (`privateuse1`) 设备中，目前是注册了一个 `Linear` 算子（DIOPI 有这个算子）来替代组合算子，所以分派会直接走到新的 *backend* 层算子 `Linear`，而不会在调用原来的 `addmm/mm`。但是如果对应设备的 DIOPI 的 IMPL 算子库 没有实现 `diopiLinear` 而是实现了 `mm` 算子，也是可以正常走通 `Linear` 的调用流程的。
 
-#### 无侵入式的 PyTorch 扩展包
+##### 无侵入式的 PyTorch 扩展包
 
 DIPU 没有直接修改 PyTorch 的代码，而是使用 out-of-tree 的方式接入新设备，详见 [参考文档](https://pytorch.org/tutorials/advanced/extend_dispatcher.html)。
 
@@ -326,11 +326,11 @@ PyTorch 要求 out-of-tree 的代码必须定义一个私有的 *Backend Key*，
 
 但是 PyTorch 并不完全符合“扩展开放，修改关闭”的范式。很多能力不是基于“注册”的方式来开放给扩展组件的，而是在代码里对不同的 *Backend Key* 做的 if-else 判断。并且不同的组件对于 *Backend Key* 的支持程度也不同。有些 Legacy 逻辑只支持 CUDA & CPU，完全无法扩展；还有一些仅支持固定的几个 *Backend Key*。DIPU 目前的做法是在 Python 层加一层代理，把用户的函数调用转换成底层可以支持的方式。这样的问题是会带来很多无谓的适配逻辑，但是鉴于 PyTorch 的现状，暂时先这样处理。后续也希望和 PyTorch 官方有所合作。
 
-#### 算子适配能力
+##### 算子适配能力
 
 为了更好的接入 DIOPI 算子，DIPU 提供了一组算子适配相关的辅助能力，比如灵活的算子 Fallback to CPU 的能力、算子精度自动对比的能力（对比 DIOPI 算子和 PyTorch 原生的 CPU 算子），算子执行过程中打印算子参数的能力。基于这些能力，接入算子时可以更方便排查算子精度等问题。 相关能力的具体说明参见 [Quick Start 文档](https://deeplink.readthedocs.io/zh-cn/latest/doc/DIPU/quick_start.html) 的“算子库接入”章节。
 
-### 质量保障体系
+#### 质量保障体系
 
 在每次代码合并之前，都会在各个设备上测试，测试全都跑通过才能合并。
 我们的测试包括三部分：
@@ -349,15 +349,15 @@ PyTorch 要求 out-of-tree 的代码必须定义一个私有的 *Backend Key*，
 - [Profiler](./profiler_intro.md) -->
 
 
-## Quick Start
+### Quick Start
 
-### 环境准备
+#### 环境准备
 
 在使用国产硬件接入 DIPU 之前，我们需要先准备一个自己编译的 PyTorch2.0（纯 CPU 版本即可），并确保自己的 PyTorch2.0 处于可用状态。这里需要确定使用的 gcc、cmake、python3 等基础库的版本尽可能匹配，同时确保这个环境能够编译硬件算子库。
 
 以下步骤供参考。
 
-#### 配置 Python 及 GCC 等工具
+##### 配置 Python 及 GCC 等工具
 
 ``` bash
 # 准备 python，如 3.8 版本
@@ -380,7 +380,7 @@ cd /home/$USER/env/dipu/gcc/bin
 export PATH=$PWD:$PATH
 ```
 
-#### 安装 PyTorch
+##### 安装 PyTorch
 
 使用 gcc 7.5 编译 PyTorch：
 ```note
@@ -398,7 +398,7 @@ export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 BUILD_BINARY=0 USE_PRECOMPILED_HEADERS=1 BUILD_TEST=0 USE_CUDA=0 python setup.py develop
 ```
 
-### 编译 DIPU
+#### 编译 DIPU
 
 ``` bash
 cd /home/$USER/code
@@ -414,7 +414,7 @@ git clone --recurse-submodules https://github.com/DeepLink-org/deeplink.framewor
 pip install ./deeplink.framework/dipu
 ```
 
-### 验证 DIPU
+#### 验证 DIPU
 
 ``` bash
 export DIOPI_ROOT=/home/$USER/code/dipu/third_party/DIOPI/impl/lib
@@ -425,9 +425,9 @@ export LD_LIBRARY_PATH=$DIPU_ROOT:$DIOPI_ROOT:$LD_LIBRARY_PATH
 sh ./tests/python/run_tests.sh
 ```
 
-### 算子库
+#### 算子库
 
-#### 算子库接入（请参考 DIOPI 第三方芯片算子库）
+##### 算子库接入（请参考 DIOPI 第三方芯片算子库）
 
 在接入 DIPU 之前，我们的硬件应该提供一个已经实现的算子库，并已经按照 DIOPI 的 PROTO 声明进行了对应函数的实现，接入 DIOPI 的 IMPL。通过 DIOPI 的 IMPL，我们在之前编译 DIPU 时会默认为对应设备编译出 `libdiopi_impl.so` 作为算子库文件。
 
@@ -496,9 +496,9 @@ sh ./tests/python/run_tests.sh
     }
     ```
 
-#### 算子库拓展功能
+##### 算子库拓展功能
 
-##### 算子 Fallback
+###### 算子 Fallback
 
 Fallback 给定算子：
 
@@ -521,7 +521,7 @@ export DIPU_FORCE_FALLBACK_OPS_LIST='.*'
 python -c "import torch_dipu"
 ```
 
-##### 算子精度自动对比功能介绍
+###### 算子精度自动对比功能介绍
 
 由于该功能默认不开启，使用该功能时需要打开该功能并重新编译 DIPU。
 
@@ -575,7 +575,7 @@ autocompare:    add.out other: allclose
 2. 随机数生成相关的算子（`dipu/scripts/autogen_diopi_wrapper/diopi_functions.yaml` 中配置了 `autocompare:False`）没有做 `autocompare`，因为结果总是 `not_allclose`。
 3. 对输入做检查是确保算子输入不被意外修改。
 
-##### 抓取算子参数
+###### 抓取算子参数
 
 该功能需要打开 `autogen` 的 `print_op_arg` 和 `print_func_call_info` 选项，在模型调试和测试时遇到问题时可方便的拿到算子输入情况；不需要打印时也可关掉。
 
@@ -619,7 +619,7 @@ diopi dyload init
 >>>
 ```
 
-## 新硬件 Runtime 接入实现
+### 新硬件 Runtime 接入实现
 
 接入流程示意图：
 
@@ -627,7 +627,7 @@ diopi dyload init
 <img src="../../_static/image/DIPU/SOP_01.png">
 </div>
 
-### 核心代码添加
+#### 核心代码添加
 
 - 在 `dipu/torch_dipu/csrc_dipu/runtime/device/basedef.h` 中定义了 DIPU 支持的硬件类型，我们需要在 `VendorDeviceType` 枚举类中添加 `DROPLET` 的硬件后端，并在这个文件中的`VendorTypeToStr` 函数里添加新硬件支持。后续这个文件中可能有更多的函数会涉及到硬件类型，按需添加即可。
 - `dipu/torch_dipu/csrc_dipu/vendor` 文件夹中存有各个硬件后端的 *runtime* 接入代码，我们需要根据 `dipu/torch_dipu/csrc_dipu/runtime/device/deviceapis.h` 中的声明，创建 `deviceimpl.cpp` 去根据硬件自己底层的 *runtime* 接口实现对应的函数。下面是 `deviceapis.h` 中的 `createStream` 函数的在国产硬件上的实现样例：
@@ -645,7 +645,7 @@ void createStream(deviceStream_t* stream, bool prior) {
 - 如果有多机多卡训练的需求，需要根据 `dipu/torch_dipu/csrc_dipu/runtime/device/diclapis.h` 中的声明，创建 `communicatorimpl.cpp` 去根据硬件自己底层的 *runtime* 接口实现对应的函数。
 - DIPU 在 `dipu/torch_dipu/csrc_dipu/runtime/core/DIPUGeneratorImpl.h` 中声明了 `DIPUGeneratorImpl` 这一个基本类型，如果我们的硬件实现了自己的 `generator` 基础函数，可以在这基础上实现自己的 `DeviceGeneratorImpl`，并实现基础的 `generator` 相关函数。国产硬件暂无这方面的实现。
 
-### 增加编译脚本
+#### 增加编译脚本
 
 - 在 `dipu/CMakeList.txt` 中，加入新硬件的控制代码。可以参考 CUDA、CAMB 等其他硬件，加入 DROPLET 选项，让打开 `USE_DROPLET`，并使得 `UsedVendor` 变为 DROPLET，同时添加该设备默认的 DIOPI 构建目标 `DIOPI_IMPL_OPT`，并修改对应 DIOPI 构建目标的 `CMakeLists.txt` 文件，DIOPI 的 `CMakeLists.txt` 修改细节可参考 [DIOPI 仓库](https://github.com/DeepLink-org/DIOPI)。如果不准备在构建 DIPU 时同时构建 DIOPI，可以将 `DIOPI_IMPL_OPT`设置为 `""`，参考的示例代码如下：
 
@@ -662,18 +662,18 @@ void createStream(deviceStream_t* stream, bool prior) {
 - 在 `dipu/torch_dipu/csrc_dipu/vendor` 中我们需要编写 `CMakeList`，给出 `VENDOR_INCLUDE_DIRS`、`VENDOR_LIB_DIRS`、`DIPU_VENDOR_LIB`、`VENDOR_FILES` 这几个硬件后端自己的头文件、库文件和 runtime 接入源代码，来让上层根据这些变量进行编译。
 - 对应上述 CMake 的修改，我们应该修改我们的环境变量，将 `DIPU_DEVICE` 设置为 `droplet`。
 
-### 编译与测试
+#### 编译与测试
 
 - 根据 DIPU 的编译介绍，我们在编译了 DIPU 之后，需要注意将 `LIBRARY_PATH`、`LD_LIBRARY_PATH`、`PYTHONPATH` 都设置好避免后续使用出现问题。
 - `dipu/tests` 文件夹中有许多基础功能的测试，建议首先尝试测试 `python -u dipu/tests/python/unittests/test_add.py`，该文件测试跑通基本意味着我们的设备 *runtime* 接入没有问题了。
 - 编译脚本参考 **[编译 DIPU](#编译-dipu)**，测试脚本可以参考 **[验证 DIPU](#验证-dipu)**ss。
 
-## Profiler 工具
+### Profiler 工具
 
 DeepLink Profiler 是一个允许在训练和推理过程中收集性能指标的工具。Profiler的上下文管理器API可用于了解哪些模型算子最耗时，并检查其输入形状和堆栈跟踪，研究设备kernel活动并可视化执行跟踪。当使用DeepLink进行模型训练时，可以使用DeepLink Profiler定位性能瓶颈，指导性能优化。
 
 本教程将以resnet18模型为例，讲解如何使用DeepLink Profiler分析模型性能。
-### 1. 导入必要的库
+#### 1. 导入必要的库
 
 ``` python
 import torch_dipu
@@ -682,14 +682,14 @@ import torchvision.models as models
 from torch.profiler import profile, record_function, ProfilerActivity
 ```
 
-### 2. 实例化 resnet18 模型
+#### 2. 实例化 resnet18 模型
 
 ```python
 model = models.resnet18()
 inputs = torch.randn(5, 3, 224, 224)
 ```
 
-### 3. 使用 DeepLink profiler 分析模型执行时间
+#### 3. 使用 DeepLink profiler 分析模型执行时间
 
 DeepLink profiler 接口对齐了PyTorch Profiler，通过上下文管理器启用，并接受很多参数，常用的参数有
 + `activities`：要收集的打点列表
@@ -809,7 +809,7 @@ Self CUDA time total: 168.781ms
 
 从输出可以看到，`diopiConvolution2d`和`diopiBatchNorm`是两个算子耗时最长。
 
-### 4. 分析内存消耗
+#### 4. 分析内存消耗
 
 PyTorch profiler 还可以统计算子分配或释放的内存量。要启用内存分析功能，请将 `profile_memory` 设置成 `True`。
 
@@ -843,7 +843,7 @@ Self CPU time total: 119.442ms
 ```
 
 
-### 5. 使用 Chrome trace viewer 进行可视化
+#### 5. 使用 Chrome trace viewer 进行可视化
 
 Profiling 结果可以输出成 json 文件
 
@@ -862,7 +862,7 @@ prof.export_chrome_trace("trace.json")
 <img src="../../_static/image/DIPU/profiler/trace_json.png">
 </div>
 
-### 6. 打印调用链
+#### 6. 打印调用链
 
 Profiler可用于分析Python和TorchScript堆栈跟踪。
 
@@ -900,7 +900,7 @@ Self CPU time total: 139.666ms
 Self CUDA time total: 169.640ms
 ```
 
-### 7. 使用Profiler分析长时间运行任务
+#### 7. 使用Profiler分析长时间运行任务
 
 Profiler 提供了一个额外的 API 来处理长时间运行的作业（如模型训练）。跟踪所有的执行可能很慢，并导致非常大的跟踪文件。要避免这种情况，请使用可选参数：
 
@@ -956,14 +956,14 @@ with profile(
         p.step()
 ```
 
-## 使用案例
+### 使用案例
 
-### 案例一 Mobilenet v2 多卡训练性能分析与优化
-#### 1. 问题描述：
+#### 案例一 Mobilenet v2 多卡训练性能分析与优化
+##### 1. 问题描述：
 
   开发人员使用某个版本的DeepLink完成Mobilenet v2的适配后，发现该模型在NV上单机八卡训练很慢，需要进行性能优化，提升训练性能。
 
-#### 2. 使用 DeepLink Profiler 进行性能分析
+##### 2. 使用 DeepLink Profiler 进行性能分析
   1. 修改 `mmpretrain` 的 `tools/train.py` ，在 `runner.train()` 之前开启 Profiler，将收集到的性能分析数据存入`mobilenetv2_profiler-slow`
 
 ```Python
@@ -983,13 +983,13 @@ runner.register_custom_hooks([profiler_hook])
 
 + 参考资料：[PyTorch profiler](https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
 
-## 常见问题
+### 常见问题
 
-### 国产硬件如何接入 DIPU？
+#### 国产硬件如何接入 DIPU？
 
 请参考 [Quick Start](https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/quick_start.html)
 
-### 加载 DIPU 模块训练模型，出现 `loss` 异常如何排查？
+#### 加载 DIPU 模块训练模型，出现 `loss` 异常如何排查？
 
 根据项目组模型训练的经验，`loss` 异常通常是因为 `DIOPI` 算子实现有 `bug` 导致的。比较常见的一个 `bug` 是  `DIOPI` 算子实现未考虑不连续的 `tensor`，建议可以先从这个角度先梳理算子的实现。另外还可以通过以下步骤来定位
 
@@ -998,7 +998,7 @@ runner.register_custom_hooks([profiler_hook])
 3. 修改 `autogen` 配置，将 `autocompare` 和 `print_op_arg` 设置成 `True` ；此时 `autogen` 生成的代码将会自动比对 `DIPU` 算子执行结果和 `CPU` 执行结果，发现不匹配的情况，具体比对逻辑可以阅读生成的 `torch_dipu/csrc_dipu/aten/ops/AutoGenedKernels.cpp`。如果日志中出现关键字 `not_close`， 则说明跑模型过程中发现了算子执行结果错误的情况，此时可以从日志中拿到算子输入参数信息，构造最小复现集，排查该算子问题。注：`autocompare` 功能并不能覆盖所有的算子，例如 `conv2d backward` 操作并不会做 `autocompare`。
 4. 如果 `autocompare` 仍然没有发现问题，则可以通过设置环境变量 `DIPU_FORCE_FALLBACK_OPS_LIST` 将算子加入黑名单，此时该算子会 `fallback` 到 `CPU`。假设怀疑`conv2d`算子，可以将`conv2d` 加入黑名单 (`export DIPU_FORCE_FALLBACK_OPS_LIST=conv2d`)，此时 `conv2d` 算子将会 `fallback` 到 `CPU`，观察 `loss` 是否正常。如果 `loss` 现在恢复正常，则说明 `conv2d` 存在 `bug`；如果 `loss` 仍然异常，则可以增加更多的算子到黑名单，不断试验，得到有问题的算子。
 
-### 使用 DIPU 出现显存泄露，如何定位？
+#### 使用 DIPU 出现显存泄露，如何定位？
 
 `DIPU` 在几款芯片上都进行了测试，未发现显存泄露的问题；若厂商适配过程中出现显存泄露问题，可以重点排查DIOPI算子实现是否造成了内存泄露。
 
@@ -1011,11 +1011,11 @@ export DIPU_MEM_CHECK=1
 export DIPU_MEM_CHECK_ENABLE_BACKTRACE=1
 ```
 
-### 如果仍然无法找到问题
+#### 如果仍然无法找到问题
 
 您可在项目中提交 issue，将您遇到的问题告诉我们。
 
-# 标准编译协议（DICP）
+## 标准编译协议（DICP）
 
 标准编译协议（Device-Independent Compile Protocol,DICP）定义了统一的计算描述（中间表示），通过计算图获取深度学习模型中的计算任务表达为上述中间表示，然后通过计算图优化技术自动生成人工智能芯片设备代码，从而提高研发效率和计算的执行性能。中间表示是介于源语言和目标语言之间的程序表示，能够极大程度地提高编译流程的可拓展性，同时也能降低优化流程对前端和后端的破坏。多层次中间表示包含从应用到芯片端的多种表示层次，不同层次旨在解决不同尺度的问题。
 
@@ -1038,9 +1038,9 @@ DICP主要的核心功能如下：
 
 
 
-## 基于DICP的国产硬件接入PyTorch2实践
+### 基于DICP的国产硬件接入PyTorch2实践
 <!-- 
-### DICP vs 纯Dynamo -->
+#### DICP vs 纯Dynamo -->
 
 基于上述DICP，国产硬件可快速接入Pytorch2的编译路线。此路线中的TorchDynamo组件，可使国产硬件在运行时的overhead大幅缩小。  
 并且针对国产硬件实现了以下特性：
@@ -1048,7 +1048,7 @@ DICP主要的核心功能如下：
   - 支持多种国产硬件数据格式
   - 支持动态shape
 
-### 运行逻辑
+#### 运行逻辑
 DICP的运行逻辑如下图所示:
 <!-- (**这张图有问题，需要讨论 by jinminxi**) -->
 
@@ -1062,7 +1062,7 @@ DICP的运行逻辑如下图所示:
 3. **子图改写**： 将多个小算子融合成为一个或多个适合图编译器的算子，配合后端图编译器将计算效率最大化。
 4. **数据格式调整**： 是根据后端芯片与其图编译器的特性，针对特定的算子调整其输入输出的数据格式，使得最大程度的发挥芯片性能。
 
-### 目录结构
+#### 目录结构
 * `dicp/dynamo_bridge`： 多后端通用的接入代码，包含了
   1. 接收从AOTAutograd下发而来的FX Graph
   2. 启动各个厂商的IR转换与优化
@@ -1071,16 +1071,16 @@ DICP的运行逻辑如下图所示:
 * `test`: 包含了model测试与op测试
 
 
-### Demo
+#### Demo
 
-#### 安装DICP
+##### 安装DICP
 
 ```
 cd /path_to_dicp
 pip install .
 ```
 
-#### 在华为910上执行llama7B前向推理
+##### 在华为910上执行llama7B前向推理
 ```
 export DIPU_MOCK_CUDA = false
 export DICP_TOPS_DIPU = True
@@ -1089,7 +1089,7 @@ export LLAMA_MODEL_DIR=/path_to_llama_model
 bash /path_to_dicp/test/model/run_test_model.sh llama ascendgraph false
 ```
 
-#### 在燧原T20上执行resnet50训练
+##### 在燧原T20上执行resnet50训练
 ```
 export DIPU_MOCK_CUDA = false
 export DICP_TOPS_DIPU = True
@@ -1097,24 +1097,24 @@ export TEST_DIR = /path_to_dicp/test/
 bash /path_to_dicp/test/model/run_test_model.sh resnet50 topsgraph false
 ```
 
-## Quick Start
+### Quick Start
 
 标准编译协议（Device-Independent Compile Protocol, DICP）定义了统一的计算描述（中间表示），通过计算图获取深度学习模型中的计算任务表达为上述中间表示，然后通过计算图优化技术自动生成人工智能芯片设备代码，从而提高研发效率和计算的执行性能。
 
-### 准备工作
+#### 准备工作
 
-#### 获取代码仓库
+##### 获取代码仓库
 ```bash
-# 拉取DIPU/DICP代码
+## 拉取DIPU/DICP代码
 cd /home/$USER/code
 git clone --recurse-submodules https://github.com/DeepLink-org/deeplink.framework.git
 ```
 
-#### 环境配置与编译 DIPU
+##### 环境配置与编译 DIPU
 - 参考 DIPU Quick Start ‒ DeepLink Doc 0.2.2 文档
 - 按照上述文档，配置符合DIPU版本要求的Python、GCC等，安装指定的Pytorch，编译DIPU，导出环境变量并验证
 
-#### 关联脚本配置
+##### 关联脚本配置
 DICP 和 DIPU、 DIOPI 的某些功能可能需要协同或者独立运行，按照实际情况选择配置。
 - 设置 DIPU 相关环境变量
 ```bash
@@ -1126,7 +1126,7 @@ export DIPU_MOCK_CUDA=false # 是否mock torch.cuda等api
 export DIPU_WITH_DIOPI_LIBRARY=DISABLE # 如果需要禁用diopi，则设置该变量值为DISABLE
 ```
 
-#### 编译安装DICP
+##### 编译安装DICP
 确认 DIPU 安装完成且正常运行后，就可以安装DICP了
 ```bash
 cd /home/$USER/code/dicp
@@ -1172,10 +1172,10 @@ print(dicp_output.cpu())
 ```
 
 
-## 新硬件接入
+### 新硬件接入
 
-### 新硬件接入PyTorch 2
-#### 核心代码添加
+#### 新硬件接入PyTorch 2
+##### 核心代码添加
 - 在 `/home/$USER/code/dicp/dicp/vendor`中添加新硬件对应的文件夹及相应图编译代码，如 `new_backendGraph/` ，大致代码结构可以参考目前的华为 `AscendGraph/`  和燧原 `TopsGraph/`
 ```bash
 |—— new_backendGraph
@@ -1251,8 +1251,8 @@ def main():
     )
 ```
 
-### DICP 实践
-#### 脚本配置
+#### DICP 实践
+##### 脚本配置
 - 可以设置不希望custom_fallback的算子
 ```bash
 # 示例，不希望rsqrt.out和_softmax.out custom_fallback
@@ -1264,9 +1264,9 @@ export DIPU_KEEP_TORCHOP_DEFAULT_IMPL_OPS="rsqrt.out,_softmax.out"
 export TEST_DIR=/home/$USER/code/dicp/test
 ```
 
-#### 单算子测试
+##### 单算子测试
 示例：加入 `_unsafe_view` 算子
-##### 代码添加
+###### 代码添加
 需要在 `/home/$USER/code/dicp/dicp/vendor/new_backendGraph/` 自己的后端代码中实现 `_unsafe_view` 算子对应的conversion和codegen等代码（可参考华为和燧原）
 - aten算子到相应后端算子的转换
 ```python
@@ -1276,7 +1276,7 @@ export TEST_DIR=/home/$USER/code/dicp/test
  ```
 - codegen相关代码：因不同后端而异
 
-##### 新建测试文件
+###### 新建测试文件
 - 使用pytest测试，在 `/home/$USER/code/dicp/test/op` 下新建 `test__unsafe_view.py` 
 ```python
 import pytest
@@ -1365,7 +1365,7 @@ fi
 bash /home/$USER/code/dicp/test/new_backend_scripts/ops/run_test_ops.sh false
 ```
 
-#### 完整模型推理、训练
+##### 完整模型推理、训练
 以**mmcv库实现的ResNet50训练**为例，流程类似单个算子
 - 需要额外安装mmcv、mmcls库
 - 在 `/home/$USER/code/dicp/test/model/test_resnet50.py` 文件已经使用mmcv库完成了网络搭建和训练代码
