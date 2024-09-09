@@ -1,4 +1,4 @@
-# DeepLink 1.0：
+# DeepLink 1.0
 
 ## 标准算子接口（DIOPI）
 
