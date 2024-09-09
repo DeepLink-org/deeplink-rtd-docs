@@ -111,6 +111,16 @@ html_theme_options = {
                     # 'description': 'description'
                 },
                 {
+                    'name': 'ditorch',
+                    'url': 'https://github.com/DeepLink-org/ditorch',
+                    # 'description': 'description'
+                },
+                {
+                    'name': 'dlinfer',
+                    'url': 'https://github.com/DeepLink-org/dlinfer',
+                    # 'description': 'description'
+                },
+                {
                     'name': 'DIOPI',
                     'url': 'https://github.com/DeepLink-org/DIOPI',
                     # 'description': 'description'
@@ -152,15 +162,26 @@ html_theme_options = {
              ],
             # https://deeplink.readthedocs.io/zh-cn/latest/index.html
         },
-        
         {
-            'name': '适配体系',
-            'children': [
+            'name': '标准建设',
+            'children':[
                 {
                     'name': '算子图谱',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Operators/op_classification.html',
                 },
-                
+            ],
+        },
+        {
+            'name': '技术支撑',
+            'children': [
+                {
+                    'name': 'ditorch',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/ditorch/introduction.html',
+                },
+                {
+                    'name': 'dlinfer',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/dlinfer/introduction.html',
+                },
                 {
                     'name': 'DIOPI',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/Introduction.html',
@@ -179,11 +200,28 @@ html_theme_options = {
             ],
         },
         {
-            'name': '测评体系',
+            'name': '国产评测',
             'children':[
                 {
                     'name': '硬件测评',
                     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/Chip_test/Introduction.html',
+                },
+                {
+                    'name': '基础模型评测实施方案',
+                    'url': 'https://deeplink.readthedocs.io/zh-cn/latest/doc/Chip_test/basicmodel.html',
+                },
+                {
+                    'name': '大模型评测实施方案',
+                    'url': 'https://deeplink.readthedocs.io/zh-cn/latest/doc/Chip_test/largemodel.html',
+                },
+            ],
+        },
+        {
+            'name': '生态建设',
+            'children':[
+                {
+                    'name': '合作伙伴加入指南',
+                    'url': 'https://deeplink.readthedocs.io/zh-cn/latest/doc/PartnerPlan/Partner_introduction.html',
                 },
             ],
         },

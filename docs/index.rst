@@ -70,56 +70,26 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 
 .. toctree::
    :maxdepth: 1
-   :caption: 合作伙伴生态计划
-   :includehidden:
-
-   doc/PartnerPlan/Partner_introduction.md
-
-.. toctree::
-   :maxdepth: 1
-   :caption: 算子图谱
+   :caption: 标准建设
    :includehidden:
 
    doc/Operators/op_classification
    doc/Operators/op_download
-   
+
 .. toctree::
    :maxdepth: 1
-   :caption: DIOPI
+   :caption: 技术支撑
    :includehidden:
 
-   doc/DIOPI/Introduction
-   doc/DIOPI/quick_start
-   doc/DIOPI/API/API_index
+   doc/deeplink2/deeplink2.0.md
+   doc/deeplink1/deeplink1.md
    DIOPI/diopi_test/python/docs/source/cn_ref
-   doc/DIOPI/FAQ
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: DIPU
-   :includehidden:
-
-   doc/DIPU/Introduction
-   doc/DIPU/profiler_intro
-   doc/DIPU/quick_start
-   doc/DIPU/FAQ
-   .. doc/DIPU/API/API_index
    
 
-.. toctree::
-   :maxdepth: 1
-   :caption: DICP
-   :includehidden:
-
-   doc/DICP/introduction
-   doc/DICP/quick_start
-   doc/DICP/tutor_adapt
-
 
 .. toctree::
    :maxdepth: 1
-   :caption: 硬件测评
+   :caption: 国产测评
    :includehidden:
 
    doc/Chip_test/Introduction.md
@@ -129,10 +99,18 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 
 .. toctree::
    :maxdepth: 1
+   :caption: 合作伙伴生态计划
+   :includehidden:
+
+   doc/PartnerPlan/Partner_introduction.md
+   
+.. toctree::
+   :maxdepth: 1
    :caption: 开源社区
    :includehidden:
 
    doc/Community/Contributors
    doc/Community/CodingRule2
    doc/Community/PullRequest
-   
+
+
