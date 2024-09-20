@@ -175,27 +175,35 @@ html_theme_options = {
             'name': '技术支撑',
             'children': [
                 {
-                    'name': 'ditorch',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/ditorch/introduction.html',
+                    'name': '训练',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/TechSupport/train.html',
                 },
                 {
-                    'name': 'dlinfer',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/dlinfer/introduction.html',
+                    'name': '推理',
+                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/TechSupport/infer.html',
                 },
-                {
-                    'name': 'DIOPI',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/Introduction.html',
-                },
+                # {
+                #     'name': 'ditorch',
+                #     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/ditorch/introduction.html',
+                # },
+                # {
+                #     'name': 'dlinfer',
+                #     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/dlinfer/introduction.html',
+                # },
+                # {
+                #     'name': 'DIOPI',
+                #     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIOPI/Introduction.html',
+                # },
 
-                {
-                    'name': 'DIPU',
-                    'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
-                },
+                # {
+                #     'name': 'DIPU',
+                #     'url': 'https://deeplink.readthedocs.io/zh_CN/latest/doc/DIPU/Introduction.html',
+                # },
                 
-                {
-                    'name': 'DICP',
-                    'url': 'https://deeplink.readthedocs.io/zh-cn/latest/doc/DICP/introduction.html',
-                },
+                # {
+                #     'name': 'DICP',
+                #     'url': 'https://deeplink.readthedocs.io/zh-cn/latest/doc/DICP/introduction.html',
+                # },
                 
             ],
         },
