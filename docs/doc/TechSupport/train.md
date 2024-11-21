@@ -6,7 +6,11 @@ ditorch 是设备无关 torch， 旨在屏蔽各硬件厂商 torch 差异，为�
 
 ![ditorch 结构](../../_static/image/ditorch/ditorch.png)
 <!-- .. image:: _static/image/ditorch/ditorch.png
-   :class: doc-img -->
+   :class: doc-img 
+
+![结构](../../_static/image/DIOPI/DIOPI_structure.png)
+/Users/yuyue/Documents/GitHub/deeplink-rtd-docs/docs/_static/image/ditorch/ditorch.png
+   -->
 
 ### **核心功能**
 #### **1. 可无感切换 pytorch 至国产芯片**
