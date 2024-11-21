@@ -32,13 +32,12 @@
  -->
 在整个生态系统中，芯片评测体系作为一个全面、客观的参考指标，不仅是技术发展的推动者，也是产业链条的纽带，促进着技术、市场和用户需求之间的有效连接，助力国内芯片产业的持续繁荣和创新发展。
 
-## **2024Q3评测**
+## **2024Q4评测**
 
-上海人工智能实验室2024Q3芯片评测现已正式启动，诚邀各单位参加！芯片评测工作每季度开展一次，旨在协助芯片厂商更加客观的发现自身软硬件产品的优劣势促进产品迭代，同时为算力市场产品选型提供参考依据。
-本季度评测延续了Q2季度的大模型支持能力评测，并基于各企业积极的反馈意见进行了优化更新形成了《基于大模型的AI芯片评测实施方案0.4.1》，新增文生成视频模型相关指标，新增长文本、MoE预训练模型，并调整整体权重设置，具体详见方案。它会与《AI芯片评测实施方案0.6.2》共同构成本次评测的考察范畴。期待通过大模型评测方案的实施，能够为国产硬件的发展注入新的动力，推动大模型技术的普及和应用，促进软硬件协同创新和进步。
+诚邀您参与上海AI实验室DeepLink和信通院人工智能软硬件基准AISHPerf联合发起的2024Q4芯片评测。芯片评测工作每季度开展一次，旨在协助芯片厂商更加客观的发现自身软硬件产品的优劣势促进产品迭代，同时为算力市场产品选型提供参考依据。 Q4季度大模型评测紧跟算法趋势，新增多种微调模型种类和微调类型，具体方案、评测流程、周期和代码具体见下。
 
 ### **评测周期**
-2024年8月5日开始，2024年9月13日数据提交关闭，2024.10月下旬完成报告发放。
+2024年11月21日开始，2024年12月20日数据提交关闭，2025.1月下旬完成报告发放。
 
 ### **评测流程**
 
@@ -51,11 +50,12 @@
 | 1 |  适配参考代码  |  [AIChipBenchmark](https://github.com/DeepLink-org/AIChipBenchmark) |  -  |
 | 2 |  基准值log日志  |  [OneDrive](https://pjlab-my.sharepoint.cn/:f:/g/personal/zoutong_pjlab_org_cn/EpBZfyviosVCleMXEUEa7kgBlkp4aioFtU4YkeSIB1MvYw?e=kFKhu1)  |  -  |
 | 3 |  基准镜像  |  <li>[Basic Model](https://hub.docker.com/repository/docker/deeplinkaibenchmark/basicmodel/general) </li><li>[Large Model](https://hub.docker.com/repository/docker/deeplinkaibenchmark/llmodel/general)</li>  |  -  |
-| 4 |  阅读评测方案，如有问题欢迎沟通。  |  <li>[基于大模型的AI芯片评测实施方案（0.4.1）](https://aicarrier.feishu.cn/wiki/JWWPwdRetiC0QMkTUL0cGowInYq?office_edit=1) </li><li>[AI芯片评测实施方案（0.6.2）](https://aicarrier.feishu.cn/wiki/M41aws2pxiTcJ0kFC66ccqFtnRc?office_edit=1)</li>  |  -  |
-| 5 |  反馈本次评测参与情况并完成《预填写表格》填写并提交至指定位置。  |  下载填写：[2024Q3-芯片评测预填写表格.xlsx](https://pjlab-my.sharepoint.cn/:x:/g/personal/hubingying_pjlab_org_cn/EfK5Z0oV8l9MpvTD5xgQGqQBG3rFMCoeYBe2hlaSoCfD0w?e=85mrnU)  |  2024.8.9  |
-| 6 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[2024Q3-大模型数据收集表0.4.1](https://aicarrier.feishu.cn/wiki/QoUZwUf6GiVFslkrD3VcswqCnCc) </li><li>[2024Q3-基础模型数据收集表0.6.2](https://aicarrier.feishu.cn/wiki/XudZwkwSWiqAITkN8DlcEizmnNf)</li><li>每个测试项目请务必填写log日志相对路径，方便核验查找</li>  |  2024.9.13  |
-| 7 |  实验室进行结果核验和上机复测，完成单芯片评测报告整理，点对点发放。  | -  |  2024.10月下旬  |
+| 4 |  阅读评测方案，如有问题欢迎沟通。  |  <li>[基于大模型的AI芯片评测实施方案（0.4.2）](https://aicarrier.feishu.cn/wiki/TNhTw7xJfiGfa4kiYuKcZuq9nVe?office_edit=1) </li><li>[AI芯片评测实施方案（0.6.3）](https://aicarrier.feishu.cn/wiki/JWlgwKpjyiaFvVkZ5zTcCf1dnbe?office_edit=1)</li>  |  -  |
+| 5 |  反馈本次评测参与情况并完成《预填写表格》填写并提交至指定位置。  |  下载填写：[2024Q4-芯片评测预填写表格.xlsx](https://pjlab-my.sharepoint.cn/:x:/g/personal/hubingying_pjlab_org_cn/ES80c1FF2bFKhL5aRru25gsBjAu0vovuZMtwiXP4EtSNlQ?e=65Snxd)  |  2024.11.25  |
+| 6 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[2024Q3-大模型数据收集表0.4.2](https://aicarrier.feishu.cn/wiki/Jf0vw9SzmitrIMk3vdjcoJvWnYf?from=from_copylink) </li><li>[2024Q3-基础模型数据收集表0.6.3](https://aicarrier.feishu.cn/wiki/TZjxwAuHpihSVekDC38cey2XnQd?from=from_copylink)</li><li>每个测试项目请务必填写log日志相对路径，方便核验查找</li>  |  2024.12.20  |
+| 7 |  实验室进行结果核验和上机复测，完成单芯片评测报告整理，点对点发放。  | -  |  2025.1月下旬  |
 | 8 |  厂商可对评测结果和方案合理性进行意见反馈（word形式）  | - |  评测期间  |
+
 
 
 
