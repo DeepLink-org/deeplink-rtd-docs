@@ -32,7 +32,7 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 适配体系
 ====================================
 
-.. image:: _static/image/Deeplink01.png
+.. image:: _static/image/Deeplink03.png
    :class: doc-img
 
 | 接口的标准化定义包含算子接口（DIOPI）和编译接口（DICP）两个部分：
