@@ -52,7 +52,7 @@
 | 3 |  基准镜像  |  <li>[Basic Model](https://hub.docker.com/repository/docker/deeplinkaibenchmark/basicmodel/general) </li><li>[Large Model](https://hub.docker.com/repository/docker/deeplinkaibenchmark/llmodel/general)</li>  |  -  |
 | 4 |  阅读评测方案，如有问题欢迎沟通。  |  <li>[基于大模型的AI芯片评测实施方案（0.4.2）](https://aicarrier.feishu.cn/wiki/TNhTw7xJfiGfa4kiYuKcZuq9nVe?office_edit=1) </li><li>[AI芯片评测实施方案（0.6.3）](https://aicarrier.feishu.cn/wiki/JWlgwKpjyiaFvVkZ5zTcCf1dnbe?office_edit=1)</li>  |  -  |
 | 5 |  反馈本次评测参与情况并完成《预填写表格》填写并提交至指定位置。  |  下载填写：[2024Q4-芯片评测预填写表格.xlsx](https://pjlab-my.sharepoint.cn/:x:/g/personal/hubingying_pjlab_org_cn/ES80c1FF2bFKhL5aRru25gsBjAu0vovuZMtwiXP4EtSNlQ?e=65Snxd)  |  2024.11.25  |
-| 6 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[2024Q3-大模型数据收集表0.4.2](https://aicarrier.feishu.cn/wiki/Jf0vw9SzmitrIMk3vdjcoJvWnYf?from=from_copylink) </li><li>[2024Q3-基础模型数据收集表0.6.3](https://aicarrier.feishu.cn/wiki/TZjxwAuHpihSVekDC38cey2XnQd?from=from_copylink)</li><li>每个测试项目请务必填写log日志相对路径，方便核验查找</li>  |  2024.12.20  |
+| 6 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[2024Q4-大模型数据收集表0.4.2](https://aicarrier.feishu.cn/wiki/Jf0vw9SzmitrIMk3vdjcoJvWnYf?from=from_copylink) </li><li>[2024Q4-基础模型数据收集表0.6.3](https://aicarrier.feishu.cn/wiki/TZjxwAuHpihSVekDC38cey2XnQd?from=from_copylink)</li><li>每个测试项目请务必填写log日志相对路径，方便核验查找</li>  |  2024.12.20  |
 | 7 |  实验室进行结果核验和上机复测，完成单芯片评测报告整理，点对点发放。  | -  |  2025.1月下旬  |
 | 8 |  厂商可对评测结果和方案合理性进行意见反馈（word形式）  | - |  评测期间  |
 
