@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.abspath('./DIOPI/diopi_test/python'))
 
 project = 'DeepLink Doc'
 #copyright = datetime.datetime.today.year()+', DeepLink'
-copyright = '2024, DeepLink'
+copyright = '2025, DeepLink'
 author = 'DeepLink contributor'
 
 # The full version, including alpha/beta/rc tags
