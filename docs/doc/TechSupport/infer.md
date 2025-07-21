@@ -67,7 +67,7 @@ pip install dlinfer==0.3.1+ascend
 
 #### LMDeploy
 
-| **模型系列/型号** | **NV<br>(全系列)** | **华为 <br>910B** | **沐曦 <br>C500** | **平头哥 <br>PPU 810**  | **寒武纪 <br>MLU370** | 
+| **模型系列/型号** | **NV<br>(全系列)** | **华为 <br>A2** | **沐曦 <br>C500** | **平头哥 <br>PPU 810**  | **寒武纪 <br>MLU370** | 
 | --- | --- | --- | --- | --- | --- |
 | **Llama系列** <br>Llama3-8B <br>Llama1-7B | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | **InternLM系列** <br>InternLM2.5-7B <br>InternLM2.5-20B <br>InternLM2-7B <br>InternLM2-20B | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
