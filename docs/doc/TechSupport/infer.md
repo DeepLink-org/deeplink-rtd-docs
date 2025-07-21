@@ -63,22 +63,21 @@ pip install dlinfer==0.3.1+ascend
    DEVICE=ascend python3 setup.py develop
    ```
 
-### 支持模型框架列表
+### 模型芯片适配列表
 
 #### LMDeploy
 
-|  | 华为Atlas 800T A2 | 沐曦C500（待开源） | 寒武纪云端智能加速卡（开发中） |
-| --- | --- | --- | --- |
-| InternLM2.5-7B/20B | √ |   |  |
-| InternLM2-7B/20B | √ | √ |  |
-| InternVL2-2B | √ |    |  |
-| InternVL1-5 | √ | √ |  |
-| Llama3-8B | √ | √ |  |
-| Mixtral8x7B | √ | √ |  |
-| Qwen2-7B | √ | √ |  |
-| Qwen2-57B-A14B | √ |   |  |
-| CogVLM | √ |  |  |
-| CogVLM2 |  | √ |  |
+| **模型系列/型号** | **NV<br>(全系列)** | **华为 <br>910B** | **沐曦 <br>C500** | **平头哥 <br>PPU 810**  | **寒武纪 <br>MLU370** | 
+| --- | --- | --- | --- | --- | --- |
+| **Llama系列** <br>Llama3-8B <br>Llama1-7B | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| **InternLM系列** <br>InternLM2.5-7B <br>InternLM2.5-20B <br>InternLM2-7B <br>InternLM2-20B | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| **Qwen系列** <br>Qwen2-7B | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| **Mixtral系列** <br>Mixtral8x7B | ✔️ | ✔️ | ✔️ |  |  |
+| **InternVL系列** <br>InternVL1-5 <br>InternVL2-2B | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| **CogVLM系列** <br>CogVLM1 <br>CogVLM2 | ✔️ | ✔️ | ✔️ |  |  |
+| **(*) DeepSeek系列**  | ✔️（持续优化中） | ✔️（持续优化中） | ✔️（持续优化中） |  |  |
+
+<br>
 
 ##### 使用LMDeploy
 
