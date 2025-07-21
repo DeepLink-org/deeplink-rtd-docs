@@ -16,7 +16,7 @@ ditorch 是设备无关 torch， 旨在屏蔽各硬件厂商 torch 差异，为�
 
 <style>
 table {
-  font-size: 10px; /* 设置表格内文字的字号为16px，可根据需要调整 */
+  font-size: 12px; /* 设置表格内文字的字号为16px，可根据需要调整 */
 }
 </style>
 
@@ -25,9 +25,9 @@ table {
 | **Llama系列** <br>llama2 7B<br>llama2 70B <br> llama3 70B<br>（70B以下模型适用） | ✔️ | ✔️ |  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | **InternLM系列**  <br>InternLM2-7B <br>InternLM2-20B <br>InternLM2-100B | ✔️ | ✔️ |  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | **Qwen系列** <br>Qwen2-7B<br>Qwen3-32B<br>Qwen3-30B-A3B | ✔️ | ✔️ |  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| (*) Qwen3-235B-A22B |  |  | ✔️（研发中） |  |  |  |  |  |  |
+| (*) Qwen3-235B-A22B |  |  | ✔️<br>（研发中） |  |  |  |  |  |  |
 | **InternVL系列**<br>InternVL1-5 | ✔️ | ✔️ |  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| (*) DeepSeek V3 |  |  | ✔️（研发中） |  |  |  |  |  |  |
+| (*) DeepSeek V3 |  |  | ✔️<br>（研发中） |  |  |  |  |  |  |
 
 <br>
 
