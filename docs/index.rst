@@ -83,6 +83,8 @@ DeepLink建立算力&框架适配桥梁，充分释放多样算力
 
    doc/TechSupport/train.md
    doc/TechSupport/infer.md
+   doc/TechSupport/triton.md
+   doc/TechSupport/communication.md
    DIOPI/diopi_test/python/docs/source/cn_ref
    
 
