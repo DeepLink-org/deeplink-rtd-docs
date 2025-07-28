@@ -1,4 +1,4 @@
-±ê×¼·ÖÀà,±ê×¼ÃüÃû,Ëã×Ó·Ö¼¶,Package,PyTorch link
+æ ‡å‡†åˆ†ç±»,æ ‡å‡†å‘½å,ç®—å­åˆ†çº§,Package,PyTorch link
 Convolution,convolution,P0,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.conv2d.html?highlight=conv2d#torch.nn.functional.conv2d>
 Convolution,conv_transpose,P0,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.conv_transpose2d.html?highlight=conv_transpose2d>
 Convolution,unfold,P0,"torch.Tensor, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.unfold.html?highlight=fold#torch.nn.functional.unfold>
@@ -295,20 +295,20 @@ Host,numel,P2,"torch, torch.Tensor",<https://pytorch.org/docs/stable/generated/t
 Host,element_size,P2,torch.Tensor,
 Host,dim,P2,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Tensor.dim.html#torch.Tensor.dim>
 Host,tolist,P2,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Tensor.tolist.html#torch.Tensor.tolist>
-´óÄ£ĞÍËã×Ó,MultiheadAttention,P0,torch.nn,<https://docs.pytorch.org/docs/stable/generated/torch.nn.MultiheadAttention.html#multiheadattention>
-´óÄ£ĞÍËã×Ó,MLA,P0,flash-attn,<https://github.com/Dao-AILab/flash-attention>
-´óÄ£ĞÍËã×Ó,GQA,P0,transformers,<https://github.com/Dao-AILab/flash-attention>
-´óÄ£ĞÍËã×Ó,GQA,P0,transformers,<https://arxiv.org/pdf/2305.13245>
-´óÄ£ĞÍËã×Ó,swiglu,P0,Diffusers,<https://huggingface.co/docs/diffusers/main/en/api/activations#diffusers.models.activations.SwiGLU>
-´óÄ£ĞÍËã×Ó,RotaryPositionalEmbeddings,P0,torchtune.modules,<https://docs.pytorch.org/torchtune/0.4/generated/torchtune.modules.RotaryPositionalEmbeddings.html>
-´óÄ£ĞÍËã×Ó,RMSNorm,P0,torch.nn,<https://docs.pytorch.org/docs/stable/generated/torch.nn.RMSNorm.html>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_all_gather_gemm,P0,,<https://arxiv.org/html/2406.06858v1#S3>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_all_gather_gemm,P0,,<https://github.com/bytedance/flux/blob/main/test/python/ag_gemm/test_ag_kernel.py>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_gemm_reduce_scatter,P0,,<https://arxiv.org/html/2406.06858v1#S3>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_gemm_reduce_scatter,P0,,<https://github.com/bytedance/flux/blob/main/test/python/gemm_rs/test_gemm_rs.py>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_gemm_all_reduce,P0,,"<https://arxiv.org/pdf/2506.11309#:~:text=Fig,and%20stores%20them%20back%20to%20the%20global%20memory%20on%20the%20current%20GPU>"
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_gemm_all_reduce,P0,,<https://docs.nvidia.com/nvshmem/api/examples.html#gemm-allreduce-fused-kernel-example>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_all_gather_grouped_gemm,P0,,<https://arxiv.org/html/2406.06858v1#S3>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_all_gather_grouped_gemm,P0,,<https://github.com/bytedance/flux/blob/main/test/python/moe_ag_scatter/test_moe_ag.py>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_grouped_gemm_reduce_scatter,P0,,<https://arxiv.org/html/2406.06858v1#S3>
-¼ÆËãÍ¨ĞÅÈÚºÏËã×Ó,fused_grouped_gemm_reduce_scatter,P0,,<https://github.com/bytedance/flux/blob/main/test/python/moe_gather_rs/test_moe_gather_rs.py>
+å¤§æ¨¡å‹ç®—å­,MultiheadAttention,P0,torch.nn,<https://docs.pytorch.org/docs/stable/generated/torch.nn.MultiheadAttention.html#multiheadattention>
+å¤§æ¨¡å‹ç®—å­,MLA,P0,flash-attn,<https://github.com/Dao-AILab/flash-attention>
+å¤§æ¨¡å‹ç®—å­,GQA,P0,transformers,<https://github.com/Dao-AILab/flash-attention>
+å¤§æ¨¡å‹ç®—å­,GQA,P0,transformers,<https://arxiv.org/pdf/2305.13245>
+å¤§æ¨¡å‹ç®—å­,swiglu,P0,Diffusers,<https://huggingface.co/docs/diffusers/main/en/api/activations#diffusers.models.activations.SwiGLU>
+å¤§æ¨¡å‹ç®—å­,RotaryPositionalEmbeddings,P0,torchtune.modules,<https://docs.pytorch.org/torchtune/0.4/generated/torchtune.modules.RotaryPositionalEmbeddings.html>
+å¤§æ¨¡å‹ç®—å­,RMSNorm,P0,torch.nn,<https://docs.pytorch.org/docs/stable/generated/torch.nn.RMSNorm.html>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_all_gather_gemm,P0,,<https://arxiv.org/html/2406.06858v1#S3>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_all_gather_gemm,P0,,<https://github.com/bytedance/flux/blob/main/test/python/ag_gemm/test_ag_kernel.py>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_gemm_reduce_scatter,P0,,<https://arxiv.org/html/2406.06858v1#S3>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_gemm_reduce_scatter,P0,,<https://github.com/bytedance/flux/blob/main/test/python/gemm_rs/test_gemm_rs.py>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_gemm_all_reduce,P0,,"<https://arxiv.org/pdf/2506.11309#:~:text=Fig,and%20stores%20them%20back%20to%20the%20global%20memory%20on%20the%20current%20GPU>"
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_gemm_all_reduce,P0,,<https://docs.nvidia.com/nvshmem/api/examples.html#gemm-allreduce-fused-kernel-example>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_all_gather_grouped_gemm,P0,,<https://arxiv.org/html/2406.06858v1#S3>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_all_gather_grouped_gemm,P0,,<https://github.com/bytedance/flux/blob/main/test/python/moe_ag_scatter/test_moe_ag.py>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_grouped_gemm_reduce_scatter,P0,,<https://arxiv.org/html/2406.06858v1#S3>
+è®¡ç®—é€šä¿¡èåˆç®—å­,fused_grouped_gemm_reduce_scatter,P0,,<https://github.com/bytedance/flux/blob/main/test/python/moe_gather_rs/test_moe_gather_rs.py>
