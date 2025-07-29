@@ -26,6 +26,8 @@
     <option value="Reduce">Reduce</option>
     <option value="Composite">Composite</option>
     <option value="Misc">Misc</option>
+    <option value="大模型算子">大模型算子</option>
+    <option value="计算通信融合算子">计算通信融合算子</option>
   </select>
 </a>
 
