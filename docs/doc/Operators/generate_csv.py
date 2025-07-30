@@ -13,9 +13,9 @@ def wrap_urls(cell):
     if pd.isna(cell):
         return cell
     # 用正则提取所有 http/https 链接
-    urls = re.findall(r'https?://[^\s\n]+', str(cell))
+    urls = re.findall(r'https?://[^\s]+', str(cell))
     # 包裹每个链接并拼接
-    return ' '.join([f"<{url}>" for url in urls])
+    return '\n'.join([f"<{url}>" for url in urls])
 
 df["PyTorch link"] = df["PyTorch link"].apply(wrap_urls)
 
