@@ -303,6 +303,6 @@ Host,tolist,P2,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Ten
 大模型算子,RMSNorm,P0,torch.nn,<https://docs.pytorch.org/docs/stable/generated/torch.nn.RMSNorm.html>
 计算通信融合算子,fused_all_gather_gemm,P0,,<https://arxiv.org/html/2406.06858v1#S3> <https://github.com/bytedance/flux/blob/main/test/python/ag_gemm/test_ag_kernel.py>
 计算通信融合算子,fused_gemm_reduce_scatter,P0,,<https://arxiv.org/html/2406.06858v1#S3> <https://github.com/bytedance/flux/blob/main/test/python/gemm_rs/test_gemm_rs.py>
-计算通信融合算子,fused_gemm_all_reduce,P0,,<https://arxiv.org/html/2406.06858v1#S3> <https://docs.nvidia.com/nvshmem/api/examples.html#gemm-allreduce-fused-kernel-example>
+计算通信融合算子,fused_gemm_all_reduce,P0,,<https://arxiv.org/html/2406.06858v1#S3> <https://github.com/bytedance/flux/blob/main/test/python/moe_gather_rs/test_moe_gather_rs.py>
 计算通信融合算子,fused_all_gather_grouped_gemm,P0,,<https://arxiv.org/html/2406.06858v1#S3> <https://github.com/bytedance/flux/blob/main/test/python/moe_ag_scatter/test_moe_ag.py>
 计算通信融合算子,fused_grouped_gemm_reduce_scatter,P0,,<https://arxiv.org/html/2406.06858v1#S3> <https://github.com/bytedance/flux/blob/main/test/python/moe_gather_rs/test_moe_gather_rs.py>
