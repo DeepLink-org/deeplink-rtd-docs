@@ -67,7 +67,7 @@ pip install dlinfer==0.3.1+ascend
 
 #### LMDeploy
 
-```{include} ../"https://raw.githubusercontent.com/DeepLink-org/dlinfer/refs/heads/main/README.md"
+```{include} ../https://raw.githubusercontent.com/DeepLink-org/dlinfer/refs/heads/main/README.md
 :start-after: <!-- inclusion-start -->
 :end-before: <!-- inclusion-end -->
 ```
