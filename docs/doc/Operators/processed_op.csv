@@ -302,6 +302,16 @@ Host,tolist,P2,torch.Tensor,<https://pytorch.org/docs/stable/generated/torch.Ten
 大模型算子,SwiGLU,P0,Diffusers,<https://huggingface.co/docs/diffusers/main/en/api/activations#diffusers.models.activations.SwiGLU>
 大模型算子,RotaryPositionalEmbeddings,P0,torchtune.modules,<https://docs.pytorch.org/torchtune/0.4/generated/torchtune.modules.RotaryPositionalEmbeddings.html>
 大模型算子,RMSNorm,P0,torch.nn,<https://docs.pytorch.org/docs/stable/generated/torch.nn.RMSNorm.html>
+大模型算子,Multi-Query Attention,P1,transformers,"<https://arxiv.org/pdf/1911.02150>
+<https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/modeling_llama.py>"
+大模型算子,Multi-matrix Factorization Attention,P1,,<https://arxiv.org/pdf/2412.19255>
+大模型算子,Attention with Linear Biases,P1,transformers,"<https://arxiv.org/pdf/2108.12409>
+<https://github.com/huggingface/transformers/blob/main/src/transformers/models/bloom/modeling_bloom.py#L56-L97>"
+大模型算子,GELU,P1,torch.nn,<https://docs.pytorch.org/docs/stable/generated/torch.nn.GELU.html>
+大模型算子,Sparse Attention,P1,,"<https://arxiv.org/pdf/1904.10509>
+<https://github.com/openai/sparse_attention>"
+大模型算子,Cross Attention,P1,,"<https://arxiv.org/pdf/2103.14899>
+<https://github.com/IBM/CrossViT/blob/main/models/crossvit.py>"
 计算通信融合算子,fused_all_gather_gemm,P0,,"<https://arxiv.org/html/2406.06858v1#S3>
 <https://github.com/bytedance/flux/blob/main/test/python/ag_gemm/test_ag_kernel.py>"
 计算通信融合算子,fused_gemm_reduce_scatter,P0,,"<https://arxiv.org/html/2406.06858v1#S3>
