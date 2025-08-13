@@ -108,6 +108,7 @@ if (window.location.pathname.includes("op_download.html")) {
     // 获取下拉菜单和筛选按钮
     var field1Select = $("#field1-select");
     var field2Select = $("#field2-select");
+    var field2Select = $("#field3-select");
     var filterButton = $("#filter-button");
 
     // 监听筛选按钮的点击事件
