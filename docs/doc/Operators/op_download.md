@@ -45,7 +45,7 @@
 </a>
 
 <a>
-  <label for="field3-select" class="label">dense/sparse:</label>
+  <label for="field3-select" class="label">Sparsity:</label>
   <select id="field3-select">
     <option value="">请选择</option>
     <option value="dense">dense</option>

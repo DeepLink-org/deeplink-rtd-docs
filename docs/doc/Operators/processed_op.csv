@@ -1,4 +1,4 @@
-标准分类,标准命名,算子分级,dense/sparse,Package,PyTorch link
+标准分类,标准命名,算子分级,Sparsity,Package,PyTorch link
 Convolution,convolution,P0,dense,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.conv2d.html?highlight=conv2d#torch.nn.functional.conv2d>
 Convolution,conv_transpose,P0,dense,"torch, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.conv_transpose2d.html?highlight=conv_transpose2d>
 Convolution,unfold,P0,dense,"torch.Tensor, torch.nn.functional",<https://pytorch.org/docs/stable/generated/torch.nn.functional.unfold.html?highlight=fold#torch.nn.functional.unfold>
