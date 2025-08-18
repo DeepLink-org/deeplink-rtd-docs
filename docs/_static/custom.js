@@ -108,6 +108,7 @@ if (window.location.pathname.includes("op_download.html")) {
     // 获取下拉菜单和筛选按钮
     var field1Select = $("#field1-select");
     var field2Select = $("#field2-select");
+    var field3Select = $("#field3-select");
     var filterButton = $("#filter-button");
 
     // 监听筛选按钮的点击事件
@@ -115,6 +116,7 @@ if (window.location.pathname.includes("op_download.html")) {
       // 获取选中的值
       var field1Value = field1Select.val();
       var field2Value = field2Select.val();
+      var field3Value = field3Select.val();
 
       // 获取包含表格的父元素，并找到其中的行
       var tableRows = $("table.docutils").find("tr");
@@ -124,17 +126,20 @@ if (window.location.pathname.includes("op_download.html")) {
       tableRows.each(function(i, row) {
         var field1Cell = $(row).find("td:eq(0)");
         var field2Cell = $(row).find("td:eq(2)");
+        var field3Cell = $(row).find("td:eq(3)");
 
         // 获取行中的分类和分级值
         var field1 = field1Cell.text();
         var field2 = field2Cell.text();
+        var field3 = field3Cell.text();
 
         // 检查是否与筛选条件匹配
         var field1Match = field1Value === "" || field1 === field1Value;
         var field2Match = field2Value === "" || field2 === field2Value;
+        var field3Match = field3Value === "" || field3 === field3Value;
 
         // 根据匹配结果显示或隐藏行
-        if (field1Match && field2Match) {
+        if (field1Match && field2Match && field3Match) {
           filteredRows.push(row);
           $(row).show();
         } else {

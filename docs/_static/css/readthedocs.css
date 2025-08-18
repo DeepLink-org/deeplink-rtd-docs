@@ -72,7 +72,7 @@ article.pytorch-article blockquote {
 }
 
 
-#filter-button,  label[for="field1-select"], label[for="field2-select"], .button{
+#filter-button,  label[for="field1-select"], label[for="field2-select"],label[for="field3-select"], .button{
   display: inline-block;
   padding: 3px 8px; /* 调整按钮的内边距 */
   font-size: 14px; /* 调整按钮的字体大小 */

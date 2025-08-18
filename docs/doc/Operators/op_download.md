@@ -44,6 +44,15 @@
   </select>
 </a>
 
+<a>
+  <label for="field3-select" class="label">稠密/稀疏类别:</label>
+  <select id="field3-select">
+    <option value="">请选择</option>
+    <option value="dense">dense</option>
+    <option value="sparse">sparse</option>
+  </select>
+</a>
+
 
 <a>
 <button id="filter-button" class="button">筛选数据</button>
