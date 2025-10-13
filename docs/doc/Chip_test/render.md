@@ -22,5 +22,5 @@ Genesis是一个新兴的开源生成式物理引擎和仿真平台，专为机�
 
 ## 相关链接
 
-* GitHub 仓库：https://github.com/DeepLink-org/AIChipBenchmark/tree/main/render_sim/
-* 实时方案：https://aicarrier.feishu.cn/wiki/O3pKwMm9HiHt3ikEaQScYDnGnle
+* [GitHub 仓库](https://github.com/DeepLink-org/AIChipBenchmark/tree/main/render_sim/)
+* [实施方案](https://aicarrier.feishu.cn/wiki/O3pKwMm9HiHt3ikEaQScYDnGnle)
