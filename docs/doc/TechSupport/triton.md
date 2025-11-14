@@ -2,7 +2,7 @@
 
 在异构训练中，编译器是连接算法与多元硬件的核心枢纽。编译器能减少设备间数据传输开销，平衡负载，提升整体效率。通过算子融合、硬件适配等创新，让异构系统发挥最大算力，是驱动 AI 训练性能突破的关键技术支撑。
 
-## dlCompiler
+## DLCompiler
 
 ### 介绍
 DLCompiler是上海人工智能实验室（上海 AI 实验室）DeepLink 团队开源扩展 Triton 的深度学习编译器：
@@ -101,12 +101,12 @@ python 01-vector-add.py
 ```
 
 
-## dlBLAs
+## DLBlas
 
 ### 总体设计
-dlBLAS致力于应用最新技术呈现算子的极致性能，例如ep_moe使用DeepEP、DeepGemm等业界最新技术实现高效的moe模块。
+DLBlas 致力于应用最新技术呈现算子的极致性能，例如ep_moe使用DeepEP、DeepGemm等业界最新技术实现高效的moe模块。
 
-dlBLAS 旨在成为一个基于 Triton 的运算符库。因此，内核开发人员可以将其内核注册到该库中，而用户则可以通过提供运算符名称和输入张量来请求运算符。
+DLBlas 旨在成为一个基于 Triton 的运算符库。因此，内核开发人员可以将其内核注册到该库中，而用户则可以通过提供运算符名称和输入张量来请求运算符。
 它通过以下方式改进了 Triton 的自动调谐器:
 
 - **kernel 选择**: 给定相同的运算符，例如 matmul，可能有不同的内核实现；我们希望根据输入张量找到最好的一个。
@@ -159,7 +159,7 @@ from dlblas.kernels.rms_norm import rms_norm
 rms_norm(...)
 
 ```
-3. 导入 dlblas 并直接使用
+3. 导入 DLBlas 并直接使用
 ```
 import dlblas
 dlblas.topk_gating(...)
