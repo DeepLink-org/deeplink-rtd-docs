@@ -111,13 +111,28 @@ html_theme_options = {
                     # 'description': 'description'
                 },
                 {
-                    'name': 'ditorch',
-                    'url': 'https://github.com/DeepLink-org/ditorch',
+                    'name': 'dlinfer',
+                    'url': 'https://github.com/DeepLink-org/dlinfer',
                     # 'description': 'description'
                 },
                 {
-                    'name': 'dlinfer',
-                    'url': 'https://github.com/DeepLink-org/dlinfer',
+                    'name': 'DLCompiler',
+                    'url': 'https://github.com/DeepLink-org/DLCompiler',
+                    # 'description': 'description'
+                },
+                {
+                    'name': 'DLCompiler',
+                    'url': 'https://github.com/DeepLink-org/DLCompiler',
+                    # 'description': 'description'
+                },
+                {
+                    'name': 'DLSlime',
+                    'url': 'https://github.com/DeepLink-org/DLSlime',
+                    # 'description': 'description'
+                },
+                {
+                    'name': 'ditorch',
+                    'url': 'https://github.com/DeepLink-org/ditorch',
                     # 'description': 'description'
                 },
                 {
