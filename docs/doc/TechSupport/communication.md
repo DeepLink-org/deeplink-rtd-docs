@@ -102,8 +102,12 @@ python example/python/p2p_nvshmem_ibgda_sendrecv.py --rank 1 --world-size 2
 
 请参阅: [华为 README](docs/huawei_ascend/README.md)
 
-> \[!Caution\]
-> DLSlime NVShmem 传输引擎和华为昇腾直连（Ascend Direct）模式尚处于实验阶段。
+
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;">
+&#x1F442<b> Caution：DLSlime NVShmem 传输引擎和华为昇腾直连（Ascend Direct）模式尚处于实验阶段。</b>
+</div>
+
+
 
 #### 集合通信算子 (Collective Ops)
 
@@ -135,8 +139,10 @@ torchrun --nnodes 2 --master-addr 10.130.8.143 --node-rank 0 --nproc-per-node 8 
 torchrun --nnodes 2 --master-addr 10.130.8.143 --node-rank 1 --nproc-per-node 8 --master-port 6007 example/python/all_gather_gemm_overlap.py
 ```
 
-> \[!Note\]
-> 上述节点内和节点间示例默认启用 CUDA Graph。使用 `--eager-mode` 可回退到 eager 模式。
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
+&#x1F4AC<b> Note ：上述节点内和节点间示例默认启用 CUDA Graph。使用 `--eager-mode` 可回退到 eager 模式。</b>
+</div>
+
 
 ### 安装
 
@@ -146,8 +152,11 @@ torchrun --nnodes 2 --master-addr 10.130.8.143 --node-rank 1 --nproc-per-node 8 
 pip install dlslime==0.0.1.post10
 ```
 
-> \[!Note\]
-> DLSlime pip 版本使用默认 FLAGS 构建（详情请参阅源码编译部分）。
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
+&#x1F4AC<b> Note ：DLSlime pip 版本使用默认 FLAGS 构建（详情请参阅源码编译部分）。</b>
+</div>
+
+
 
 #### 源码编译
 
@@ -181,8 +190,11 @@ mkdir -p DLSlime/build && cmake -DFLAG=<ON|OFF> ..
 | `BUILD_INTRA_OPS`        | 使用 INTRA Collective OPS (节点内)    | GPGPU    |     OFF |
 | `BUILD_INTER_OPS`        | 使用 INTER Collective OPS (NVSHMEM)   | NVIDIA   |     OFF |
 
-> \[!Note\]
-> 在 Metax 平台上使用 DLSlime 作为 Torch 后端时，请启用 `USE_MECA`。
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
+&#x1F4AC<b> Note ：在 Metax 平台上使用 DLSlime 作为 Torch 后端时，请启用 `USE_MECA`。</b>
+</div>
+
+
 
 ### 基准测试 (Benchmark)
 
