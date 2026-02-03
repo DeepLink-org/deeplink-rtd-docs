@@ -32,12 +32,14 @@
  -->
 在整个生态系统中，芯片评测体系作为一个全面、客观的参考指标，不仅是技术发展的推动者，也是产业链条的纽带，促进着技术、市场和用户需求之间的有效连接，助力国内芯片产业的持续繁荣和创新发展。
 
-## **2025Q4评测**
+## **2026Q1评测**
 
-诚邀您参与上海AI实验室DeepLink和信通院人工智能软硬件基准AISHPerf联合发起的芯片评测。芯片评测工作每季度开展一次，旨在协助芯片厂商更加客观的发现自身软硬件产品的优劣势促进产品迭代，同时为算力市场产品选型提供参考依据。 Q4待测大模型训练列表重新规划分类，改为可选模式，兼顾基础与流行趋势。具体方案、评测流程、周期和代码具体见下。
+诚邀您参与上海AI实验室DeepLink和信通院人工智能软硬件基准AISHPerf联合发起的芯片评测。芯片评测工作每季度开展一次，旨在协助芯片厂商更加客观的发现自身软硬件产品的优劣势促进产品迭代，同时为算力市场产品选型提供参考依据。
+此次Q1方案采用英伟达新款芯片测试并更新了全量基准值，AI芯片评测实施方案新增具身智能仿真评测项目。
+DeepLink硬件评测兼顾基础与流行趋势,具体方案、评测流程、周期和代码具体见下。
 
 ### **评测周期**
-2025年10月13日开始，2025年11月11日数据提交关闭，2025年12月完成报告发放。
+2026年02月03日开始，2026年03月15日数据提交关闭，2026年4月完成报告发放。
 
 ### **评测流程**
 
@@ -50,10 +52,10 @@
 | 1 |  适配参考代码  |  [AIChipBenchmark](https://github.com/DeepLink-org/AIChipBenchmark) |  -  |
 | 2 |  基准值log日志  |  [OneDrive](https://pjlab-my.sharepoint.cn/:f:/g/personal/zoutong_pjlab_org_cn/EpBZfyviosVCleMXEUEa7kgBlkp4aioFtU4YkeSIB1MvYw?e=kFKhu1)  |  -  |
 | 3 |  基准镜像  |  <li>[Basic Model](https://hub.docker.com/repository/docker/deeplinkaibenchmark/basicmodel/general) </li><li>[Large Model](https://hub.docker.com/repository/docker/deeplinkaibenchmark/llmodel/general)</li>  |  -  |
-| 4 |  阅读评测方案，如有问题欢迎沟通。  |  <li>[基于大模型的AI芯片评测实施方案（0.6.2）](https://aicarrier.feishu.cn/wiki/Hf5jwoDXLiNY2BkBoy6cab5yn9b) </li><li>[AI芯片评测实施方案（0.6.6）](https://aicarrier.feishu.cn/wiki/U2UDwjVNMil0OlkKwsdccicLnfg)</li>  |  -  |
-| 5 |  反馈本次评测参与情况并完成《预填写表格》填写并提交至指定位置。  |  下载填写：[2025Q4-芯片评测预填写表格.xlsx](https://pjlab-my.sharepoint.cn/:x:/g/personal/hubingying_pjlab_org_cn/EUvvjbSEHetCuLYV8sfrSEkBWhHGCc45syF-vG1nqRCt4g?e=7le54H)  |  2025.10.16  |
-| 6 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[2025Q4-大模型数据收集表0.6.2](https://aicarrier.feishu.cn/wiki/O5IuwdTxpivtNRkCBBncuwVmncb) </li><li>[2025Q4-基础模型数据收集表0.6.6](https://aicarrier.feishu.cn/wiki/DYAnwhPlbizeNbk88lFcZS1inQp)</li><li>每个测试项目请务必填写log日志相对路径，方便核验查找</li>  |  2025.11.10  |
-| 7 |  实验室进行结果核验和上机复测，完成单芯片评测报告整理，点对点发放。  | -  |  2025.12月  |
+| 4 |  阅读评测方案，如有问题欢迎沟通。  |  <li>[基于大模型的AI芯片评测实施方案（0.7.1）](https://aicarrier.feishu.cn/wiki/FoaywjbtEiPtsukV7aLcW0NHnee) </li><li>[AI芯片评测实施方案（0.7.1）](https://aicarrier.feishu.cn/wiki/ABhFwlT18i0RlLkxvaYcjsE5n5e)</li>  |  -  |
+| 5 |  反馈本次评测参与情况并完成《预填写表格》填写并提交至指定位置。  |  下载填写：[2026Q1-芯片评测预填写表格.xlsx](https://pjlab-my.sharepoint.cn/:x:/g/personal/hubingying_pjlab_org_cn/IQAiy8y5LQWWRaTc0Byg3f-DAY931fyt9hCRLD75zzjOSzs?e=2cC1Ba)  |  2026.02.06  |
+| 6 |  测评开始，基于实施方案对自家芯片进行测试，并进行数据汇总，完成《数据收集表》填写；厂商提交数据汇总表和相关验证材料至指定位置。  | <p>下载填写：</p><li>[2026Q1-大模型数据收集表0.7.1](https://aicarrier.feishu.cn/wiki/TLo5wVYC4iGDqqkkv0Dcv4bZnN3) </li><li>[2026Q1-基础模型数据收集表0.7.1](https://aicarrier.feishu.cn/wiki/P58fwG7NEiswEvkGDSDcbgVxnre)</li><li>每个测试项目请务必填写log日志相对路径，方便核验查找</li>  |  2026.03.15  |
+| 7 |  实验室进行结果核验和上机复测，完成单芯片评测报告整理，点对点发放。  | -  |  2026.04月  |
 | 8 |  厂商可对评测结果和方案合理性进行意见反馈（word形式）  | - |  评测期间  |
 
 
