@@ -67,6 +67,11 @@ pip install dlinfer==0.3.1+ascend
 
 #### LMDeploy
 
+```{include} ../https://raw.githubusercontent.com/DeepLink-org/dlinfer/refs/heads/main/README.md
+:start-after: <!-- inclusion-start -->
+:end-before: <!-- inclusion-end -->
+```
+
 | **模型系列/型号** | **NV<br>(全系列)** | **华为 <br>A2** | **沐曦 <br>C500** | **平头哥 <br>PPU 810**  | **寒武纪 <br>MLU370** | 
 | --- | --- | --- | --- | --- | --- |
 | **Llama系列** <br>Llama3-8B <br>Llama1-7B | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
